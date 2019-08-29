@@ -2,7 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/08/28/hello-world/</loc>
+    <loc>https://tonywang1.github.io/2019/08/29/2019-8-29/test10/</loc>
+    
+    <lastmod>2019-08-29T02:42:42.682Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tonywang1.github.io/test2/index.html</loc>
+    
+    <lastmod>2019-08-29T02:29:19.551Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tonywang1.github.io/test1/index.html</loc>
+    
+    <lastmod>2019-08-29T02:28:55.505Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tonywang1.github.io/2019/08/29/test1/</loc>
+    
+    <lastmod>2019-08-29T02:28:45.788Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tonywang1.github.io/2019/08/28/hello-world/</loc>
     
     <lastmod>2019-08-28T07:50:32.729Z</lastmod>
     
