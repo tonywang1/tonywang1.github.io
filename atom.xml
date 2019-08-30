@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonywang1.github.io/"/>
-  <updated>2019-08-29T02:28:45.788Z</updated>
+  <updated>2019-08-30T02:26:36.297Z</updated>
   <id>https://tonywang1.github.io/</id>
   
   <author>
@@ -17,9 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo构建Github Page</title>
+    <link href="https://tonywang1.github.io/2019/08/30/gen_github_page/"/>
+    <id>https://tonywang1.github.io/2019/08/30/gen_github_page/</id>
+    <published>2019-08-29T17:51:03.000Z</published>
+    <updated>2019-08-30T02:26:36.297Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是我的第一篇博客，谢谢大家关注1</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这是我的第一篇博客，谢谢大家关注1&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Github" scheme="https://tonywang1.github.io/categories/Github/"/>
+    
+    
+      <category term="journal" scheme="https://tonywang1.github.io/tags/journal/"/>
+    
+      <category term="think" scheme="https://tonywang1.github.io/tags/think/"/>
+    
+  </entry>
+  
+  <entry>
     <title>test1</title>
-    <link href="https://tonywang1.github.io/2019/08/29/test1/"/>
-    <id>https://tonywang1.github.io/2019/08/29/test1/</id>
+    <link href="https://tonywang1.github.io/2019/08/29/index/"/>
+    <id>https://tonywang1.github.io/2019/08/29/index/</id>
     <published>2019-08-29T10:28:45.000Z</published>
     <updated>2019-08-29T02:28:45.788Z</updated>
     
@@ -32,8 +60,8 @@
   
   <entry>
     <title>test10</title>
-    <link href="https://tonywang1.github.io/2019/08/29/2019-8-29/test10/"/>
-    <id>https://tonywang1.github.io/2019/08/29/2019-8-29/test10/</id>
+    <link href="https://tonywang1.github.io/2019/08/29/index/"/>
+    <id>https://tonywang1.github.io/2019/08/29/index/</id>
     <published>2019-08-29T10:27:50.000Z</published>
     <updated>2019-08-29T02:42:42.682Z</updated>
     
@@ -54,8 +82,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://tonywang1.github.io/2019/08/28/hello-world/"/>
-    <id>https://tonywang1.github.io/2019/08/28/hello-world/</id>
+    <link href="https://tonywang1.github.io/2019/08/28/index/"/>
+    <id>https://tonywang1.github.io/2019/08/28/index/</id>
     <published>2019-08-28T07:50:32.729Z</published>
     <updated>2019-08-28T07:50:32.729Z</updated>
     
