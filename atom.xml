@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonywang1.github.io/"/>
-  <updated>2019-08-30T06:34:03.766Z</updated>
+  <updated>2019-08-30T10:04:02.438Z</updated>
   <id>https://tonywang1.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hexo构建Github Page</title>
-    <link href="https://tonywang1.github.io/2019/08/30/gen_github_page_test/"/>
-    <id>https://tonywang1.github.io/2019/08/30/gen_github_page_test/</id>
-    <published>2019-08-29T17:51:03.000Z</published>
-    <updated>2019-08-30T06:34:03.766Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是我的第一篇博客，谢谢大家关注1</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这是我的第一篇博客，谢谢大家关注1&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Github" scheme="https://tonywang1.github.io/categories/Github/"/>
-    
-    
-      <category term="journal" scheme="https://tonywang1.github.io/tags/journal/"/>
-    
-      <category term="think" scheme="https://tonywang1.github.io/tags/think/"/>
-    
-  </entry>
   
   <entry>
     <title>Hexo构建Github Page</title>
