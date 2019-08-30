@@ -2,30 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tonywang1.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-08-30T02:28:09.708Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://tonywang1.github.io/2019/08/30/gen_github_page/</loc>
     
-    <lastmod>2019-08-30T02:26:36.297Z</lastmod>
+    <lastmod>2019-08-30T10:04:02.438Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tonywang1.github.io/categories/index.html</loc>
+    <loc>https://tonywang1.github.io/2019/08/30/gen_github_page_test/</loc>
     
-    <lastmod>2019-08-30T01:34:15.210Z</lastmod>
+    <lastmod>2019-08-30T06:34:03.766Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://tonywang1.github.io/2019/08/29/index/</loc>
     
-    <lastmod>2019-08-29T02:42:42.682Z</lastmod>
+    <lastmod>2019-08-30T06:28:44.938Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tonywang1.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-08-30T02:34:26.785Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tonywang1.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-08-30T02:34:03.665Z</lastmod>
     
   </url>
   
