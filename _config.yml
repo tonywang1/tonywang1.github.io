@@ -15,8 +15,10 @@ timezone: UTC
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://tonywang1.github.io/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:urlname/
+# 当没有urlname时显示什么,写上 :title 也没有用，会作为字符串处理
 permalink_defaults:
+  urlname: index
 
 # Directory
 source_dir: source
@@ -73,13 +75,13 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: pure
+theme: indigo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  #��Ӧ�ֿ��SSH��ַ��������GitHub��Ӧ�Ĳֿ��и��ƣ�
+  #
   repo: https://github.com/tonywang1/tonywang1.github.io.git
-  #����֧��User PagesΪmaster��Project PagesΪgh-pages��
+  #
   branch: master 
