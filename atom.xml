@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonywang1.github.io/"/>
-  <updated>2019-08-30T02:26:36.297Z</updated>
+  <updated>2019-08-30T06:34:03.766Z</updated>
   <id>https://tonywang1.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Hexo构建Github Page</title>
-    <link href="https://tonywang1.github.io/2019/08/30/gen_github_page/"/>
-    <id>https://tonywang1.github.io/2019/08/30/gen_github_page/</id>
+    <link href="https://tonywang1.github.io/2019/08/30/gen_github_page_test/"/>
+    <id>https://tonywang1.github.io/2019/08/30/gen_github_page_test/</id>
     <published>2019-08-29T17:51:03.000Z</published>
-    <updated>2019-08-30T02:26:36.297Z</updated>
+    <updated>2019-08-30T06:34:03.766Z</updated>
     
     <content type="html"><![CDATA[<p>这是我的第一篇博客，谢谢大家关注1</p>]]></content>
     
@@ -45,6 +45,34 @@
   </entry>
   
   <entry>
+    <title>Hexo构建Github Page</title>
+    <link href="https://tonywang1.github.io/2019/08/30/gen_github_page/"/>
+    <id>https://tonywang1.github.io/2019/08/30/gen_github_page/</id>
+    <published>2019-08-29T17:51:03.000Z</published>
+    <updated>2019-08-30T10:04:02.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是我的第一篇博客，谢谢大家关注1</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这是我的第一篇博客，谢谢大家关注1&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Github" scheme="https://tonywang1.github.io/categories/Github/"/>
+    
+    
+      <category term="Github" scheme="https://tonywang1.github.io/tags/Github/"/>
+    
+      <category term="Site" scheme="https://tonywang1.github.io/tags/Site/"/>
+    
+  </entry>
+  
+  <entry>
     <title>test1</title>
     <link href="https://tonywang1.github.io/2019/08/29/index/"/>
     <id>https://tonywang1.github.io/2019/08/29/index/</id>
@@ -63,17 +91,9 @@
     <link href="https://tonywang1.github.io/2019/08/29/index/"/>
     <id>https://tonywang1.github.io/2019/08/29/index/</id>
     <published>2019-08-29T10:27:50.000Z</published>
-    <updated>2019-08-29T02:42:42.682Z</updated>
-    
-    <content type="html"><![CDATA[<p>�������д����</p>]]></content>
+    <updated>2019-08-30T06:28:44.938Z</updated>
     
     <summary type="html">
-    
-      
-      
-        &lt;p&gt;�������д����&lt;/p&gt;
-
-      
     
     </summary>
     
