@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonywang1.github.io/"/>
-  <updated>2019-08-30T06:34:03.766Z</updated>
+  <updated>2019-08-30T10:54:32.718Z</updated>
   <id>https://tonywang1.github.io/</id>
   
   <author>
@@ -17,48 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo构建Github Page</title>
-    <link href="https://tonywang1.github.io/2019/08/30/gen_github_page_test/"/>
-    <id>https://tonywang1.github.io/2019/08/30/gen_github_page_test/</id>
-    <published>2019-08-29T17:51:03.000Z</published>
-    <updated>2019-08-30T06:34:03.766Z</updated>
+    <title>Github上创建自己的网站</title>
+    <link href="https://tonywang1.github.io/2019/08/31/gen_github_page/"/>
+    <id>https://tonywang1.github.io/2019/08/31/gen_github_page/</id>
+    <published>2019-08-30T17:51:03.000Z</published>
+    <updated>2019-08-30T10:54:32.718Z</updated>
     
-    <content type="html"><![CDATA[<p>这是我的第一篇博客，谢谢大家关注1</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这是我的第一篇博客，谢谢大家关注1&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Github" scheme="https://tonywang1.github.io/categories/Github/"/>
-    
-    
-      <category term="journal" scheme="https://tonywang1.github.io/tags/journal/"/>
-    
-      <category term="think" scheme="https://tonywang1.github.io/tags/think/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo构建Github Page</title>
-    <link href="https://tonywang1.github.io/2019/08/30/gen_github_page/"/>
-    <id>https://tonywang1.github.io/2019/08/30/gen_github_page/</id>
-    <published>2019-08-29T17:51:03.000Z</published>
-    <updated>2019-08-30T10:04:02.438Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是我的第一篇博客，谢谢大家关注1</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Github搭建自己的博客"><a href="#Github搭建自己的博客" class="headerlink" title="Github搭建自己的博客"></a>Github搭建自己的博客</h1><hr><h2 id="为什么要搭建自己的博客"><a href="#为什么要搭建自己的博客" class="headerlink" title="为什么要搭建自己的博客"></a><em>为什么要搭建自己的博客</em></h2><blockquote><ul><li>探索未知世界</li><li>记录自己的成长</li><li>为后来者提供借鉴</li><li>梳理自己的逻辑思维</li><li>整理自己的学习知识，方便以后查阅</li></ul></blockquote><h2 id="1-github-page是什么？"><a href="#1-github-page是什么？" class="headerlink" title="1. github page是什么？"></a>1. github page是什么？</h2><blockquote><p>　　GitHub页面是一种静态网站托管服务，旨在直接从GitHub存储库托管个人、组织或项目页面。</p></blockquote><p><a href="https://help.github.com/en/categories/github-pages-basics" target="_blank" rel="noopener">Github Page官方详细</a></p><h2 id="2-hexo是什么？"><a href="#2-hexo是什么？" class="headerlink" title="2. hexo是什么？"></a>2. hexo是什么？</h2><ul><li>简单、快速、强大的Node.js静态博客框架</li><li><a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">hexo源码</a></li><li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官方网站</a></li></ul><h2 id="3-github-page的设置"><a href="#3-github-page的设置" class="headerlink" title="3. github page的设置"></a>3. github page的设置</h2><ul><li><a href="https://help.github.com/en/articles/configuring-a-publishing-source-for-github-pages" target="_blank" rel="noopener">设置GitHubPage</a></li></ul><h3 id="个人操作借鉴-（详细请参考上文超链接）"><a href="#个人操作借鉴-（详细请参考上文超链接）" class="headerlink" title="个人操作借鉴 （详细请参考上文超链接）"></a>个人操作借鉴 （详细请参考上文超链接）</h3><blockquote><ul><li>创建一个repository，名称为（<strong>用户名</strong> + .github.io ）括号中的以后是你博客的默认域名</li><li>切换tab到setting，并设置Repository name</li></ul></blockquote><h2 id="4-nodejs、hexo安装，git安装"><a href="#4-nodejs、hexo安装，git安装" class="headerlink" title="4. nodejs、hexo安装，git安装"></a>4. nodejs、hexo安装，git安装</h2><p>nodejs的安装，直接百度就可以搜索到，直接下载安装非常简单<br>git安装<br><a href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85%E5%89%8D%E6%8F%90" target="_blank" rel="noopener">hexo安装参考</a></p><h2 id="5-创建、清理、发布、启动服务、本地访问"><a href="#5-创建、清理、发布、启动服务、本地访问" class="headerlink" title="5. 创建、清理、发布、启动服务、本地访问"></a>5. 创建、清理、发布、启动服务、本地访问</h2><p><a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">文档地址</a></p><ol><li>创建静态站点 <code>hexo init</code></li><li>创建一个文章 <code>hexo new [layout] &lt;title&gt;</code></li><li>生成静态文件 <code>hexo generate</code></li><li>启动服务 <code>hexo server</code></li><li>部署网站 <code>hexo deploy</code></li><li>清除缓存和生成的静态文件 <code>hexo clean</code></li><li>项目本地启动以后可以访问 <code>http://localhost:4000/</code></li></ol><h2 id="6-步骤5中创建的项目与Git关联并上传到git仓库"><a href="#6-步骤5中创建的项目与Git关联并上传到git仓库" class="headerlink" title="6. 步骤5中创建的项目与Git关联并上传到git仓库"></a>6. 步骤5中创建的项目与Git关联并上传到git仓库</h2><blockquote><ul><li><code>git init</code></li><li><code>git add .</code></li><li><code>git commit &#39;评论&#39;</code></li><li>本地项目关联到git上：<code>git remote add origin &lt;server&gt;</code></li></ul></blockquote><h2 id="7-更换主题"><a href="#7-更换主题" class="headerlink" title="7. 更换主题"></a>7. 更换主题</h2><ol><li>到 <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">主题源码</a> 页面fork源码到我们自己git上</li><li><a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">主题安装</a> 点击查看文档</li><li>修改配置文件（_config.yml）添加 theme: indigo指定主题</li></ol><p><a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener"> 我用的indigo主题源码</a></p><h2 id="8-hexo选择修改语言类型"><a href="#8-hexo选择修改语言类型" class="headerlink" title="8. hexo选择修改语言类型"></a>8. hexo选择修改语言类型</h2><p> 现在项目还是英文的，需要修改项目的语言为中文<br> 修改配置文件（_config.yml）中  <code>language: zh-CN</code></p><h2 id="6-hexo布局的使用"><a href="#6-hexo布局的使用" class="headerlink" title="6. hexo布局的使用"></a>6. hexo布局的使用</h2><blockquote><ul><li>scaffolds文件夹中有3个文件分别为draft.md、page.md、post.md<br>分别对应草稿、page格式、post格式的文件模板</li><li>命令 <code>hexo new [layout] &lt;title&gt;</code>  中的layout取值为：draft、page、post</li><li>三个文件中的<strong>Front-matter</strong>中可以放一些变量在里面，以便生成静态页面的时候可以使用</li></ul></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">这里是我自己搭建项目的模板 其中urlname这个变量设置以后生成的静态文件路径上会使用</span><br><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">urlname: </span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h2 id="7-hexo生成静态页面的目录的设置"><a href="#7-hexo生成静态页面的目录的设置" class="headerlink" title="7. hexo生成静态页面的目录的设置"></a>7. hexo生成静态页面的目录的设置</h2><p>配置文件_config.yml中设置下面的<strong>permalink</strong>参数，生成静态页面的访问路径，会根据<strong>Front-matter</strong>中的变量设置参数<br><code>permalink: :year/:month/:day/:urlname/</code></p><h2 id="8-hexo标签和分类的使用，以及标签和分类区别"><a href="#8-hexo标签和分类的使用，以及标签和分类区别" class="headerlink" title="8. hexo标签和分类的使用，以及标签和分类区别"></a>8. hexo标签和分类的使用，以及标签和分类区别</h2><h3 id="分类生成及使用"><a href="#分类生成及使用" class="headerlink" title="分类生成及使用"></a>分类生成及使用</h3><blockquote><ul><li>打开命令行，进入博客所在文件夹。执行命令<br><code>hexo new page categories</code></li><li>会生成一个文件 ，/categories/index.md</li><li>修改分类中的设置如下，有的版本使用type有的版本使用layout变量  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2019-08-29 15:48:13</span><br><span class="line">comments: false</span><br><span class="line">type: categories</span><br><span class="line">layout: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li></ul></blockquote><blockquote><ul><li>写文章的收需要加上 categories: “文章标签名称”</li><li>原理：hexo 会找到<code>layout: categories</code>的设置，然后搜索所有文章中有categories设置的分类，生成分类列表</li></ul></blockquote><h3 id="标签生成及使用"><a href="#标签生成及使用" class="headerlink" title="标签生成及使用"></a>标签生成及使用</h3><p>操作： </p><blockquote><ul><li>打开命令行，进入博客所在文件夹。执行命令`hexo new page tags </li><li>下面的设置和categories一样了 </li></ul></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这是我的第一篇博客，谢谢大家关注1&lt;/p&gt;
-
+        &lt;h1 id=&quot;Github搭建自己的博客&quot;&gt;&lt;a href=&quot;#Github搭建自己的博客&quot; class=&quot;headerlink&quot; title=&quot;Github搭建自己的博客&quot;&gt;&lt;/a&gt;Github搭建自己的博客&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;为什么要搭建自己的博客&quot;&gt;&lt;a 
       
     
     </summary>
@@ -67,8 +39,6 @@
     
     
       <category term="Github" scheme="https://tonywang1.github.io/tags/Github/"/>
-    
-      <category term="Site" scheme="https://tonywang1.github.io/tags/Site/"/>
     
   </entry>
   
