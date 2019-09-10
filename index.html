@@ -181,12 +181,12 @@
 
     
         一次读取配置文件的探究
-问题的获取
+1. 问题的获取
 用App.class.getResourceAsStream(fileName)找不到配置文件，然后去看了一遍源码，发现App.class.getClassLoader().getResourceAsStream代码是有区别的，整理如下：
 
-1. class.getResourceAsStream(fileName)说明
+2. class.getResourceAsStream(fileName)说明
 
-相对路径：如果fileName不...
+相对路径：如果fileNa...
     
 
         <a href="/2019/09/10/read_config/" class="post-more waves-effect waves-button">
