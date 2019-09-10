@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonywang1.github.io/"/>
-  <updated>2019-08-30T10:54:32.718Z</updated>
+  <updated>2019-09-10T12:10:00.127Z</updated>
   <id>https://tonywang1.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一次读取配置文件的探究</title>
+    <link href="https://tonywang1.github.io/2019/09/10/read_config/"/>
+    <id>https://tonywang1.github.io/2019/09/10/read_config/</id>
+    <published>2019-09-09T17:51:03.000Z</published>
+    <updated>2019-09-10T12:10:00.127Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一次读取配置文件的探究"><a href="#一次读取配置文件的探究" class="headerlink" title="一次读取配置文件的探究"></a>一次读取配置文件的探究</h1><hr><h2 id="问题的获取"><a href="#问题的获取" class="headerlink" title="问题的获取"></a><em>问题的获取</em></h2><blockquote><p>用App.class.getResourceAsStream(fileName)找不到配置文件，然后去看了一遍源码，发现App.class.getClassLoader().getResourceAsStream代码是有区别的，整理如下：</p></blockquote><h2 id="1-class-getResourceAsStream-fileName-说明"><a href="#1-class-getResourceAsStream-fileName-说明" class="headerlink" title="1. class.getResourceAsStream(fileName)说明"></a>1. class.getResourceAsStream(fileName)说明</h2><blockquote><ul><li>相对路径：如果fileName不是用“/”开头的，则程序会找到Test这个类对应的目录去查找filename类</li><li>绝对路径：如果fileName用“/”开头的，则程序会直接从根目录查找对应的文件去加载 </li><li>详细可以查看源码Class.java 中方法getResourceAsStream</li></ul></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">具体为Class 中的 getResourceAsStream中的方法可以查看详细：</span><br><span class="line">resolveName(name)</span><br></pre></td></tr></table></figure><h2 id="2-classLoader-getResourceAsStream"><a href="#2-classLoader-getResourceAsStream" class="headerlink" title="2.classLoader.getResourceAsStream()"></a>2.classLoader.getResourceAsStream()</h2><blockquote><ul><li>是从类的根目录查找对应的文件，与当前的类路径无关</li><li>class中读取配置文件的方法也调用的这个方法</li><li>寻找资源文件的时候调用ClassLoader中方法getResource查找</li><li>具体查找文件方式为类加载器的双亲委托机制</li></ul></blockquote><h2 id="3-ClassLoader查找文件规则双亲委托模型相关"><a href="#3-ClassLoader查找文件规则双亲委托模型相关" class="headerlink" title="3. ClassLoader查找文件规则双亲委托模型相关"></a>3. ClassLoader查找文件规则<strong>双亲委托模型</strong>相关</h2><ol><li>从根类加载器关联的路径找对应的文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根类加载器对应的文件路径：String bootClassPath = System.getProperty(&quot;sun.boot.class.path&quot;);</span><br></pre></td></tr></table></figure></li></ol><p>2 . 从扩展类加载器查找文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">扩展类加载器对应路径：System.out.println(&quot;ext:&quot;+System.getProperty(&quot;java.ext.dirs&quot;));</span><br></pre></td></tr></table></figure><p>3 . 从应用类加载器-这部分包括我们自己项目的目录下所有的jar包和文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;app:&quot;+System.getProperty(&quot;java.class.path&quot;));</span><br></pre></td></tr></table></figure><h2 id="4-那么三种加载器的属性文件在哪里设置的呢？"><a href="#4-那么三种加载器的属性文件在哪里设置的呢？" class="headerlink" title="4. 那么三种加载器的属性文件在哪里设置的呢？"></a>4. 那么三种加载器的属性文件在哪里设置的呢？</h2><p>   所有系统属性可以通过下面的代码获取到，但是具体在什么地方设置的一直没有找到，留到以后探究吧。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打印java所有的系统环境变量：java.util.Properties properties = System.getProperties();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;一次读取配置文件的探究&quot;&gt;&lt;a href=&quot;#一次读取配置文件的探究&quot; class=&quot;headerlink&quot; title=&quot;一次读取配置文件的探究&quot;&gt;&lt;/a&gt;一次读取配置文件的探究&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;问题的获取&quot;&gt;&lt;a href=&quot;#问题的获取&quot; 
+      
+    
+    </summary>
+    
+      <category term="JAVA" scheme="https://tonywang1.github.io/categories/JAVA/"/>
+    
+    
+      <category term="JAVA" scheme="https://tonywang1.github.io/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>Github上创建自己的网站</title>

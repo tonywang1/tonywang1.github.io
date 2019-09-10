@@ -152,6 +152,59 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-2019/09/09/属性文件读取问题"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-09 17:51:03" datetime="2019-09-09T17:51:03.000Z"  itemprop="datePublished">2019-09-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JAVA/">JAVA</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/10/read_config/">一次读取配置文件的探究</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一次读取配置文件的探究
+问题的获取
+用App.class.getResourceAsStream(fileName)找不到配置文件，然后去看了一遍源码，发现App.class.getClassLoader().getResourceAsStream代码是有区别的，整理如下：
+
+1. class.getResourceAsStream(fileName)说明
+
+相对路径：如果fileName不...
+    
+
+        <a href="/2019/09/10/read_config/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-2019/08/30/Github创建网站"
   class="article-card article-type-post" itemprop="blogPost">
 
