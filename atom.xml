@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonywang1.github.io/"/>
-  <updated>2019-09-10T12:16:35.565Z</updated>
+  <updated>2019-09-17T07:36:10.853Z</updated>
   <id>https://tonywang1.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入字节</title>
+    <link href="https://tonywang1.github.io/2019/09/11/lean_byte/"/>
+    <id>https://tonywang1.github.io/2019/09/11/lean_byte/</id>
+    <published>2019-09-10T20:32:15.000Z</published>
+    <updated>2019-09-17T07:36:10.853Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="深入了解字节"><a href="#深入了解字节" class="headerlink" title="深入了解字节"></a>深入了解字节</h1><hr><h2 id="1-为什么要写字节这个东东"><a href="#1-为什么要写字节这个东东" class="headerlink" title="1.为什么要写字节这个东东"></a>1.为什么要写字节这个东东</h2><blockquote><ul><li>做JAVA项目的时候总会碰到读写字节的过程</li><li>经常有字符串和字节互相转化的过程</li><li>每次只是知道怎么做，但是不知道为什么这样做</li></ul></blockquote><p>希望经过这篇文章整理，彻底了解这个字节以及字节和用户输入文字之间的关系。</p><h2 id="2-了解一下具体什么是字节"><a href="#2-了解一下具体什么是字节" class="headerlink" title="2. 了解一下具体什么是字节"></a>2. 了解一下具体什么是字节</h2><p> 在编程的时候总会遇到字节数组，如读取一个文件时候多个字节一起读、Socket的网络编程的时候读取数据也是按照字节读取的，总会思考这个字节是什么？</p><blockquote><p>答案：字节实际上就是我们在换算单位时候用到的byte，一个byte=8位（八个0、1组成的一串二进制的数字）</p></blockquote><h2 id="3-在java中字符串是如何转化为字节的"><a href="#3-在java中字符串是如何转化为字节的" class="headerlink" title="3. 在java中字符串是如何转化为字节的"></a>3. 在java中字符串是如何转化为字节的</h2><p>计算机起源美国 <code>-&gt;</code> 美国使用英语 <code>-&gt;</code> 英语（数字、大小写字母、控制字符标点符号、运算字符等组成） <code>-&gt;</code> 8位二进制数（共255个）表示所有字符<br>即：你每次输入一个字符-计算机会到对照表中查找对应的值(二进制、十进制) <code>-&gt;</code> 二进制就可以被计算机识别<br>到此计算机可以识别人类输入的所有英文字符 <code>-&gt;</code> 即字符到二进制的转换</p><blockquote><p>问题出现 <code>-&gt;</code> 非英语字符通过对照表找不到对应的值，就不能识别如何处理对应的字符，如：输入中文“您”，到对照表中找不到，计算机就不认识。<br>那么，就需要有其他的对照表出现：即gb2312、gbk、utf-8等</p></blockquote><p><strong><em>一个中文转换成字符的过程是怎么样子的？</em></strong></p><blockquote><ul><li>字符：‘我’-utf-8编码-&gt;BDE4-&gt;251059（十进制）-&gt;6211（十六进制）<code>-&gt;</code> 1100111011010010 (二进制)</li></ul></blockquote><blockquote><ul><li>‘中’-&gt;对应的Unicode表的值4E2D（十六进制）（java使用Unicode编码）-&gt;对应的二进制100111000101101-&gt;utf-8填充规则转换-&gt;11100100  10111000 10101101 </li><li>UTF-8最多可用到6个字节则二进制变为100 111000 101101一共3个部分<br><a href="https://blog.csdn.net/liuwenjie517333813/article/details/68060904" target="_blank" rel="noopener">参考链接</a></li></ul></blockquote><h2 id="4-对于计算机的深入思考"><a href="#4-对于计算机的深入思考" class="headerlink" title="4. 对于计算机的深入思考"></a>4. 对于计算机的深入思考</h2><p>计算机终究只认识两个东西0、1,但是计算机要处理的是人类的输入并且最后要输出的东西也是要给人类使用的，这时候计算机要处理以下问题</p><ol><li>接受人类输入的文字</li><li>把字符转化为自己能识别的0和1</li><li>对转化过的数据进行二进制之间的计算</li><li>对最终的计算结果进行编码成为用户可见的文字并呈现给使用者</li></ol><blockquote><p>其中把人类输入文字转换为0和1,和最终转换为用户可见的文字过程需要使用字符编码</p><ul><li>解码:计算机识别的对应编码的二进制数字，按照编码格式转化为统一的编码格式，然后到编码表中找到对应的文字</li><li>编码：文字根据编码表找到对应的数值，然后转换为UNIQUE编码的二进制，在转换为工程对应的编码的二进制格式数据</li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;深入了解字节&quot;&gt;&lt;a href=&quot;#深入了解字节&quot; class=&quot;headerlink&quot; title=&quot;深入了解字节&quot;&gt;&lt;/a&gt;深入了解字节&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;1-为什么要写字节这个东东&quot;&gt;&lt;a href=&quot;#1-为什么要写字节这个东东&quot; clas
+      
+    
+    </summary>
+    
+      <category term="JAVA" scheme="https://tonywang1.github.io/categories/JAVA/"/>
+    
+    
+      <category term="JAVA" scheme="https://tonywang1.github.io/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>一次读取配置文件的探究</title>
