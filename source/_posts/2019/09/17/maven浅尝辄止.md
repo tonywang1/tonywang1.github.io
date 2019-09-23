@@ -222,8 +222,57 @@ modules中包含所有子项目，里面的名字为各个项目的*artifactId*�
 
 
 ## 8.maven的生命周期，以及执行规则
+#### 1） 生命周期
+> Maven有三个独立的生命周期为：clean-项目清理、default-项目构建、site-站点生成
+
+### 2）生命周期对应的阶段
+
+clean生命周期包含三个阶段
+> - pre-clean：执行一些需要在clean之前完成的工作
+> - clean：移除所有上一次构建生成的文件
+> - post-clean：执行一些需要在clean之后立刻完成的工作
+
+default生命周期的阶段列表：
+> - validate：验证
+> - initialize：initialize build state, e.g. set properties or create directories.
+> - generate-sources：generate any source code for inclusion in compilation.
+> - process-sources：process the source code, for example to filter any values.
+> - generate-resources：处理资源文件
+> - process-resources：复制并处理资源文件，至目标目录，准备打包
+> - compile：编译项目源代码
+> - process-classes：post-process the generated files from compilation, for example to do bytecode enhancement on Java classes.
+> - generate-test-sources：generate any test source code for inclusion in compilation.
+> - process-test-sources：process the test source code, for example to filter any values.
+> - generate-test-resources create resources for testing.
+> - process-test-resources 复制并处理资源文件，至目标测试目录
+> - test-compile 编译测试源代码
+> - process-test-classes： post-process the generated files from test compilation, for example to do bytecode enhancement on Java classes. For Maven 2.0.5 and above.
+> - test：使用合适的单元测试框架运行测试，这些测试代码不会被打包或者部署。
+> - prepare-package：perform any operations necessary to prepare a package before the actual packaging. This often results in an unpacked, processed version of the package. (Maven 2.1 and above)
+> - package：接受编译好的代码，打包成可发布的格式，如jar
+> - pre-integration-test：perform actions required before integration tests are executed. This may involve things such as setting up the required environment.
+> - integration-test：process and deploy the package if necessary into an environment where integration tests can be run.
+> - post-integration-test：perform actions required after integration tests have been executed. This may including cleaning up the environment.
+> - verify run any checks to verify the package is valid and meets quality criteria.
+> - install：将包安装至本地仓库，以让其他项目依赖
+> - deploy
+
+
+
+### 3) 生命周期中阶段的执行关系
+- 某个特定生命周期中，生命周期后面的阶段执行，都会伴随着前面阶段的执行
+- 不同生命周期之间不依赖
+
+### 4）生命周期、阶段、插件关系
+一个生命周期中有多个阶段，一个阶段可以绑定一个或者多个插件
+
 
 ## 9.SNAPSHOT版本和release版本区别
+- Release版本则代表稳定的版本
+ > 只要版本不变，则打包的时候会用本地库中的版本，不会去远程服务器上更新。
+
+- Snapshot版本代表不稳定、尚处于开发中的版本
+> 项目每次构建的时候，Maven会去远程repository下载snapshot的最新版本，如果被依赖的snapshot版本不断更新，则项目每次构建的时候的结果都会不一样
 
 ## 10.依赖包的scope取值说明
  
@@ -234,8 +283,10 @@ modules中包含所有子项目，里面的名字为各个项目的*artifactId*�
 > - system，类似provided，需要显式提供包含依赖的jar，Maven不会在Repository中查找它。
 		
 ## 11.自定义属性使用
+标签“properties”中定义的属性
 
-## 12.常用的maven插件有哪些，作用？
+ 
+
 
 
 
