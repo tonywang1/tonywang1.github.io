@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>maven浅尝辄止1 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MAVEN">
+    <meta name="description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
+<meta name="keywords" content="MAVEN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maven浅尝辄止1">
+<meta property="og:url" content="https://tonywang1.github.io/2019/09/18/maven1/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-21T11:36:11.825Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="maven浅尝辄止1">
+<meta name="twitter:description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">maven浅尝辄止1</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">maven浅尝辄止1</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-17T20:28:36.000Z" itemprop="datePublished" class="page-time">
+  2019-09-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven浅尝辄止1"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven浅尝辄止1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是maven？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是maven？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-maven能帮我们解决什么问题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. maven能帮我们解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-maven中如何使用profile来解决项目不同环境的问题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. maven中如何使用profile来解决项目不同环境的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中如何使用resource打不同的资源文件来解决不同环境问题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. maven中如何使用resource打不同的资源文件来解决不同环境问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中父子项目依赖关系"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4. maven中父子项目依赖关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父子项目依赖的多模块处理作用"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">父子项目依赖的多模块处理作用:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-maven中必要节点的作用说明"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5.maven中必要节点的作用说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-maven中内置的属性变量"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">6. maven中内置的属性变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-maven的生命周期，以及执行规则"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8.maven的生命周期，以及执行规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-SNAPSHOT版本和release版本区别"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">9.SNAPSHOT版本和release版本区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-依赖包的scope取值说明"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">10.依赖包的scope取值说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-自定义属性使用"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">11.自定义属性使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12-常用的maven插件有哪些，作用？"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">12.常用的maven插件有哪些，作用？</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/09/17/maven浅尝辄止"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">maven浅尝辄止1</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="maven浅尝辄止1"><a href="#maven浅尝辄止1" class="headerlink" title="maven浅尝辄止1"></a>maven浅尝辄止1</h1><hr>
+<h2 id="1-什么是maven？"><a href="#1-什么是maven？" class="headerlink" title="1.什么是maven？"></a>1.什么是maven？</h2><p>   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。<br><a href="https://baike.baidu.com/item/MAVEN" target="_blank" rel="noopener">参考</a>
+ 　</p>
+<h2 id="2-maven能帮我们解决什么问题"><a href="#2-maven能帮我们解决什么问题" class="headerlink" title="2. maven能帮我们解决什么问题"></a>2. maven能帮我们解决什么问题</h2><blockquote>
+<ol>
+<li>项目统一构建 - 统一生成项目结构</li>
+<li>jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理</li>
+<li>项目版本统一管理 - Release和SNAPSHOT版本即稳定版本和快照版本</li>
+<li>项目的编译、测试、打包 、安装、发布等管理</li>
+<li>项目不同环境配置的管理</li>
+<li>不同项目之间依赖管理</li>
+</ol>
+</blockquote>
+<h2 id="3-maven中如何使用profile来解决项目不同环境的问题"><a href="#3-maven中如何使用profile来解决项目不同环境的问题" class="headerlink" title="3. maven中如何使用profile来解决项目不同环境的问题"></a>3. maven中如何使用profile来解决项目不同环境的问题</h2><h3 id="profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用"><a href="#profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用" class="headerlink" title="profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用"></a>profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用</h3><blockquote>
+<p>1、命令激活：通过打包的时候使用 -p profile名称指定该profile对应的环境的变量<br>2、属性加载：不同profile定义不同属性或者加载不同的属性文件-<strong><em>代码3.1</em></strong><br>3、属性引用：在2中定义的属性或者加载的属性文件的内容可以通过<code>${定义的属性名称}</code>引用<br>4、属性文件赋值：利用2中加载属性与resource中的filter连用，达到对属性文件赋值的作用，即代码2中的属性文件中所有带有<code>${定义的属性名称}</code>引用的变量，在编译阶段都会用实际的属性代替，<strong><em>代码3.2</em></strong></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">代码3.1</span><br><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 默认激活开发配制，使用config-dev.properties来替换设置过虑的资源文件中的$&#123;key&#125; --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filters</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">filter</span>&gt;</span>config-dev.properties<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">filters</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">mysql.username</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">mysql.username</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>test<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filters</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">filter</span>&gt;</span>config-test.properties<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">filters</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">mysql.username</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">mysql.username</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>prod<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filters</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">filter</span>&gt;</span>config-prod.properties<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">filters</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">mysql.username</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">mysql.username</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">``` xml</span><br><span class="line">*** 代码3.2-这里filtering属性=true代表所有资源文件中带有placehoder的变量都会用maven的便来给你代替 ***</span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Resource Filter --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-maven中如何使用resource打不同的资源文件来解决不同环境问题"><a href="#4-maven中如何使用resource打不同的资源文件来解决不同环境问题" class="headerlink" title="4. maven中如何使用resource打不同的资源文件来解决不同环境问题"></a>4. maven中如何使用resource打不同的资源文件来解决不同环境问题</h2><ul>
+<li>默认属性文件目录处理：根据profile属性拼接并打包对应的配置文件如代码<strong><em>4.1</em></strong></li>
+<li>源文件目录下配置文件处理：拷贝java源文件目录下的配置文件</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">代码4.1</span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>application.properties<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>application-dev.properties<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>application-test.properties<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>application-prod.properties<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>application.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">include</span>&gt;</span>application-$&#123;profiles.active&#125;.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">代码4.2</span><br><span class="line"><span class="tag">&lt;<span class="name">resource</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!-- 设定主资源目录  --&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span>    </span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，只处理如下配置中包含的资源类型 --&gt;</span>     </span><br><span class="line">	 <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">		  <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;/<span class="name">includes</span>&gt;</span>  </span><br><span class="line">         </span><br><span class="line">    <span class="comment">&lt;!-- maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，不处理如下配置中包含的资源类型（剔除下如下配置中包含的资源类型）--&gt;</span>      </span><br><span class="line">	<span class="tag">&lt;<span class="name">excludes</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">exclude</span>&gt;</span>**/*.yaml<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">excludes</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，指定处理后的资源文件输出目录，默认是$&#123;build.outputDirectory&#125;指定的目录--&gt;</span>      </span><br><span class="line">    <span class="comment">&lt;!--&lt;targetPath&gt;$&#123;build.outputDirectory&#125;&lt;/targetPath&gt; --&gt;</span>      </span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，是否对主资源目录开启资源过滤 --&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span>     </span><br><span class="line"><span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-maven中父子项目依赖关系"><a href="#4-maven中父子项目依赖关系" class="headerlink" title="4. maven中父子项目依赖关系"></a>4. maven中父子项目依赖关系</h2><h3 id="父子项目依赖的多模块处理作用"><a href="#父子项目依赖的多模块处理作用" class="headerlink" title="父子项目依赖的多模块处理作用:"></a><strong><em>父子项目依赖的多模块处理作用:</em></strong></h3><blockquote>
+<p>复杂项目通过合理拆分达到代码复用、方便管理</p>
+</blockquote>
+<ul>
+<li>父项目设置-如代码4.1 <strong><em>packaging=pom</em></strong><br>modules中包含所有子项目，里面的名字为各个项目的<em>artifactId</em>参数</li>
+<li>子项目设置-如代码4.2，里面的参数为父项目的相应值，子项目不指定<em>groupId</em>，会自动从父项目中继承</li>
+<li>子项目之家可以通过<em>dependency</em>来进行引用</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">代码4.1</span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>pojo<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>web<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>dao<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>service<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">代码4.2</span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>online_retailers<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.hd<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-maven中必要节点的作用说明"><a href="#5-maven中必要节点的作用说明" class="headerlink" title="5.maven中必要节点的作用说明"></a>5.maven中必要节点的作用说明</h2><ul>
+<li><p>filters：定义指定filter属性的位置，例如filter元素赋值filters/filter1.properties,那么这个文件里面就可以定义name=value对，这个name=value对的值就可以在工程pom中通过${name}引用，默认的filter目录是${basedir}/src/main/fiters/</p>
+</li>
+<li><p>packing：主要打什么类型的包-pom、jar(默认)、war</p>
+<blockquote>
+<ul>
+<li>pom - 父类型都为pom</li>
+<li>jar - 内部调用或者服务使用</li>
+<li>war - 部署的项目</li>
+</ul>
+</blockquote>
+</li>
+<li><p>modelVersion:模型版本，暂时固定为4.0.0</p>
+</li>
+<li><p>groupId： </p>
+<blockquote>
+<p>1 项目构建的时候第一次会根据这个参数构建目录<br>2 打包后jar位置为：<em>repository<em>后面的目录为-groupId所设置的目录 、在后面为</em>artifactId<em>，在后面为版本</em>version</em> ，所以groupId+artifactId+version决定了jar包的位置</p>
+</blockquote>
+</li>
+<li><p>artifactId：项目的唯一ID</p>
+</li>
+<li><p>version：版本号，分release和snapshot版本</p>
+</li>
+<li><p>name:项目的显示名称，idea的maven视图中会显示这个名称</p>
+</li>
+</ul>
+<h2 id="6-maven中内置的属性变量"><a href="#6-maven中内置的属性变量" class="headerlink" title="6. maven中内置的属性变量"></a>6. maven中内置的属性变量</h2><p>内置属性(Maven预定义,用户可以直接使用)</p>
+<blockquote>
+<ul>
+<li><code>${basedir}</code>表示项目根目录,即包含pom.xml文件的目录;</li>
+<li><code>${version}</code>表示项目版本;</li>
+<li><code>${project.basedir}</code>同${basedir};</li>
+<li><code>${project.baseUri}</code>表示项目文件地址;</li>
+<li><code>${maven.build.timestamp}</code>表示项目构件开始时间;</li>
+</ul>
+</blockquote>
+<p> POM属性</p>
+<blockquote>
+<ul>
+<li><code>${project.build.directory}</code>表示主源码路径</li>
+<li><code>${project.build.sourceEncoding}</code>表示主源码的编码格式</li>
+<li><code>${project.build.sourceDirectory}</code>表示主源码路径</li>
+<li><code>${project.build.finalName}</code>表示输出文件名称</li>
+<li><code>${project.version}</code>表示项目版本,与${version}相同</li>
+</ul>
+</blockquote>
+<p> Java系统属性(所有的Java系统属性都可以使用Maven属性引用)</p>
+<blockquote>
+<ul>
+<li>使用mvn help:system命令可查看所有的Java系统属性;</li>
+<li>System.getProperties()可得到所有的Java属性;</li>
+<li>${user.home}表示用户目录</li>
+</ul>
+</blockquote>
+<p>环境变量属性(所有的环境变量都可以用以env.开头的Maven属性引用)</p>
+<blockquote>
+<p>-使用mvn help:system命令可查看所有环境变量;</p>
+<ul>
+<li><code>${env.JAVA_HOME}</code>表示JAVA_HOME环境变量的值;</li>
+</ul>
+</blockquote>
+<h2 id="8-maven的生命周期，以及执行规则"><a href="#8-maven的生命周期，以及执行规则" class="headerlink" title="8.maven的生命周期，以及执行规则"></a>8.maven的生命周期，以及执行规则</h2><h2 id="9-SNAPSHOT版本和release版本区别"><a href="#9-SNAPSHOT版本和release版本区别" class="headerlink" title="9.SNAPSHOT版本和release版本区别"></a>9.SNAPSHOT版本和release版本区别</h2><h2 id="10-依赖包的scope取值说明"><a href="#10-依赖包的scope取值说明" class="headerlink" title="10.依赖包的scope取值说明"></a>10.依赖包的scope取值说明</h2><blockquote>
+<ul>
+<li>compile，缺省值，适用于所有阶段，会随着项目一起发布。</li>
+<li>provided，类似compile，期望JDK、容器或使用者会提供这个依赖。如servlet.jar。</li>
+<li>runtime，只在运行时使用，如JDBC驱动，适用运行和测试阶段。</li>
+<li>test，只在测试时使用，用于编译和运行测试代码。不会随项目发布。</li>
+<li>system，类似provided，需要显式提供包含依赖的jar，Maven不会在Repository中查找它。</li>
+</ul>
+</blockquote>
+<h2 id="11-自定义属性使用"><a href="#11-自定义属性使用" class="headerlink" title="11.自定义属性使用"></a>11.自定义属性使用</h2><h2 id="12-常用的maven插件有哪些，作用？"><a href="#12-常用的maven插件有哪些，作用？" class="headerlink" title="12.常用的maven插件有哪些，作用？"></a>12.常用的maven插件有哪些，作用？</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-21T11:36:11.825Z" itemprop="dateUpdated">2019-09-21 11:36:11</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/maven1/&title=《maven浅尝辄止1》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/maven1/&title=《maven浅尝辄止1》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/maven1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven浅尝辄止1》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/maven1/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/maven1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/11/lean_byte/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">深入字节</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/maven1/&title=《maven浅尝辄止1》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/maven1/&title=《maven浅尝辄止1》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/maven1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven浅尝辄止1》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/maven1/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/maven1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3aQXKDMAwF0Nz/0ulMtw3kSyKZYj9WTGvALwuNJOvxiK/n73V0f3Sdr//7/qP/XnZhYGDcltHbSv6eo6fy756vwcDA2IcxCbKToHkejpO9YWBgYCQfeLauJDXEwMDAmAfcvDRNEsRqGoqBgbEbIy8m82eP1vcC/WW1OAYGxg0Z84OBz91/9XwDAwPjXzKeg+s8UUuCYy98v3gzBgbG0ozztG8S65IwWh3LeLNDDAyMpRm91nz+c1Tb/XmxGlXkGBgYN2f02mHVFDBfnzT4XuwNAwNjG0YeLufbmuCjXiAGBsZCjPwwoNrKLwxJFMvd8kEmBgbGzRlJiVgdwsj/ktxH38XAwNiGkaeA1SJzfkT6JpHFwMBYmpG39ScHAPMwXTiuwMDAWI4xGfbqBda8SC4ccGJgYGzAqKZ01U7epPUfNfgwMDCWZuQvTXLMpKGf53LlTWNgYCzKqJaO85GIPLksHIViYGAszeilbvNmWTVMF/qFGBgYizImM2XJx/JCtFc2Y2Bg7MDotcN67f5q0llYj4GBsQ0jb82XB7Y+NiKGgYGxA6NaD/ZabKOt9EIwBgbGEoxe4MuPKvPUcLIGAwNjbUY1zPUGMqqDYtX2HAYGxg6MapDtDXX13lAuVjEwMJZmVDvt1YGMybFExMPAwMAIkrlkMCIfnrhgWgQDA2NLRn4MUH222tQbpYYYGBi3ZVwbHHs/R+8oFAMDYwdGtZeVNMh6a5LA2mzGYWBg3JXxA/r48C73h5rYAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
