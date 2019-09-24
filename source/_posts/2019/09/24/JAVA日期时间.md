@@ -27,7 +27,7 @@ UTC和GMT时间误差不超过0.9秒,即两者基本相同
 
 java日期工具类：
 
-```
+```java
 public class DateUtils {
 	 private static final SimpleDateFormat datetimeFormat = new SimpleDateFormat(  
 	            "yyyy-MM-dd HH:mm:ss");
