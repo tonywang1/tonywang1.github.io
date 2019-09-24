@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="雪地行人">
 <meta property="og:description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T11:36:11.825Z">
+<meta property="og:updated_time" content="2019-09-23T12:31:33.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven浅尝辄止1">
 <meta name="twitter:description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
@@ -160,7 +160,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven浅尝辄止1"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven浅尝辄止1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是maven？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是maven？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-maven能帮我们解决什么问题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. maven能帮我们解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-maven中如何使用profile来解决项目不同环境的问题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. maven中如何使用profile来解决项目不同环境的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中如何使用resource打不同的资源文件来解决不同环境问题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. maven中如何使用resource打不同的资源文件来解决不同环境问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中父子项目依赖关系"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4. maven中父子项目依赖关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父子项目依赖的多模块处理作用"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">父子项目依赖的多模块处理作用:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-maven中必要节点的作用说明"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5.maven中必要节点的作用说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-maven中内置的属性变量"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">6. maven中内置的属性变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-maven的生命周期，以及执行规则"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8.maven的生命周期，以及执行规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-SNAPSHOT版本和release版本区别"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">9.SNAPSHOT版本和release版本区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-依赖包的scope取值说明"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">10.依赖包的scope取值说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-自定义属性使用"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">11.自定义属性使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12-常用的maven插件有哪些，作用？"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">12.常用的maven插件有哪些，作用？</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven浅尝辄止1"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven浅尝辄止1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是maven？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是maven？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-maven能帮我们解决什么问题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. maven能帮我们解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-maven中如何使用profile来解决项目不同环境的问题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. maven中如何使用profile来解决项目不同环境的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中如何使用resource打不同的资源文件来解决不同环境问题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. maven中如何使用resource打不同的资源文件来解决不同环境问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中父子项目依赖关系"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4. maven中父子项目依赖关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父子项目依赖的多模块处理作用"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">父子项目依赖的多模块处理作用:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-maven中必要节点的作用说明"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5.maven中必要节点的作用说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-maven中内置的属性变量"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">6. maven中内置的属性变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-maven的生命周期，以及执行规则"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8.maven的生命周期，以及执行规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1）-生命周期"><span class="post-toc-number">1.8.0.1.</span> <span class="post-toc-text">1） 生命周期</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2）生命周期对应的阶段"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">2）生命周期对应的阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-生命周期中阶段的执行关系"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">3) 生命周期中阶段的执行关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4）生命周期、阶段、插件关系"><span class="post-toc-number">1.8.3.</span> <span class="post-toc-text">4）生命周期、阶段、插件关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-SNAPSHOT版本和release版本区别"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">9.SNAPSHOT版本和release版本区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-依赖包的scope取值说明"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">10.依赖包的scope取值说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-自定义属性使用"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">11.自定义属性使用</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -286,7 +286,63 @@
 <li><code>${env.JAVA_HOME}</code>表示JAVA_HOME环境变量的值;</li>
 </ul>
 </blockquote>
-<h2 id="8-maven的生命周期，以及执行规则"><a href="#8-maven的生命周期，以及执行规则" class="headerlink" title="8.maven的生命周期，以及执行规则"></a>8.maven的生命周期，以及执行规则</h2><h2 id="9-SNAPSHOT版本和release版本区别"><a href="#9-SNAPSHOT版本和release版本区别" class="headerlink" title="9.SNAPSHOT版本和release版本区别"></a>9.SNAPSHOT版本和release版本区别</h2><h2 id="10-依赖包的scope取值说明"><a href="#10-依赖包的scope取值说明" class="headerlink" title="10.依赖包的scope取值说明"></a>10.依赖包的scope取值说明</h2><blockquote>
+<h2 id="8-maven的生命周期，以及执行规则"><a href="#8-maven的生命周期，以及执行规则" class="headerlink" title="8.maven的生命周期，以及执行规则"></a>8.maven的生命周期，以及执行规则</h2><h4 id="1）-生命周期"><a href="#1）-生命周期" class="headerlink" title="1） 生命周期"></a>1） 生命周期</h4><blockquote>
+<p>Maven有三个独立的生命周期为：clean-项目清理、default-项目构建、site-站点生成</p>
+</blockquote>
+<h3 id="2）生命周期对应的阶段"><a href="#2）生命周期对应的阶段" class="headerlink" title="2）生命周期对应的阶段"></a>2）生命周期对应的阶段</h3><p>clean生命周期包含三个阶段</p>
+<blockquote>
+<ul>
+<li>pre-clean：执行一些需要在clean之前完成的工作</li>
+<li>clean：移除所有上一次构建生成的文件</li>
+<li>post-clean：执行一些需要在clean之后立刻完成的工作</li>
+</ul>
+</blockquote>
+<p>default生命周期的阶段列表：</p>
+<blockquote>
+<ul>
+<li>validate：验证</li>
+<li>initialize：initialize build state, e.g. set properties or create directories.</li>
+<li>generate-sources：generate any source code for inclusion in compilation.</li>
+<li>process-sources：process the source code, for example to filter any values.</li>
+<li>generate-resources：处理资源文件</li>
+<li>process-resources：复制并处理资源文件，至目标目录，准备打包</li>
+<li>compile：编译项目源代码</li>
+<li>process-classes：post-process the generated files from compilation, for example to do bytecode enhancement on Java classes.</li>
+<li>generate-test-sources：generate any test source code for inclusion in compilation.</li>
+<li>process-test-sources：process the test source code, for example to filter any values.</li>
+<li>generate-test-resources create resources for testing.</li>
+<li>process-test-resources 复制并处理资源文件，至目标测试目录</li>
+<li>test-compile 编译测试源代码</li>
+<li>process-test-classes： post-process the generated files from test compilation, for example to do bytecode enhancement on Java classes. For Maven 2.0.5 and above.</li>
+<li>test：使用合适的单元测试框架运行测试，这些测试代码不会被打包或者部署。</li>
+<li>prepare-package：perform any operations necessary to prepare a package before the actual packaging. This often results in an unpacked, processed version of the package. (Maven 2.1 and above)</li>
+<li>package：接受编译好的代码，打包成可发布的格式，如jar</li>
+<li>pre-integration-test：perform actions required before integration tests are executed. This may involve things such as setting up the required environment.</li>
+<li>integration-test：process and deploy the package if necessary into an environment where integration tests can be run.</li>
+<li>post-integration-test：perform actions required after integration tests have been executed. This may including cleaning up the environment.</li>
+<li>verify run any checks to verify the package is valid and meets quality criteria.</li>
+<li>install：将包安装至本地仓库，以让其他项目依赖</li>
+<li>deploy</li>
+</ul>
+</blockquote>
+<h3 id="3-生命周期中阶段的执行关系"><a href="#3-生命周期中阶段的执行关系" class="headerlink" title="3) 生命周期中阶段的执行关系"></a>3) 生命周期中阶段的执行关系</h3><ul>
+<li>某个特定生命周期中，生命周期后面的阶段执行，都会伴随着前面阶段的执行</li>
+<li>不同生命周期之间不依赖</li>
+</ul>
+<h3 id="4）生命周期、阶段、插件关系"><a href="#4）生命周期、阶段、插件关系" class="headerlink" title="4）生命周期、阶段、插件关系"></a>4）生命周期、阶段、插件关系</h3><p>一个生命周期中有多个阶段，一个阶段可以绑定一个或者多个插件</p>
+<h2 id="9-SNAPSHOT版本和release版本区别"><a href="#9-SNAPSHOT版本和release版本区别" class="headerlink" title="9.SNAPSHOT版本和release版本区别"></a>9.SNAPSHOT版本和release版本区别</h2><ul>
+<li><p>Release版本则代表稳定的版本</p>
+<blockquote>
+<p>只要版本不变，则打包的时候会用本地库中的版本，不会去远程服务器上更新。</p>
+</blockquote>
+</li>
+<li><p>Snapshot版本代表不稳定、尚处于开发中的版本</p>
+<blockquote>
+<p>项目每次构建的时候，Maven会去远程repository下载snapshot的最新版本，如果被依赖的snapshot版本不断更新，则项目每次构建的时候的结果都会不一样</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-依赖包的scope取值说明"><a href="#10-依赖包的scope取值说明" class="headerlink" title="10.依赖包的scope取值说明"></a>10.依赖包的scope取值说明</h2><blockquote>
 <ul>
 <li>compile，缺省值，适用于所有阶段，会随着项目一起发布。</li>
 <li>provided，类似compile，期望JDK、容器或使用者会提供这个依赖。如servlet.jar。</li>
@@ -295,7 +351,8 @@
 <li>system，类似provided，需要显式提供包含依赖的jar，Maven不会在Repository中查找它。</li>
 </ul>
 </blockquote>
-<h2 id="11-自定义属性使用"><a href="#11-自定义属性使用" class="headerlink" title="11.自定义属性使用"></a>11.自定义属性使用</h2><h2 id="12-常用的maven插件有哪些，作用？"><a href="#12-常用的maven插件有哪些，作用？" class="headerlink" title="12.常用的maven插件有哪些，作用？"></a>12.常用的maven插件有哪些，作用？</h2>
+<h2 id="11-自定义属性使用"><a href="#11-自定义属性使用" class="headerlink" title="11.自定义属性使用"></a>11.自定义属性使用</h2><p>标签“properties”中定义的属性</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -303,7 +360,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-21T11:36:11.825Z" itemprop="dateUpdated">2019-09-21 11:36:11</time>
+    最后更新时间：<time datetime="2019-09-23T12:31:33.056Z" itemprop="dateUpdated">2019-09-23 12:31:33</time>
 </span><br>
 
 
