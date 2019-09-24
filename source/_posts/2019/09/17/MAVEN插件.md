@@ -1,12 +1,12 @@
 ---
-title: MAVEN插件
+title: MAVEN插件总览
 date: 2019-09-17 20:28:36
 urlname: maven_plugin
 tags: [MAVEN]
 categories: MAVEN
 ---
  
-# maven插件知识
+# maven插件知识总览
  
 ---
 

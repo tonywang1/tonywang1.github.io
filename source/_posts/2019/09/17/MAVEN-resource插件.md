@@ -1,5 +1,5 @@
 ---
-title: MAVEN插件
+title: RESOURCE插件说明
 date: 2019-09-17 20:28:36
 urlname: maven_plugin_resource
 tags: [MAVEN]
