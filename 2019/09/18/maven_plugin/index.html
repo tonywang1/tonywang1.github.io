@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>MAVEN插件总览 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MAVEN">
+    <meta name="description" content="maven插件知识总览 1.对于maven插件的了解插件官网： http://maven.apache.org/plugins/index.html Maven 本质上是一个插件框架，它的核心并不执行任何具体的构建任务，所有这些任务都交给插件来完成。如编译源代码是由 maven-compiler-plugin完成的，每个任务阶段对应了一个插件目标（goal），每个插件会有一个或者多个目标，如mav">
+<meta name="keywords" content="MAVEN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MAVEN插件总览">
+<meta property="og:url" content="https://tonywang1.github.io/2019/09/18/maven_plugin/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="maven插件知识总览 1.对于maven插件的了解插件官网： http://maven.apache.org/plugins/index.html Maven 本质上是一个插件框架，它的核心并不执行任何具体的构建任务，所有这些任务都交给插件来完成。如编译源代码是由 maven-compiler-plugin完成的，每个任务阶段对应了一个插件目标（goal），每个插件会有一个或者多个目标，如mav">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-24T08:20:50.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MAVEN插件总览">
+<meta name="twitter:description" content="maven插件知识总览 1.对于maven插件的了解插件官网： http://maven.apache.org/plugins/index.html Maven 本质上是一个插件框架，它的核心并不执行任何具体的构建任务，所有这些任务都交给插件来完成。如编译源代码是由 maven-compiler-plugin完成的，每个任务阶段对应了一个插件目标（goal），每个插件会有一个或者多个目标，如mav">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MAVEN插件总览</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">MAVEN插件总览</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-17T20:28:36.000Z" itemprop="datePublished" class="page-time">
+  2019-09-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven插件知识总览"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven插件知识总览</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-对于maven插件的了解"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.对于maven插件的了解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-常用插件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.常用插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1）-maven-antrun-plugin"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1）  maven-antrun-plugin</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2）-maven-archetype-plugin"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2） maven-archetype-plugin</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3）-maven-assembly-plugin"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3）  maven-assembly-plugin</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4）-maven-dependency-plugin"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">4） maven-dependency-plugin</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5）maven-help-plugin"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">5）maven-help-plugin</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6）maven-resources-plugin"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">6）maven-resources-plugin</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-编译插件使用实例-执行编译阶段的时候会自动执行"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">9 编译插件使用实例-执行编译阶段的时候会自动执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-spring打可执行的插件"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">10 spring打可执行的插件</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/09/17/MAVEN插件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MAVEN插件总览</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="maven插件知识总览"><a href="#maven插件知识总览" class="headerlink" title="maven插件知识总览"></a>maven插件知识总览</h1><hr>
+<h2 id="1-对于maven插件的了解"><a href="#1-对于maven插件的了解" class="headerlink" title="1.对于maven插件的了解"></a>1.对于maven插件的了解</h2><p>插件官网： <a href="http://maven.apache.org/plugins/index.html" target="_blank" rel="noopener">http://maven.apache.org/plugins/index.html</a><br> Maven 本质上是一个插件框架，它的核心并不执行任何具体的构建任务，所有这些任务都交给插件来完成。如编译源代码是由<br> maven-compiler-plugin完成的，每个任务阶段对应了一个插件目标（goal），每个插件会有一个或者多个目标，如maven- compiler-plugin的compile目标用来编译位于src/main/java/目录下的主源码，testCompile目标用来编译位于src/test/java/目录下的测试源码
+ 　</p>
+<h2 id="2-常用插件"><a href="#2-常用插件" class="headerlink" title="2.常用插件"></a>2.常用插件</h2><h3 id="1）-maven-antrun-plugin"><a href="#1）-maven-antrun-plugin" class="headerlink" title="1）  maven-antrun-plugin"></a>1）  maven-antrun-plugin</h3><p><a href="http://maven.apache.org/plugins/maven-antrun-plugin/" target="_blank" rel="noopener">http://maven.apache.org/plugins/maven-antrun-plugin/</a></p>
+<h3 id="2）-maven-archetype-plugin"><a href="#2）-maven-archetype-plugin" class="headerlink" title="2） maven-archetype-plugin"></a>2） maven-archetype-plugin</h3><p><a href="http://maven.apache.org/archetype/maven-archetype-plugin/" target="_blank" rel="noopener">http://maven.apache.org/archetype/maven-archetype-plugin/</a></p>
+<h3 id="3）-maven-assembly-plugin"><a href="#3）-maven-assembly-plugin" class="headerlink" title="3）  maven-assembly-plugin"></a>3）  maven-assembly-plugin</h3><p><a href="http://maven.apache.org/plugins/maven-antrun-plugin/" target="_blank" rel="noopener">http://maven.apache.org/plugins/maven-antrun-plugin/</a></p>
+<h3 id="4）-maven-dependency-plugin"><a href="#4）-maven-dependency-plugin" class="headerlink" title="4） maven-dependency-plugin"></a>4） maven-dependency-plugin</h3><p><a href="http://maven.apache.org/plugins/maven-dependency-plugin/" target="_blank" rel="noopener">http://maven.apache.org/plugins/maven-dependency-plugin/</a></p>
+<p>maven-dependency-plugin最大的用途是帮助分析项目依赖，dependency:list能够列出项目最终解析到的依赖列表，dependency:tree能进一步的描绘项目依赖树，dependency:analyze可以告诉你项目依赖潜在的问题，如果你有直接使用到的却未声明的依赖，该目标就会发出警告。maven-dependency-plugin还有很多目标帮助你操作依赖文件，例如dependency:copy-dependencies能将项目依赖从本地Maven仓库复制到某个特定的文件夹下面。</p>
+<h3 id="5）maven-help-plugin"><a href="#5）maven-help-plugin" class="headerlink" title="5）maven-help-plugin"></a>5）maven-help-plugin</h3><p>官网插件地址：<a href="http://maven.apache.org/plugins/maven-help-plugin/" target="_blank" rel="noopener">http://maven.apache.org/plugins/maven-help-plugin/</a></p>
+<p>maven-help-plugin是一个小巧的辅助工具，最简单的help:system可以打印所有可用的环境变量和Java系统属性。help:effective-pom和help:effective-settings最 为有用，它们分别打印项目的有效POM和有效settings，有效POM是指合并了所有父POM（包括Super POM）后的XML，当你不确定POM的某些信息从何而来时，就可以查看有效POM。有效settings同理，特别是当你发现自己配置的 settings.xml没有生效时，就可以用help:effective-settings来验证。此外，maven-help-plugin的describe目标可以帮助你描述任何一个Maven插件的信息，还有all-profiles目标和active-profiles目标帮助查看项目的Profile。</p>
+<h3 id="6）maven-resources-plugin"><a href="#6）maven-resources-plugin" class="headerlink" title="6）maven-resources-plugin"></a>6）maven-resources-plugin</h3><blockquote>
+<ul>
+<li>官网插件地址：<a href="http://maven.apache.org/plugins/maven-resources-plugin/" target="_blank" rel="noopener">http://maven.apache.org/plugins/maven-resources-plugin</a></li>
+<li>作用：为了使项目结构更为清晰，Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来编译Java代码，maven-resources-plugin则用来处理资源文件。默认的主资源文件目录是src/main/resources，很多用户会需要添加额外的资源文件目录，这个时候就可以通过配置maven-resources-plugin来实现。此外，资源文件过滤也是Maven的一大特性，你可以在资源文件中使用${propertyName}形式的Maven属性，然后配置maven-resources-plugin开启对资源文件的过滤，之后就可以针对不同环境通过命令行或者Profile传入属性的值，以实现更为灵活的构建。</li>
+</ul>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">代码6.1 设置资源文件编码</span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-resources-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span>    <span class="comment">&lt;!--配置资源文件编码--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### 7）versions-maven-plugin</span><br><span class="line"></span><br><span class="line"> 官网插件地址：[http://mojo.codehaus.org/versions-maven-plugin/](http://mojo.codehaus.org/versions-maven-plugin/)</span><br><span class="line"> </span><br><span class="line">很多Maven用户遇到过这样一个问题，当项目包含大量模块的时候，为他们集体更新版本就变成一件烦人的事情，到底有没有自动化工具能帮助完成这件 事情呢？（当然你可以使用sed之类的文本操作工具，不过不在本文讨论范围）答案是肯定的，versions-maven- plugin提供了很多目标帮助你管理Maven项目的各种版本信息。例如最常用的，命令 mvn versions:set -DnewVersion=1.1-SNAPSHOT 就能帮助你把所有模块的版本更新到1.1-SNAPSHOT。该插件还提供了其他一些很有用的目标，display-dependency- updates能告诉你项目依赖有哪些可用的更新；类似的display-plugin-updates能告诉你可用的插件更新；然后use- latest-versions能自动帮你将所有依赖升级到最新版本。最后，如果你对所做的更改满意，则可以使用 mvn versions:commit 提交，不满意的话也可以使用 mvn versions:revert 进行撤销。</span><br><span class="line"></span><br><span class="line">## 8 war包相关的例子-执行打war阶段的时候自动执行</span><br><span class="line"></span><br><span class="line">- 官网地址：[https://maven.apache.org/plugins/maven-war-plugin](https://maven.apache.org/plugins/maven-war-plugin/)</span><br><span class="line">- 所有的路径都是相对于pom文件的路径</span><br><span class="line"></span><br><span class="line"> <span class="comment">&lt;!-- maven-war-plugin：mvn install可以将项目打成war包 --&gt;</span></span><br><span class="line">```xml</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">webResources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 需要打包的目标文件路径 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 指定build资源具体目录，默认是base directory。 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>WEB-INF<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 打包的文件叫什么 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/web.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">webResources</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 打包后放在这个目录下 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">warSourceDirectory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">warSourceDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">webXml</span>&gt;</span>src/main/webapp/WEB-INF/web.xml<span class="tag">&lt;/<span class="name">webXml</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> 说明：指定打包的目录和对应的web.xml文件</span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">webResources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">webResources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-编译插件使用实例-执行编译阶段的时候会自动执行"><a href="#9-编译插件使用实例-执行编译阶段的时候会自动执行" class="headerlink" title="9 编译插件使用实例-执行编译阶段的时候会自动执行"></a>9 编译插件使用实例-执行编译阶段的时候会自动执行</h2><ul>
+<li>官网地址:<a href="https://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank" rel="noopener">https://maven.apache.org/plugins/maven-compiler-plugin/</a></li>
+<li>使用实例：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">plugin</span>&gt;</span>                 </span><br><span class="line">    <span class="comment">&lt;!-- 指定maven编译的jdk版本,如果不指定,maven3默认用jdk 1.5 maven2默认用jdk1.3 --&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span>      </span><br><span class="line">        <span class="comment">&lt;!-- 一般而言，target与source是保持一致的，但是，有时候为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中不能使用低版本jdk中不支持的语法)，会存在target不同于source的情况 --&gt;</span>                    </span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span> <span class="comment">&lt;!-- 源代码使用的JDK版本 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span> </span><br><span class="line">        <span class="comment">&lt;!-- 需要生成的目标class文件的编译版本 --&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span><span class="comment">&lt;!-- 字符集编码 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">skipTests</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skipTests</span>&gt;</span><span class="comment">&lt;!-- 跳过测试 --&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">verbose</span>&gt;</span>true<span class="tag">&lt;/<span class="name">verbose</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">showWarnings</span>&gt;</span>true<span class="tag">&lt;/<span class="name">showWarnings</span>&gt;</span>               </span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="10-spring打可执行的插件"><a href="#10-spring打可执行的插件" class="headerlink" title="10 spring打可执行的插件"></a>10 spring打可执行的插件</h2><ul>
+<li>官网地址:<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html</a></li>
+<li>spring打包实例<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>主类<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-24T08:20:50.663Z" itemprop="dateUpdated">2019-09-24 08:20:50</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/maven_plugin/&title=《MAVEN插件总览》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/maven_plugin/&title=《MAVEN插件总览》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/maven_plugin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MAVEN插件总览》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/maven_plugin/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/maven_plugin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/09/18/maven_plugin_resource/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">RESOURCE插件说明</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/18/maven1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">maven浅尝辄止1</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/maven_plugin/&title=《MAVEN插件总览》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/maven_plugin/&title=《MAVEN插件总览》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/maven_plugin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MAVEN插件总览》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/maven_plugin/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/maven_plugin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aSXKDQBAEQP3/0/LFR4OrpoXDDMlJoQVNcujo7fWKr3dwHX0/uWf+q9GFgYFxW0ZyuKN3kjuf/8vRp/nZMDAwnsNIDpF8mgTiNgSfnw0DAwNjcui1gI6BgYHx2YDbpo9J0YuBgYExKWLzYDp/HBfW4hgYGDdk5F33v399yXwDAwPjVox3eU3a/Vec5/vOGBgYWzPaYWS+QpG8v7aicfhNDAyMTRl5Q/881LaBOFnIyAefGBgYezMmdeIV7ba1lQ4MDIy9GWsLEJPQ3Ba60fPGwMB4DCMPcG3wXStWF9csMDAwNmVMmmttWpknmgUbAwNja0bb5ErabZOxaN74++GEGBgYD2PkA4AkscuPmCeLh5NYDAyM7RjzpnweQPNgnaetH5stYGBg/HvGZNGhTebyZl+xUoaBgfEARtv2ypPCHDZKNzEwMLZmnKeAa023YkkiSECLR4aBgbEpo10FW1uwyJcw8mFA1C/EwMDYgtGG1Lx9VixJlEfHwMDAWFsCuyIRTEJzkeFiYGBsx2jL2rb13y5eRPfBwMB4DKP9s2LQ2KZ67cgTAwNjU8a7vPIDfWrhNboPBgbG1oy2TK0Ly7gx1xa6bSMPAwPj7ow2aOZBsE3+2l9hYGA8jZEHvjzItksbIyQGBgZG3HrLU8a1HPaXihwDAwMjHjTmw8vJd0YBFwMD44aM/BBt022S9l3SbsPAwLghI/+DvKS87kGMhpoYGBj3Y3wB17NLqeQJAIYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="MAVEN">
-    <meta name="description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
+    <meta name="description" content="maven的认识 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPSHO">
 <meta name="keywords" content="MAVEN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="maven浅尝辄止1">
 <meta property="og:url" content="https://tonywang1.github.io/2019/09/18/maven1/index.html">
 <meta property="og:site_name" content="雪地行人">
-<meta property="og:description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
+<meta property="og:description" content="maven的认识 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPSHO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T12:31:33.056Z">
+<meta property="og:updated_time" content="2019-09-24T08:21:41.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven浅尝辄止1">
-<meta name="twitter:description" content="maven浅尝辄止1 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPS">
+<meta name="twitter:description" content="maven的认识 1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考  　 2. maven能帮我们解决什么问题  项目统一构建 - 统一生成项目结构 jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理 项目版本统一管理 - Release和SNAPSHO">
     
         <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
     
@@ -160,7 +160,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven浅尝辄止1"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven浅尝辄止1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是maven？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是maven？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-maven能帮我们解决什么问题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. maven能帮我们解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-maven中如何使用profile来解决项目不同环境的问题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. maven中如何使用profile来解决项目不同环境的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中如何使用resource打不同的资源文件来解决不同环境问题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. maven中如何使用resource打不同的资源文件来解决不同环境问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中父子项目依赖关系"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4. maven中父子项目依赖关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父子项目依赖的多模块处理作用"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">父子项目依赖的多模块处理作用:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-maven中必要节点的作用说明"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5.maven中必要节点的作用说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-maven中内置的属性变量"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">6. maven中内置的属性变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-maven的生命周期，以及执行规则"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8.maven的生命周期，以及执行规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1）-生命周期"><span class="post-toc-number">1.8.0.1.</span> <span class="post-toc-text">1） 生命周期</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2）生命周期对应的阶段"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">2）生命周期对应的阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-生命周期中阶段的执行关系"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">3) 生命周期中阶段的执行关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4）生命周期、阶段、插件关系"><span class="post-toc-number">1.8.3.</span> <span class="post-toc-text">4）生命周期、阶段、插件关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-SNAPSHOT版本和release版本区别"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">9.SNAPSHOT版本和release版本区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-依赖包的scope取值说明"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">10.依赖包的scope取值说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-自定义属性使用"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">11.自定义属性使用</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven的认识"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven的认识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是maven？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是maven？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-maven能帮我们解决什么问题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. maven能帮我们解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-maven中如何使用profile来解决项目不同环境的问题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. maven中如何使用profile来解决项目不同环境的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">profile使用原理：通过激活某个profile来加载对应的属性，达到不同环境加载不同属性作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中如何使用resource打不同的资源文件来解决不同环境问题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. maven中如何使用resource打不同的资源文件来解决不同环境问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-maven中父子项目依赖关系"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4. maven中父子项目依赖关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父子项目依赖的多模块处理作用"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">父子项目依赖的多模块处理作用:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-maven中必要节点的作用说明"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5.maven中必要节点的作用说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-maven中内置的属性变量"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">6. maven中内置的属性变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-maven的生命周期，以及执行规则"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8.maven的生命周期，以及执行规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1）-生命周期"><span class="post-toc-number">1.8.0.1.</span> <span class="post-toc-text">1） 生命周期</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2）生命周期对应的阶段"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">2）生命周期对应的阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-生命周期中阶段的执行关系"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">3) 生命周期中阶段的执行关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4）生命周期、阶段、插件关系"><span class="post-toc-number">1.8.3.</span> <span class="post-toc-text">4）生命周期、阶段、插件关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-SNAPSHOT版本和release版本区别"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">9.SNAPSHOT版本和release版本区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-依赖包的scope取值说明"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">10.依赖包的scope取值说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-自定义属性使用"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">11.自定义属性使用</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -186,7 +186,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="maven浅尝辄止1"><a href="#maven浅尝辄止1" class="headerlink" title="maven浅尝辄止1"></a>maven浅尝辄止1</h1><hr>
+            <h1 id="maven的认识"><a href="#maven的认识" class="headerlink" title="maven的认识"></a>maven的认识</h1><hr>
 <h2 id="1-什么是maven？"><a href="#1-什么是maven？" class="headerlink" title="1.什么是maven？"></a>1.什么是maven？</h2><p>   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。<br><a href="https://baike.baidu.com/item/MAVEN" target="_blank" rel="noopener">参考</a>
  　</p>
 <h2 id="2-maven能帮我们解决什么问题"><a href="#2-maven能帮我们解决什么问题" class="headerlink" title="2. maven能帮我们解决什么问题"></a>2. maven能帮我们解决什么问题</h2><blockquote>
@@ -360,7 +360,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-23T12:31:33.056Z" itemprop="dateUpdated">2019-09-23 12:31:33</time>
+    最后更新时间：<time datetime="2019-09-24T08:21:41.628Z" itemprop="dateUpdated">2019-09-24 08:21:41</time>
 </span><br>
 
 
@@ -435,7 +435,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/09/18/maven_plugin/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">MAVEN插件总览</h4>
+      </a>
+    </div>
   
 
   
