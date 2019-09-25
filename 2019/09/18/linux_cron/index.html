@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>cron使用 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LINUX,CRON">
+    <meta name="description" content="CRON使用 1.什么是cron表达式  Cron表达式是一个字符串，字符串以5或6个空格隔开，分为6或7个域，每一个域代表一个含义，Cron有如下两种语法格式 2 基本语法corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份 3 基本语法中字段含义   字段 允许值 允许的特殊字符    秒（Seconds） 0~59的整数 , - * /    四个字符   分">
+<meta name="keywords" content="LINUX,CRON">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cron使用">
+<meta property="og:url" content="https://tonywang1.github.io/2019/09/18/linux_cron/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="CRON使用 1.什么是cron表达式  Cron表达式是一个字符串，字符串以5或6个空格隔开，分为6或7个域，每一个域代表一个含义，Cron有如下两种语法格式 2 基本语法corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份 3 基本语法中字段含义   字段 允许值 允许的特殊字符    秒（Seconds） 0~59的整数 , - * /    四个字符   分">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-25T06:21:48.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cron使用">
+<meta name="twitter:description" content="CRON使用 1.什么是cron表达式  Cron表达式是一个字符串，字符串以5或6个空格隔开，分为6或7个域，每一个域代表一个含义，Cron有如下两种语法格式 2 基本语法corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份 3 基本语法中字段含义   字段 允许值 允许的特殊字符    秒（Seconds） 0~59的整数 , - * /    四个字符   分">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">cron使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">cron使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-17T20:28:36.000Z" itemprop="datePublished" class="page-time">
+  2019-09-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CRON使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">CRON使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是cron表达式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是cron表达式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-基本语法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2 基本语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-基本语法中字段含义"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3 基本语法中字段含义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-常用样例"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4 常用样例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/09/24/CRON学习"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">cron使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="CRON使用"><a href="#CRON使用" class="headerlink" title="CRON使用"></a>CRON使用</h1><hr>
+<h2 id="1-什么是cron表达式"><a href="#1-什么是cron表达式" class="headerlink" title="1.什么是cron表达式"></a>1.什么是cron表达式</h2><p>  Cron表达式是一个字符串，字符串以5或6个空格隔开，分为6或7个域，每一个域代表一个含义，Cron有如下两种语法格式</p>
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2 基本语法"></a>2 基本语法</h2><p>corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份</p>
+<h2 id="3-基本语法中字段含义"><a href="#3-基本语法中字段含义" class="headerlink" title="3 基本语法中字段含义"></a>3 基本语法中字段含义</h2><table>
+<thead>
+<tr>
+<th>字段</th>
+<th align="right">允许值</th>
+<th align="center">允许的特殊字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>秒（Seconds）</td>
+<td align="right">0~59的整数</td>
+<td align="center">, - * /    四个字符</td>
+</tr>
+<tr>
+<td>分（Minutes）</td>
+<td align="right">0~59的整数</td>
+<td align="center">, - * /    四个字符</td>
+</tr>
+<tr>
+<td>小时（Hours）</td>
+<td align="right">0~23的整数</td>
+<td align="center">, - * /    四个字符</td>
+</tr>
+<tr>
+<td>日期（DayofMonth）</td>
+<td align="right">1~31的整数（但是你需要考虑你月的天数）</td>
+<td align="center">,- * ? / L W C     八个字符</td>
+</tr>
+<tr>
+<td>月份（Month）</td>
+<td align="right">1~12的整数或者 JAN-DEC</td>
+<td align="center">, - * /    四个字符</td>
+</tr>
+<tr>
+<td>星期（DayofWeek）</td>
+<td align="right">1~7的整数或者 SUN-SAT （1=SUN）</td>
+<td align="center">, - * ? / L C #     八个字符</td>
+</tr>
+<tr>
+<td>年(可选，留空)（Year）</td>
+<td align="right">1970~2099</td>
+<td align="center">, - * /    四个字符</td>
+</tr>
+</tbody></table>
+<p>（1）*：表示匹配该域的任意值。假如在Minutes域使用*, 即表示每分钟都会触发事件。</p>
+<p>　　（2）?：只能用在DayofMonth和DayofWeek两个域。它也匹配域的任意值，但实际不会。因为DayofMonth和DayofWeek会相互影响。例如想在每月的20日触发调度，不管20日到底是星期几，则只能使用如下写法： 13 13 15 20 * ?, 其中最后一位只能用？，而不能使用<em>，如果使用</em>表示不管星期几都会触发，实际上并不是这样。</p>
+<p>　　（3）-：表示范围。例如在Minutes域使用5-20，表示从5分到20分钟每分钟触发一次 </p>
+<p>　　（4）/：表示起始时间开始触发，然后每隔固定时间触发一次。例如在Minutes域使用5/20,则意味着5分钟触发一次，而25，45等分别触发一次. </p>
+<p>　　（5）,：表示列出枚举值。例如：在Minutes域使用5,20，则意味着在5和20分每分钟触发一次。 </p>
+<p>　　（6）L：表示最后，只能出现在DayofWeek和DayofMonth域。如果在DayofWeek域使用5L,意味着在最后的一个星期四触发。 </p>
+<p>　　（7）W:表示有效工作日(周一到周五),只能出现在DayofMonth域，系统将在离指定日期的最近的有效工作日触发事件。例如：在 DayofMonth使用5W，如果5日是星期六，则将在最近的工作日：星期五，即4日触发。如果5日是星期天，则在6日(周一)触发；如果5日在星期一到星期五中的一天，则就在5日触发。另外一点，W的最近寻找不会跨过月份 。</p>
+<p>　　（8）LW:这两个字符可以连用，表示在某个月最后一个工作日，即最后一个星期五。 </p>
+<p>　　（9）#:用于确定每个月第几个星期几，只能出现在DayofMonth域。例如在4#2，表示某月的第二个星期三。
+　　</p>
+<h2 id="4-常用样例"><a href="#4-常用样例" class="headerlink" title="4 常用样例"></a>4 常用样例</h2><p>（1）0 0 2 1 * ? *   表示在每月的1日的凌晨2点调整任务<br>（2）0 15 10 ? * MON-FRI   表示周一到周五每天上午10:15执行作业<br>（3）0 15 10 ? 6L 2002-2006   表示2002-2006年的每个月的最后一个星期五上午10:15执行作<br>（4）0 0 10,14,16 * * ?   每天上午10点，下午2点，4点<br>（5）0 0/30 9-17 * * ?   朝九晚五工作时间内每半小时<br>（6）0 0 12 ? * WED    表示每个星期三中午12点<br>（7）0 0 12 * * ?   每天中午12点触发<br>（8）0 15 10 ? * *    每天上午10:15触发<br>（9）0 15 10 * * ?     每天上午10:15触发<br>（10）0 15 10 * * ? *    每天上午10:15触发<br>（11）0 15 10 * * ? 2005    2005年的每天上午10:15触发<br>（12）0 * 14 * * ? 在每天下午2点到下午2:59期间的每1分钟触发 （13）0 0/5 14 * * ? 在每天下午2点到下午2:55期间的每5分钟触发<br>（14）0 0/5 14,18 * * ?     在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发<br>（15）0 0-5 14 * * ?    在每天下午2点到下午2:05期间的每1分钟触发<br>（16）0 10,44 14 ? 3 WED    每年三月的星期三的下午2:10和2:44触发<br>（17）0 15 10 ? * MON-FRI    周一至周五的上午10:15触发<br>（18）0 15 10 15 * ?    每月15日上午10:15触发<br>（19）0 15 10 L * ?    每月最后一日的上午10:15触发<br>（20）0 15 10 ? * 6L    每月的最后一个星期五上午10:15触发<br>（21）0 15 10 ? * 6L 2002-2005   2002年至2005年的每月的最后一个星期五上午10:15触发<br>（22）0 15 10 ? * 6#3   每月的第三个星期五上午10:15触发<br>（23）*/5 * * * * ? 每5秒执行一次<br>（24）0 */1 * * * ? 每隔一分钟执行一次<br>（25）0 1 * * * ?  每个小时的1分钟执行一次，如1点1分、2点1分<br>（26）0 0 1 * * ? 每天零晨1点执行<br>（26）0 0 2 * * ? 每天零晨2点执行<br>（27）0 0 1 20 * ? 每个月20日零晨1点执行</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-25T06:21:48.816Z" itemprop="dateUpdated">2019-09-25 06:21:48</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRON/">CRON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">LINUX</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/linux_cron/&title=《cron使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/linux_cron/&title=《cron使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/linux_cron/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cron使用》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/linux_cron/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/linux_cron/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/18/java_date/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JAVA时间总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/linux_cron/&title=《cron使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/linux_cron/&title=《cron使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/linux_cron/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cron使用》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/linux_cron/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/linux_cron/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aSW4DIRAFUN//0p2tpcStXwVtBXisLA80z4tSDbxe8bre1vs7v19/+n6+5/2vhhYGBsayjOt25d/5tPP9Dp8+LT8XAwPjAEZyiOTT+4f1QvD92TAwMDDy5O9+nyS5xMDAwHgu4OawPPnDwMDA6BWx+VFmBe5HanEMDIwFGXnX/fuvH5lvYGBgLMW4iivfpzqkzIPsH8/CwMDYmpEHuOrQsdf0z9M+DAyMcxjVgeJIoz9v6lUHnxgYGHszekVstRE2Qs1bfhgYGHszkrJzJEGsHrcZajEwMDZl5ID8kfmhq8PO6LYIBgbGdoyRFluvGO612yZcsMDAwFicUR1bVg80Mtos/H0YGBgHMHpXH6o75OG4PELAwMDYlJHnjPk4s9qA65XQ5dsiGBgYyzLyIWUejqvVc6/FhoGBcTKjV5qOlL4j4I+zDgwMjO0YTxSo1aRzHIaBgbErozrbrDb6e5cwyuNMDAyMrRn54UbGAz1wPhDFwMA4h9EbDPT2SRpteWGMgYFxJmP8yld1PDCSemJgYJzMSIaL1TDaa6tFCSIGBsamjKu4pgXHAF/4KzEwMLZm9EYC44VrXprOSjoxMDBWZ1Sb/kmQnZsCDt0ZwcDA2IgxqzRNjjKS9hVqcQwMjIMZvXwzT/iaySgGBgZGkZFcMusd/asBFwMD458xkiI2ud6ap5L5mGFyuw0DA2NBRl46zhpAzh0PYGBgbM34ASzrslCtQpHnAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

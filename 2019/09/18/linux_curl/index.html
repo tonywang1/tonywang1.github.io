@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CURL使用 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LINUX,CURL">
+    <meta name="description" content="CURL使用 1.curl作用  　curl是一个利用URL规则在命令行下工作的文件传输工具 2语法 curl [option] [url] 3实例 发送get、post请求-代码3.1 发送带有参数的get和post请求 - 3.2  查看请求的整个请求链路-调试谁用 - 3.3 发送带有header请求 - 4.4 发送设置host的请求 -4.4    12代码3.1curl -i(返回头信">
+<meta name="keywords" content="LINUX,CURL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CURL使用">
+<meta property="og:url" content="https://tonywang1.github.io/2019/09/18/linux_curl/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="CURL使用 1.curl作用  　curl是一个利用URL规则在命令行下工作的文件传输工具 2语法 curl [option] [url] 3实例 发送get、post请求-代码3.1 发送带有参数的get和post请求 - 3.2  查看请求的整个请求链路-调试谁用 - 3.3 发送带有header请求 - 4.4 发送设置host的请求 -4.4    12代码3.1curl -i(返回头信">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-25T03:18:29.977Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CURL使用">
+<meta name="twitter:description" content="CURL使用 1.curl作用  　curl是一个利用URL规则在命令行下工作的文件传输工具 2语法 curl [option] [url] 3实例 发送get、post请求-代码3.1 发送带有参数的get和post请求 - 3.2  查看请求的整个请求链路-调试谁用 - 3.3 发送带有header请求 - 4.4 发送设置host的请求 -4.4    12代码3.1curl -i(返回头信">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CURL使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CURL使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-17T20:28:36.000Z" itemprop="datePublished" class="page-time">
+  2019-09-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CURL使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">CURL使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-curl作用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.curl作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2语法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3实例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/09/24/CURL命令记录"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CURL使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="CURL使用"><a href="#CURL使用" class="headerlink" title="CURL使用"></a>CURL使用</h1><hr>
+<h2 id="1-curl作用"><a href="#1-curl作用" class="headerlink" title="1.curl作用"></a>1.curl作用</h2><p>  　curl是一个利用URL规则在命令行下工作的文件传输工具</p>
+<h2 id="2语法"><a href="#2语法" class="headerlink" title="2语法"></a>2语法</h2><p> curl [option] [url]</p>
+<h2 id="3实例"><a href="#3实例" class="headerlink" title="3实例"></a>3实例</h2><ul>
+<li>发送get、post请求-代码3.1<ul>
+<li>发送带有参数的get和post请求 - 3.2 </li>
+<li>查看请求的整个请求链路-调试谁用 - 3.3</li>
+<li>发送带有header请求 - 4.4</li>
+<li>发送设置host的请求 -4.4</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码3.1</span><br><span class="line">curl -i(返回头信息) -X POST/Get http//www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">代码3.2</span><br><span class="line">- 发送applicationjson数据</span><br><span class="line">- curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; https://proxy.mimvp1.com/login</span><br><span class="line">- 普通数据提交</span><br><span class="line">- curl -d &quot;param1=value1&amp;param2=value2&quot; -H &quot;Content-Type: application/x-www-form-urlencoded&quot; -X POST http://localhost:3001/data</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码3.3</span><br><span class="line">curl  -X POST/Get http//www.baidu.com -xvo /usr/null</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码4.4</span><br><span class="line">curl  &apos;http://localhost/hadoop1/clusters/list?page=1&amp;pageSize=50&amp;total=0&amp;tokenId=tokenId_a218_4ab8_8404_3ac9a4b63d2c&apos; -H &apos;host:bd1prod.localhost.com</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-25T03:18:29.977Z" itemprop="dateUpdated">2019-09-25 03:18:29</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CURL/">CURL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">LINUX</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/linux_curl/&title=《CURL使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/linux_curl/&title=《CURL使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/linux_curl/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CURL使用》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/linux_curl/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/linux_curl/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/09/18/maven1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">maven浅尝辄止1</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/18/maven_plugin/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">MAVEN插件总览</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/09/18/linux_curl/&title=《CURL使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/09/18/linux_curl/&title=《CURL使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/09/18/linux_curl/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CURL使用》 — 雪地行人&url=https://tonywang1.github.io/2019/09/18/linux_curl/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/09/18/linux_curl/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aQW7DMAwEwPz/0ynQU4sgya7oFrE8OhmuY2t0YClSt1s87t/j5/XjncfnH++/fib51WhgYGCclnF/OZ4xEmQCzpfs2TsxMDCuw2hflwTQ11959nzCxsDAwMiDbP7JJIi378TAwMBYC7htuvmh/zcwMDA+kjH55Nq2Mw+4B+/FMTAwTshYawz8z/Wf9zcwMDA+nnEvR7uhnTQ+i1lhYGBszUhaknmJbS2By1PGN+EYAwNja0Zeyv8LUluAG6WMGBgYJ2dMJt22PBdL/8E8MTAw9mMkCVzbKkiWptiaJkEZAwPjMow2COaNxqQ8d/AxCwwMjO0Yk1JXPsUWkCzxr/4GBgbGBRjzSa8V1KKJvuZhYGBszWgDXF70z7e7ecuz3spiYGBsxDhgG7mUJuYdSQwMDIyk9J/cb09BtEW9NwcvMDAwLsnIp7J2jCya3LyRiYGBcXLG2qTbRHBeYnuzEBgYGBdjrBXFjj1UkSeRGBgYV2C0gDxBzH/bLkdRL8TAwNiC0SZ/+QGIyUa3rqRhYGBcgLHWsExIbThuAz0GBsYVGGvlsKNC9qQJWiSIGBgYJ2fcy9E2HYs+alna+3WNgYGxNWMyiUmBrE03D2gYYGBgnJyRl8wmiWO+SW6PqWFgYFyHMSml5eHyNhhv3oaBgYFRtiTzlLEt4WFgYGDkAS4JtW3IzktsT/sbGBgYWzPmR7vacn8ecKO/YmBgbM2YNwbyD/wPFQMDYyPGFwOpaphE66r4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
