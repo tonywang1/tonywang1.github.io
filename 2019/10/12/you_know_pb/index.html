@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>protobuf使用 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GRPC">
+    <meta name="description" content="Protocol Buffer初识 1.什么是protobufgoogle开发的跨语言、跨平台、可扩展的可以序列化的数据结构，像XML一样，但是更小更快，更简单，你可以定义序列化的数据结构，然后用工具生成对应语言的源码，最后可以用各种语言对数据流结构进行读写。 2.protobuf优势在哪里 跨语言 跨平台 可扩展 小、快、简单  3.什么地方使用protobuf 数据压缩传输 数据压缩存储、持久">
+<meta name="keywords" content="GRPC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="protobuf使用">
+<meta property="og:url" content="https://tonywang1.github.io/2019/10/12/you_know_pb/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="Protocol Buffer初识 1.什么是protobufgoogle开发的跨语言、跨平台、可扩展的可以序列化的数据结构，像XML一样，但是更小更快，更简单，你可以定义序列化的数据结构，然后用工具生成对应语言的源码，最后可以用各种语言对数据流结构进行读写。 2.protobuf优势在哪里 跨语言 跨平台 可扩展 小、快、简单  3.什么地方使用protobuf 数据压缩传输 数据压缩存储、持久">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T07:46:28.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="protobuf使用">
+<meta name="twitter:description" content="Protocol Buffer初识 1.什么是protobufgoogle开发的跨语言、跨平台、可扩展的可以序列化的数据结构，像XML一样，但是更小更快，更简单，你可以定义序列化的数据结构，然后用工具生成对应语言的源码，最后可以用各种语言对数据流结构进行读写。 2.protobuf优势在哪里 跨语言 跨平台 可扩展 小、快、简单  3.什么地方使用protobuf 数据压缩传输 数据压缩存储、持久">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">protobuf使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">protobuf使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-12T15:41:13.000Z" itemprop="datePublished" class="page-time">
+  2019-10-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GRPC/">GRPC</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Protocol-Buffer初识"><span class="post-toc-number">1.</span> <span class="post-toc-text">Protocol Buffer初识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是protobuf"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是protobuf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-protobuf优势在哪里"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.protobuf优势在哪里</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-什么地方使用protobuf"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.什么地方使用protobuf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-在java中如何使用protobuf-maven插件可以直接生成java代码"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.在java中如何使用protobuf-maven插件可以直接生成java代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-主要参考"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.主要参考</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/10/12/protobuf使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">protobuf使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-12 15:41:13" datetime="2019-10-12T15:41:13.000Z"  itemprop="datePublished">2019-10-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GRPC/">GRPC</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Protocol-Buffer初识"><a href="#Protocol-Buffer初识" class="headerlink" title="Protocol Buffer初识"></a>Protocol Buffer初识</h1><hr>
+<h2 id="1-什么是protobuf"><a href="#1-什么是protobuf" class="headerlink" title="1.什么是protobuf"></a>1.什么是protobuf</h2><p>google开发的跨语言、跨平台、可扩展的可以序列化的数据结构，像XML一样，但是更小更快，更简单，你可以定义序列化的数据结构，然后用工具生成对应语言的源码，最后可以用各种语言对数据流结构进行读写。</p>
+<h2 id="2-protobuf优势在哪里"><a href="#2-protobuf优势在哪里" class="headerlink" title="2.protobuf优势在哪里"></a>2.protobuf优势在哪里</h2><ul>
+<li>跨语言</li>
+<li>跨平台</li>
+<li>可扩展</li>
+<li>小、快、简单</li>
+</ul>
+<h2 id="3-什么地方使用protobuf"><a href="#3-什么地方使用protobuf" class="headerlink" title="3.什么地方使用protobuf"></a>3.什么地方使用protobuf</h2><ul>
+<li>数据压缩传输</li>
+<li>数据压缩存储、持久化</li>
+</ul>
+<h2 id="4-在java中如何使用protobuf-maven插件可以直接生成java代码"><a href="#4-在java中如何使用protobuf-maven插件可以直接生成java代码" class="headerlink" title="4.在java中如何使用protobuf-maven插件可以直接生成java代码"></a>4.在java中如何使用protobuf-maven插件可以直接生成java代码</h2><ol>
+<li>创建proto目录，并在里面创建bookdress.proto文件-内容如<strong>代码4.1</strong></li>
+<li>maven的xml中添加protobuf文件生成源码的代码-内容如<strong>4.2</strong></li>
+<li>测试写入protobuf的<strong>代码4.3</strong></li>
+<li>测试读取protobuf的<strong>代码4.4</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">代码<span class="number">4.1</span></span><br><span class="line">syntax = <span class="string">"proto2"</span>;</span><br><span class="line"><span class="keyword">package</span> proto;</span><br><span class="line">option java_package = <span class="string">"com.test.proto"</span>;</span><br><span class="line">option java_outer_classname = <span class="string">"AddressBookProtos"</span>;</span><br><span class="line">message Person &#123;</span><br><span class="line">    optional string name = <span class="number">1</span>;</span><br><span class="line">    optional int32 id = <span class="number">2</span>;</span><br><span class="line">    optional string email = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">enum</span> PhoneType &#123;</span><br><span class="line">        MOBILE = <span class="number">0</span>;</span><br><span class="line">        HOME = <span class="number">1</span>;</span><br><span class="line">        WORK = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    message PhoneNumber &#123;</span><br><span class="line">        optional string number = <span class="number">1</span>;</span><br><span class="line">        optional PhoneType type = <span class="number">2</span> [<span class="keyword">default</span> = HOME];</span><br><span class="line">    &#125;</span><br><span class="line">    repeated PhoneNumber phones = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line">message AddressBook &#123;</span><br><span class="line">    repeated Person people = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">代码4.2</span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">extensions</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">extension</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>kr.motd.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>os-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.1.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">extensions</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.xolstice.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.6.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>test-compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">protocArtifact</span>&gt;</span>com.google.protobuf:protoc:3.4.0:exe:$&#123;os.detected.classifier&#125;<span class="tag">&lt;/<span class="name">protocArtifact</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">代码<span class="number">4.3</span></span><br><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"><span class="keyword">import</span> com.test.proto.AddressBookProtos;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WritePerson</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">final</span>  String addr_book = <span class="string">"addr_book.file"</span>; <span class="comment">// 写入文件的名称</span></span><br><span class="line">    <span class="keyword">static</span> AddressBookProtos.<span class="function">Person <span class="title">PromptForAddress</span><span class="params">(<span class="keyword">int</span> index)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        AddressBookProtos.Person.Builder person = AddressBookProtos.Person.newBuilder();</span><br><span class="line">        person.setId(index);</span><br><span class="line">        person.setName(<span class="string">"proto test "</span> + index);</span><br><span class="line">        person.setEmail(<span class="string">"a"</span>+index+<span class="string">"@b.com"</span>);</span><br><span class="line">        AddressBookProtos.Person.PhoneNumber.Builder phoneNumber = AddressBookProtos.Person.PhoneNumber.newBuilder().setNumber(<span class="string">"110-"</span>+index);</span><br><span class="line">        phoneNumber.setType(AddressBookProtos.Person.PhoneType.HOME);</span><br><span class="line">        person.addPhones(phoneNumber);</span><br><span class="line">        <span class="keyword">return</span> person.build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        AddressBookProtos.AddressBook.Builder addressBook = AddressBookProtos.AddressBook.newBuilder();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            addressBook.mergeFrom(<span class="keyword">new</span> FileInputStream(addr_book));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            System.err.println( <span class="string">" File not found.  Creating a new file."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 创建 address.</span></span><br><span class="line">        addressBook.addPeople(PromptForAddress(<span class="number">1</span>));</span><br><span class="line">        addressBook.addPeople(PromptForAddress(<span class="number">2</span>));</span><br><span class="line">        addressBook.addPeople(PromptForAddress(<span class="number">3</span>));</span><br><span class="line">        <span class="comment">// 保存到文件</span></span><br><span class="line">        FileOutputStream output = <span class="keyword">new</span> FileOutputStream(WritePerson.addr_book);</span><br><span class="line">        addressBook.build().writeTo(output);</span><br><span class="line">        output.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">代码<span class="number">4.4</span></span><br><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"><span class="keyword">import</span> com.test.proto.AddressBookProtos;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadPeople</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Print</span><span class="params">(AddressBookProtos.AddressBook addressBook)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (AddressBookProtos.Person person : addressBook.getPeopleList()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Person ID: "</span> + person.getId());</span><br><span class="line">            System.out.println(<span class="string">"  Name: "</span> + person.getName());</span><br><span class="line">            <span class="keyword">if</span> (person.hasEmail()) &#123;</span><br><span class="line">                System.out.println(<span class="string">"  E-mail address: "</span> + person.getEmail());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (AddressBookProtos.Person.PhoneNumber phoneNumber : person.getPhonesList()) &#123;</span><br><span class="line">                <span class="keyword">switch</span> (phoneNumber.getType()) &#123;</span><br><span class="line">                    <span class="keyword">case</span> MOBILE:</span><br><span class="line">                        System.out.print(<span class="string">"  Mobile phone #: "</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">case</span> HOME:</span><br><span class="line">                        System.out.print(<span class="string">"  Home phone #: "</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">case</span> WORK:</span><br><span class="line">                        System.out.print(<span class="string">"  Work phone #: "</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">               System.out.println(phoneNumber.getNumber());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        AddressBookProtos.AddressBook addressBook = AddressBookProtos.AddressBook.parseFrom(<span class="keyword">new</span> FileInputStream(WritePerson.addr_book));</span><br><span class="line">        Print(addressBook);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-主要参考"><a href="#5-主要参考" class="headerlink" title="5.主要参考"></a>5.主要参考</h2><ul>
+<li><a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="noopener">ProtoBuf的官方</a></li>
+<li><a href="https://www.xolstice.org/protobuf-maven-plugin/examples/protoc-artifact.html" target="_blank" rel="noopener">ProtoBuf的maven集成插件</a></li>
+<li><a href="https://developers.google.com/protocol-buffers/docs/proto3" target="_blank" rel="noopener">google开发者文档</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-12T07:46:28.969Z" itemprop="dateUpdated">2019-10-12 07:46:28</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GRPC/">GRPC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/10/12/you_know_pb/&title=《protobuf使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/10/12/you_know_pb/&title=《protobuf使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/10/12/you_know_pb/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《protobuf使用》 — 雪地行人&url=https://tonywang1.github.io/2019/10/12/you_know_pb/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/10/12/you_know_pb/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/18/maven_plugin/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">MAVEN插件总览</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/10/12/you_know_pb/&title=《protobuf使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/10/12/you_know_pb/&title=《protobuf使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/10/12/you_know_pb/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《protobuf使用》 — 雪地行人&url=https://tonywang1.github.io/2019/10/12/you_know_pb/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/10/12/you_know_pb/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQZLCMAwFUe5/6cwBZpz0lxJqIrdXVAqwHwshyfp88Dp+rdrz1Xeunty8ZMiQ8VrGcbrIcfmx+j/HkipDhowNGKsIdv6aH3e1PWGfn02GDBkyyNFJuEwDtwwZMmQ8HXBJyfqC/w0ZMmT8MwYJnWmPKz36l2pxGTJkvJDBu+7ff/3I/YYMGTJexTjCRXg8WN92KhkyZIxm8G1qDbXzsrNWDC/fKUOGjKGMWtJWa66lF5+kIdjKW2XIkDGCQa4tayE73fHi/TJkyNiGQaIZCbuk6OUhFRXAMmTI2IDBLx3TUjZNAYswGTJkjGaQbUghyo/LhzDiNpwMGTKGMvj1ZGcz8qPUhr3+uImVIUPGUEZteKJz8UkaasEVggwZMkYzOqVs2kTrXAOgPFCGDBlDGXeF12DMtBFwl09kyJAxmsE/XBunIGG3hrkIuzJkyNiAcR6ISfjrFL3FQRAZMmQMZfSbaCk7bb2hglmGDBmjGbUSlI9iEDYfwrjYS4YMGdsw0oSvEy7TATLUO5QhQ8ZoRq2grQVi8tk4bZUhQ8aWDA6oJXn8O1EIliFDxlDGES4yBlG7neBjH8VZDxkyZLyWwVcNE0T9Ro4nQ4aMHRgkyNba+rUQmaahMmTI2IdRa8PxlI48aSFlyJAho3SINODyS9AP30yGDBkbM9L6mCedxWtUGTJkbMDg4w53DXuRmPlIu02GDBkvZKRJ212BMh2zIKW1DBkyxjF+AKXBslAtXlpAAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
