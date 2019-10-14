@@ -32,6 +32,9 @@ GRPC是谷歌开源的高性能，跨语言的RPC框架，基于http2协议，�
  
 ## 5.示例代码
 [实例代码](https://github.com/tonywang1/test.git)
+[spring集成GRPC实例代码](https://github.com/tonywang1/test.git) 
+*注意启动项目的时候需要修改spring-boot-starter-grpc对应的版本为对应模块的版本*
+
 
 ## 6.主要参考
 - [GRPC代码库](https://github.com/grpc/grpc/blob/master/README.md)
