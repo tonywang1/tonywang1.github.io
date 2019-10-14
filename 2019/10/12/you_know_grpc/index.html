@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>GRPC使用 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GRPC">
+    <meta name="description" content="GRPC初识 1.什么是GRPCGRPC是谷歌开源的高性能，跨语言的RPC框架，基于http2协议，交换描述语言为protobuf  2.GRPC描述与说明  GRPC的客户端可以直接调用服务端的方法，在任何的机器上，就像调用本地方法一样，因此利用GRPC可以更加方便的创建分布式的应用和服务。 GRPC需要定义一个服务，并说明服务的方法和返回值，然后Server方实现这个接口并运行GRPC服务去处">
+<meta name="keywords" content="GRPC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GRPC使用">
+<meta property="og:url" content="https://tonywang1.github.io/2019/10/12/you_know_grpc/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="GRPC初识 1.什么是GRPCGRPC是谷歌开源的高性能，跨语言的RPC框架，基于http2协议，交换描述语言为protobuf  2.GRPC描述与说明  GRPC的客户端可以直接调用服务端的方法，在任何的机器上，就像调用本地方法一样，因此利用GRPC可以更加方便的创建分布式的应用和服务。 GRPC需要定义一个服务，并说明服务的方法和返回值，然后Server方实现这个接口并运行GRPC服务去处">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T02:00:22.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GRPC使用">
+<meta name="twitter:description" content="GRPC初识 1.什么是GRPCGRPC是谷歌开源的高性能，跨语言的RPC框架，基于http2协议，交换描述语言为protobuf  2.GRPC描述与说明  GRPC的客户端可以直接调用服务端的方法，在任何的机器上，就像调用本地方法一样，因此利用GRPC可以更加方便的创建分布式的应用和服务。 GRPC需要定义一个服务，并说明服务的方法和返回值，然后Server方实现这个接口并运行GRPC服务去处">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GRPC使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GRPC使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-12T15:41:13.000Z" itemprop="datePublished" class="page-time">
+  2019-10-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GRPC/">GRPC</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GRPC初识"><span class="post-toc-number">1.</span> <span class="post-toc-text">GRPC初识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是GRPC"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是GRPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-GRPC描述与说明"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.GRPC描述与说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-什么地方适合用GBPC"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.什么地方适合用GBPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-在java中如何使用GBPC"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.在java中如何使用GBPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-示例代码"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.示例代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-主要参考"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6.主要参考</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/10/12/grpc"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GRPC使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-12 15:41:13" datetime="2019-10-12T15:41:13.000Z"  itemprop="datePublished">2019-10-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GRPC/">GRPC</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="GRPC初识"><a href="#GRPC初识" class="headerlink" title="GRPC初识"></a>GRPC初识</h1><hr>
+<h2 id="1-什么是GRPC"><a href="#1-什么是GRPC" class="headerlink" title="1.什么是GRPC"></a>1.什么是GRPC</h2><p>GRPC是谷歌开源的高性能，跨语言的RPC框架，基于http2协议，交换描述语言为protobuf </p>
+<h2 id="2-GRPC描述与说明"><a href="#2-GRPC描述与说明" class="headerlink" title="2.GRPC描述与说明"></a>2.GRPC描述与说明</h2><p>  GRPC的客户端可以直接调用服务端的方法，在任何的机器上，就像调用本地方法一样，因此利用GRPC可以更加方便的创建分布式的应用和服务。<br> GRPC需要定义一个服务，并说明服务的方法和返回值，然后Server方实现这个接口并运行GRPC服务去处理客户端的调用，客户端可以使用stub去调用服务端的接口（方法是一样的）</p>
+<h2 id="3-什么地方适合用GBPC"><a href="#3-什么地方适合用GBPC" class="headerlink" title="3.什么地方适合用GBPC"></a>3.什么地方适合用GBPC</h2><ul>
+<li>低延时、高可用的分布式系统；</li>
+<li>移动端与云服务端的通讯；</li>
+<li>使用protobuf，独立于语言的协议，支持多语言之间的通讯；</li>
+<li>可以分层扩展，如：身份验证，负载均衡，日志记录，监控等。</li>
+<li>服务端通信用的比较多</li>
+</ul>
+<h2 id="4-在java中如何使用GBPC"><a href="#4-在java中如何使用GBPC" class="headerlink" title="4.在java中如何使用GBPC"></a>4.在java中如何使用GBPC</h2><blockquote>
+<ol>
+<li>使用protobuf定义接口,即proto描述文件</li>
+<li>使用maven的编译插件编译proto文件，生成对应的java文件</li>
+<li>启动Server端，监听指定的端口</li>
+<li>启动一个活多个Client，去调用服务端暴露的接口</li>
+</ol>
+</blockquote>
+<h2 id="5-示例代码"><a href="#5-示例代码" class="headerlink" title="5.示例代码"></a>5.示例代码</h2><p><a href="https://github.com/tonywang1/test.git" target="_blank" rel="noopener">实例代码</a></p>
+<h2 id="6-主要参考"><a href="#6-主要参考" class="headerlink" title="6.主要参考"></a>6.主要参考</h2><ul>
+<li><a href="https://github.com/grpc/grpc/blob/master/README.md" target="_blank" rel="noopener">GRPC代码库</a></li>
+<li><a href="https://grpc.io/docs/tutorials/basic/java/" target="_blank" rel="noopener">GRPC文档</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-14T02:00:22.566Z" itemprop="dateUpdated">2019-10-14 02:00:22</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GRPC/">GRPC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/10/12/you_know_grpc/&title=《GRPC使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/10/12/you_know_grpc/&title=《GRPC使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/10/12/you_know_grpc/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GRPC使用》 — 雪地行人&url=https://tonywang1.github.io/2019/10/12/you_know_grpc/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/10/12/you_know_grpc/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/12/you_know_pb/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">protobuf使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/18/maven_plugin_resource/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">RESOURCE插件说明</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/10/12/you_know_grpc/&title=《GRPC使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/10/12/you_know_grpc/&title=《GRPC使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/10/12/you_know_grpc/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GRPC使用》 — 雪地行人&url=https://tonywang1.github.io/2019/10/12/you_know_grpc/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/10/12/you_know_grpc/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aQW7DMAwF0dz/0i7QVRe1PZ+0A4garYKklfW8IEiRnw9ex+8iv559/vvN9d9fP6u1ZMiQsSzjuFy1B1wfl5yBn02GDBn7MEgYJd/wPWsh+/R7GTJkyMBbk195WJchQ4aMGuP6fwmmFsRlyJAhg4RCUnYS0gHWi7W4DBkyFmSkjYFvfn6xvyFDhoxFGEe4apf45NCdJUOGjNkMcqy03ZiGbD7ScVMky5AhYzSDX589NfJVC8QBRoYMGeMYnSEwPuxFGgN8BxkyZOzGqAW+2lU+D7ikMI7vBWXIkLEgo3NBxscj0tZjvJsMGTI2YPDOYDr+lSadteaEDBkyZjPSQYd0JOKBjJVf+cmQIWM0o5YI8kOQMM33aV23yZAhY1kG2TQYz8LFbdpIuAn6MmTIGMpIW4xpkOVtA/KyTlNPGTJkjGbw0rRTsvKXQhJHlBrKkCFjEKM26MBbnrV0MB34kCFDxmwGfzwvU/luaVs0qMVlyJAxlFE7RC1cpq8AvVwZMmQMZaQX/f3yNb1KixsDMmTI2IBB5jJqRSz5TBJEGTJk7MZIL/r7R+SBNZ5rkyFDxlDGEa40dXuvDfBPC1OGDBlDGXzxLWqXaLXEUYYMGfswOhf3TxWlPOAGLUwZMmSMY6QXWzebNlqetdJahgwZMmrpYDqoQfLWm9RQhgwZMniiVgrKrdcqQ4aMDRi1IpYneen4V1riypAhYzaj1hjgD0t5/fRRhgwZgxg/LSxb0Wh2pLsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
