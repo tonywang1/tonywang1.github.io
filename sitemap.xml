@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tonywang1.github.io/2019/10/12/you_know_grpc/</loc>
+    
+    <lastmod>2019-10-14T02:00:22.566Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tonywang1.github.io/2019/10/12/you_know_pb/</loc>
     
     <lastmod>2019-10-12T07:46:28.969Z</lastmod>
