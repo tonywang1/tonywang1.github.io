@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>GO语言基础 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GO">
+    <meta name="description" content="#GO语言简介个人从学习从入手不到一周基本可以开始开发：1 go语法基础看了一遍2 经常用到的难点突破一下3 beego网路开发官方文档主要的部分看一遍  1.什么是GO语言Go（又称 Golang）是 Google 开源的一种静态强类型、编译型语言 2.什么要用GO语言  简单高效 开发速度快 容易开发并行性代码 部署简单   3.GO如何安装 下载go-https://golang.org/d">
+<meta name="keywords" content="GO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GO语言基础">
+<meta property="og:url" content="https://tonywang1.github.io/2019/10/12/go_basic/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="#GO语言简介个人从学习从入手不到一周基本可以开始开发：1 go语法基础看了一遍2 经常用到的难点突破一下3 beego网路开发官方文档主要的部分看一遍  1.什么是GO语言Go（又称 Golang）是 Google 开源的一种静态强类型、编译型语言 2.什么要用GO语言  简单高效 开发速度快 容易开发并行性代码 部署简单   3.GO如何安装 下载go-https://golang.org/d">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-18T12:41:51.748Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GO语言基础">
+<meta name="twitter:description" content="#GO语言简介个人从学习从入手不到一周基本可以开始开发：1 go语法基础看了一遍2 经常用到的难点突破一下3 beego网路开发官方文档主要的部分看一遍  1.什么是GO语言Go（又称 Golang）是 Google 开源的一种静态强类型、编译型语言 2.什么要用GO语言  简单高效 开发速度快 容易开发并行性代码 部署简单   3.GO如何安装 下载go-https://golang.org/d">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GO语言基础</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GO语言基础</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-12T15:41:13.000Z" itemprop="datePublished" class="page-time">
+  2019-10-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GO/">GO</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是GO语言"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.什么是GO语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-什么要用GO语言"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.什么要用GO语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-GO如何安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.GO如何安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-基础语法记录"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.基础语法记录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-IDEA中开发GO项目"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.IDEA中开发GO项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-主要参考"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.主要参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/10/29/go-basic"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GO语言基础</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-12 15:41:13" datetime="2019-10-12T15:41:13.000Z"  itemprop="datePublished">2019-10-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GO/">GO</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>#GO语言简介<br>个人从学习从入手不到一周基本可以开始开发：<br>1 go语法基础看了一遍<br>2 经常用到的难点突破一下<br>3 beego网路开发官方文档主要的部分看一遍</p>
+<hr>
+<h2 id="1-什么是GO语言"><a href="#1-什么是GO语言" class="headerlink" title="1.什么是GO语言"></a>1.什么是GO语言</h2><p>Go（又称 Golang）是 Google 开源的一种静态强类型、编译型语言</p>
+<h2 id="2-什么要用GO语言"><a href="#2-什么要用GO语言" class="headerlink" title="2.什么要用GO语言"></a>2.什么要用GO语言</h2><blockquote>
+<ul>
+<li>简单高效</li>
+<li>开发速度快</li>
+<li>容易开发并行性代码</li>
+<li>部署简单</li>
+</ul>
+</blockquote>
+<h2 id="3-GO如何安装"><a href="#3-GO如何安装" class="headerlink" title="3.GO如何安装"></a>3.GO如何安装</h2><ol>
+<li>下载go-<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a></li>
+<li>安装并设置go的环境变量-go的bin目录添加的环境变量path中 ，C:\Go\bin</li>
+<li>执行go version ，打印go的版本，安装完成 </li>
+<li>go evn，打印go的所有相关变量</li>
+</ol>
+<h2 id="4-基础语法记录"><a href="#4-基础语法记录" class="headerlink" title="4.基础语法记录"></a>4.基础语法记录</h2><p><a href="https://www.runoob.com/go/go-tutorial.html" target="_blank" rel="noopener">基础语法学习参考</a></p>
+<p>1) 指针、对象、值传递和引用传递</p>
+<blockquote>
+<ul>
+<li>go普通变量:变量直接指向存在内存中的值</li>
+<li>go指针变量**:变量指向值存储的地址，实际的内存地址</li>
+<li>new(T) 返回 T 的指针 *T， 并指向 T 的零值。– 指针</li>
+<li>make(T) 返回的初始化的 T的引用，只能用于 slice，map，channel。 - 引用</li>
+<li>City{Id: id} == 返回对象引用</li>
+<li>new(City)    == 返回对象指针</li>
+<li>函数的参数两种：值传递（数值的拷贝）、引用传递（指针）</li>
+</ul>
+</blockquote>
+<p>2) 类型转换</p>
+<blockquote>
+<ul>
+<li>strconv - 字符串和各种数据类型的转换</li>
+<li>整数之间转换<br>  整数之间强转：int := int(int32)</li>
+<li>整数转为字符串：strconv.Itoa( ) </li>
+<li>boolean转为字符串：strconv.FormatBool(isDebug) </li>
+<li>字节与字符串的转换：<br>  var a = []byte(“hello boy”)<br>  var b = string(a)</li>
+<li>strings:字符串的工具类</li>
+</ul>
+</blockquote>
+<p>3) 命名规范</p>
+<blockquote>
+<ul>
+<li>golang的命名推荐使用驼峰命名法，必须以一个字母（Unicode字母）或下划线开头，后面可以跟任意数量的字母、数字或下划线</li>
+<li>golang中根据首字母的大小写来确定可以访问的权限。无论是方法名、常量、变量名还是结构体的名称，如果首字母大写，则可以被其他的包访问；如果首字母小写，则只能在本包中使用<br>可以简单的理解成，首字母大写是公有的，首字母小写是私有的</li>
+<li>结构体中属性名的大写-小写的json不能解析</li>
+</ul>
+</blockquote>
+<p>4) json使用</p>
+<blockquote>
+<ul>
+<li>类型断言:interface.(int)</li>
+<li>反序列化，指定对应的struct，只有key的第一个字母大写才能被反序列化</li>
+<li>序列化key必须是字符串，值为指针，则序列化为对应的值</li>
+</ul>
+</blockquote>
+<p>5) simplejson使用<br>    simplejson：解析复杂json，解析时候最好从根部解析。<br>    参照：<a href="https://blog.csdn.net/chenghuan1990/article/details/75423325" target="_blank" rel="noopener">https://blog.csdn.net/chenghuan1990/article/details/75423325</a></p>
+<p>6) struct tags修改json序列化和反序列化的对应</p>
+<blockquote>
+<ul>
+<li>改变对应序列化和反序列化后的名称</li>
+<li>指定空值得处理</li>
+<li>是否忽略某个字段</li>
+<li>类型判断：switch vv := v.(type) </li>
+</ul>
+</blockquote>
+<p>7)io.Reader/Writer常用</p>
+<blockquote>
+<ul>
+<li>字节缓冲区，字节、字符串、Reader之间的操作</li>
+<li>net.Conn, os.Stdin, os.File: 网络、标准输入输出、文件的流读取</li>
+<li>strings.Reader: 把字符串抽象成Reader</li>
+<li>bytes.Reader: 把[]byte抽象成Reader</li>
+<li>bytes.Buffer: 把[]byte抽象成Reader和Writer</li>
+<li>bufio.Reader/Writer: 抽象成带缓冲的流读取（比如按行读写）</li>
+</ul>
+</blockquote>
+<p>8) http使用</p>
+<blockquote>
+<ul>
+<li>restclient: <a href="https://github.com/ylywyn/restclient" target="_blank" rel="noopener">https://github.com/ylywyn/restclient</a></li>
+<li>标准库：http</li>
+</ul>
+</blockquote>
+<h2 id="5-IDEA中开发GO项目"><a href="#5-IDEA中开发GO项目" class="headerlink" title="5.IDEA中开发GO项目"></a>5.IDEA中开发GO项目</h2><ul>
+<li>1 设置GOROOT-项目相关的包都是从这个目录开始查找的</li>
+<li>2 设置GOPATH-添加gopath到设置中</li>
+<li>3 Setting的设置GoModule ，允许go module集成 ，设置Proxy=<a href="https://goproxy.cn" target="_blank" rel="noopener">https://goproxy.cn</a></li>
+<li>4 生成依赖管理文件go.mod:  go mod init – 项目使用modules管理，并生成管理文件go.mod<br>每次build会将项目中的包信息，放到这个文件中<br>go mod download – 会将项目依赖包放到go安装目录的pkg目录中，所有项目共享<br>go.mod文件：为项目的依赖包，描述项目的名称和依赖的第三方的包<br>go.sum文件：为项目的依赖分析文件，记录每个依赖库的版本和哈希值</li>
+<li>5 将依赖包生成到本地:  go mod vendor - 将依赖包放到项目中的vendor目录中，本项目独有，idea就可以识别了 </li>
+<li>6 启动项目 ： bee run -gendoc=true -downdoc=true</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>1 项目要用go的module形式进行管理 go mod init</li>
+<li>2 项目中引入的所有包进入到包管理文件： go build（会将包信息写到go.mod中）</li>
+<li>3 下载对应的包到项目的vendor目录中：go mod vendor</li>
+</ul>
+<h2 id="6-主要参考"><a href="#6-主要参考" class="headerlink" title="6.主要参考"></a>6.主要参考</h2><ul>
+<li>1) <a href="https://www.runoob.com/go/go-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/go/go-tutorial.html</a></li>
+<li>2) <a href="https://beego.me/docs/install/bee.md" target="_blank" rel="noopener">beego官网</a></li>
+<li>3）<a href="https://golang.google.cn/" target="_blank" rel="noopener">go官网</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-18T12:41:51.748Z" itemprop="dateUpdated">2019-11-18 12:41:51</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GO/">GO</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/10/12/go_basic/&title=《GO语言基础》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/10/12/go_basic/&title=《GO语言基础》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/10/12/go_basic/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GO语言基础》 — 雪地行人&url=https://tonywang1.github.io/2019/10/12/go_basic/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/10/12/go_basic/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/12/you_know_pb/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">protobuf使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/10/12/go_basic/&title=《GO语言基础》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/10/12/go_basic/&title=《GO语言基础》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/10/12/go_basic/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GO语言基础》 — 雪地行人&url=https://tonywang1.github.io/2019/10/12/go_basic/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/10/12/go_basic/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aW27cMBAEQN//0s4JrHTPrBOILH0tFhbFkoFZzuPrK76+H6/nv09Wbu8aXhgYGK9lJFt8/r7dYnLVrw8DA+MCRrKJ2XaTZ/0UcJO9YWBgYOQbTY6Jn10TAwMD4/mRs3CZYzAwMDBmSWyemuZHzP+Qi2NgYLyQkVfd//3nX+lvYGBgvIoxK9a3KWjSpFy1EDAwMI5m5AGuPSzOVmhHNDAwMG5g5OWw50CZJ5/5s/LGJwYGxg2M2UKbY1/yIvIyHwYGxtmMNgTn4XjTPChC7eyXBAMD4+WMPJhu2o1JsvoBGAYGxnGM5LbNg/dtg+j/gIGBcRyjLmyNDos5YHiQxcDAuIbRpqnJqEQSLjcNVAwMjHsY+8NZ3jZoU+JiWgQDA+NoRp4PtqW0PJi2JTYMDIw7GbPHt8W4duAsOoBiYGAczdiX1Tahdj9agYGBcRsj32IeENsWZpI2F+1MDAyMgxjtsFdbMsvLavnWMTAw7mS0pbH9Cu3ri4puGBgYVzKG4W8xeDEL3BgYGDcw2lR2k+jOCnN/uRcDA+NQxnd5zY6JSSjP0+bCh4GBcQSjbRbOlm5HOpIfgGGjFAMD47WMJMi2wXEzfpHfhYGBcRujHb/IS3LJWMYHkBgYGBhlkM3bnLPBi7q/ioGBcSUjD4v7DDt6iRgYGBcwkiR2lrJuCvq/Um7DwMB4IWO/XItpy3Cb0I+BgfFyxh+0+ZNh0E5rsQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
