@@ -1,9 +1,9 @@
 ---
 title: MYSQL使用基础记录
-date: 2019-11-21 19:37:12
-urlname:mysql_basic
-tags:[MYSQL]
-categories:MYSQL
+date: 2019-11-21 19:31:12
+urlname: mysql_basic
+tags: [MYSQL,SQL]
+categories: MYSQL
 ---
 #MYSQL使用基础记录
  
@@ -11,6 +11,7 @@ categories:MYSQL
 ## 1.变量的定义
    > - 第一种用法：set @num=1; 或set @num:=1; //这里要使用变量来保存数据，直接使用@num变量
    > - 第二种用法：select @num:=1; 或 select @num:=字段名 from 表名 where ……
+   
 ```
 	实例如：
 	1）set @t_error=0; select @t_error ;
