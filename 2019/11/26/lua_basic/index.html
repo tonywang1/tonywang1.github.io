@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Lua语言基础 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Lua">
+    <meta name="description" content="#LUA语言简介  1.什么是Lua语言  Lua是一种强大，高效，轻量级，可嵌入的脚本语言 2.特性它用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里 3.LUA能解决什么问题Nginx + lua　处理http请求时，可在11个阶段插入lua脚本redis + lua 　实现原子操作，避免多线程数据不一致的问题 3.LUA环境搭建搭建参照 4.基础语法记录-主">
+<meta name="keywords" content="Lua">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lua语言基础">
+<meta property="og:url" content="https://tonywang1.github.io/2019/11/26/lua_basic/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="#LUA语言简介  1.什么是Lua语言  Lua是一种强大，高效，轻量级，可嵌入的脚本语言 2.特性它用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里 3.LUA能解决什么问题Nginx + lua　处理http请求时，可在11个阶段插入lua脚本redis + lua 　实现原子操作，避免多线程数据不一致的问题 3.LUA环境搭建搭建参照 4.基础语法记录-主">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-26T08:12:36.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lua语言基础">
+<meta name="twitter:description" content="#LUA语言简介  1.什么是Lua语言  Lua是一种强大，高效，轻量级，可嵌入的脚本语言 2.特性它用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里 3.LUA能解决什么问题Nginx + lua　处理http请求时，可在11个阶段插入lua脚本redis + lua 　实现原子操作，避免多线程数据不一致的问题 3.LUA环境搭建搭建参照 4.基础语法记录-主">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Lua语言基础</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Lua语言基础</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-26T15:41:13.000Z" itemprop="datePublished" class="page-time">
+  2019-11-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Lua/">Lua</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是Lua语言"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.什么是Lua语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-特性"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-LUA能解决什么问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.LUA能解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-LUA环境搭建"><span class="post-toc-number">4.</span> <span class="post-toc-text">3.LUA环境搭建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-基础语法记录-主要记录学习中独特的地方"><span class="post-toc-number">5.</span> <span class="post-toc-text">4.基础语法记录-主要记录学习中独特的地方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-Lua在nginx中的使用"><span class="post-toc-number">6.</span> <span class="post-toc-text">5.Lua在nginx中的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-主要参考"><span class="post-toc-number">7.</span> <span class="post-toc-text">6.主要参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2019/11/26/lua_basic"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Lua语言基础</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-26 15:41:13" datetime="2019-11-26T15:41:13.000Z"  itemprop="datePublished">2019-11-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Lua/">Lua</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>#LUA语言简介</p>
+<hr>
+<h2 id="1-什么是Lua语言"><a href="#1-什么是Lua语言" class="headerlink" title="1.什么是Lua语言"></a>1.什么是Lua语言</h2><p>  Lua是一种强大，高效，轻量级，可嵌入的脚本语言</p>
+<h2 id="2-特性"><a href="#2-特性" class="headerlink" title="2.特性"></a>2.特性</h2><p>它用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里</p>
+<h2 id="3-LUA能解决什么问题"><a href="#3-LUA能解决什么问题" class="headerlink" title="3.LUA能解决什么问题"></a>3.LUA能解决什么问题</h2><p>Nginx + lua　处理http请求时，可在11个阶段插入lua脚本<br>redis + lua 　实现原子操作，避免多线程数据不一致的问题</p>
+<h2 id="3-LUA环境搭建"><a href="#3-LUA环境搭建" class="headerlink" title="3.LUA环境搭建"></a>3.LUA环境搭建</h2><p><a href="https://www.runoob.com/lua/lua-environment.html" target="_blank" rel="noopener">搭建参照</a></p>
+<h2 id="4-基础语法记录-主要记录学习中独特的地方"><a href="#4-基础语法记录-主要记录学习中独特的地方" class="headerlink" title="4.基础语法记录-主要记录学习中独特的地方"></a>4.基础语法记录-主要记录学习中独特的地方</h2><p>1) <a href="https://www.runoob.com/lua/lua-basic-syntax.html" target="_blank" rel="noopener">基础语法学习参照</a><br>2)逻辑运算符短路求值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">and	逻辑与操作符。 “短路求值” 若 A 为 false，则返回 A，否则返回 B。	(A and B) 为 false。</span><br><span class="line">or	逻辑或操作符。“短路求值”  若 A 为 true，则返回 A，否则返回 B。	(A or B) 为 true。</span><br></pre></td></tr></table></figure>
+
+<p>3)bool类型<br>lua中除了false和nil之外，其他所有数据，包括0、空字符串等都是true。<br>4) 类型判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(type(&quot;Hello world&quot;))      --&gt; string</span><br><span class="line">print(type(10.4*3))             --&gt; number</span><br><span class="line">print(type(print))              --&gt; function</span><br><span class="line">print(type(type))               --&gt; function</span><br><span class="line">print(type(true))               --&gt; boolean</span><br><span class="line">print(type(nil))                --&gt; nil</span><br><span class="line">print(type(type(X)))            --&gt; string</span><br></pre></td></tr></table></figure>
+
+<p>5)nil删除功能<br>对于全局变量和 table，nil 还有一个”删除”作用，给全局变量或者 table 表里的变量赋一个 nil 值，等同于把它们删掉<br>6)nil 作比较时应该加上双引号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">7)字符串和数字运算</span><br><span class="line">一个数字字符串上进行算术操作时，Lua 会尝试将这个数字字符串转成一个数字</span><br><span class="line">8)字符串连接</span><br><span class="line">```  </span><br><span class="line">print(&quot;a&quot; .. &apos;b&apos;)  tonumber(字符串)  -- tostring(bVar)</span><br></pre></td></tr></table></figure>
+
+<p>9)字符串长度<br>使用 # 来计算字符串的长度，放在字符串前面</p>
+<p>10)table类型-数组、哈希、包、类- 都可以通过table实现</p>
+<blockquote>
+<ul>
+<li>1、不同于其他语言的数组把 0 作为数组的初始索引，在 Lua 里表的默认初始索引一般以 1 开始</li>
+<li>2、”关联数组”（associative arrays），数组的索引可以是数字或者是字符串。</li>
+<li>3、table 不会固定长度大小，有新数据添加时 table 长度会自动增长，没初始的 table 都是 nil</li>
+<li>4、对 table 的索引使用方括号 []。Lua 也提供了 . 操作</li>
+<li>Lua table 是不固定大小的，你可以根据自己需要进行扩容<br>Lua也是通过table来解决模块（module）、包（package）和对象（Object）的。 例如string.format表示使用”format”来索引table string</li>
+</ul>
+</blockquote>
+<p>11)table类型是否为nil变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function isTableEmpty(t)</span><br><span class="line">    if t == nil or _G.next(t) == nil then</span><br><span class="line">        return true</span><br><span class="line">    else</span><br><span class="line">        return false</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>12)全局变量和局部变量<br>a = 5  – 全局变量<br>local b = 5         – 局部变量</p>
+<p>13)Lua 可以对多个变量同时赋值<br>Lua 可以对多个变量同时赋值，变量列表和值列表的各个元素用逗号分开，赋值语句右边的值会依次赋给左边的变量</p>
+<p>14)循环</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( <span class="literal">true</span> )</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">   <span class="built_in">print</span>(<span class="string">"循环将永远执行下去"</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"0 为 true"</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(tab1) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(k .. <span class="string">" - "</span> .. v)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>15)函数</p>
+<blockquote>
+<ul>
+<li>Lua函数可以返回多个结果值，比如string.find，其返回匹配串”开始和结束的下标”（如果不存在匹配串返回nil）。</li>
+<li>Lua 函数可以接受可变数目的参数，和 C 语言类似，在函数参数列表中使用三点 … 表示函数有可变的参数</li>
+<li>我们也可以通过 select(“#”,…) 来获取可变参数的数量</li>
+<li>有时候我们可能需要几个固定参数加上可变参数，固定参数必须放在变长参数之前</li>
+<li>通常在遍历变长参数的时候只需要使用 {…}，然而变长参数可能会包含一些 nil，那么就可以用 select 函数来访问变长参数了：select(‘#’, …) 或者 select(n, …)<br>select(‘#’, …) 返回可变参数的长度<br>select(n, …) 用于访问 n 到 select(‘#’,…) 的参数</li>
+</ul>
+</blockquote>
+<h2 id="5-Lua在nginx中的使用"><a href="#5-Lua在nginx中的使用" class="headerlink" title="5.Lua在nginx中的使用"></a>5.Lua在nginx中的使用</h2><p>一、<a href="https://github.com/openresty/lua-nginx-module#directives" target="_blank" rel="noopener">阶段执行流程</a><br>二、<a href="https://github.com/openresty/lua-nginx-module#nginx-api-for-lua" target="_blank" rel="noopener">Nginx API for Lua</a></p>
+<p>三、常用阶段</p>
+<blockquote>
+<ul>
+<li>content_by_lua 是内容处理器，接受请求并输出响应，适用于location、location if。 </li>
+<li>access_by_lua 在请求访问阶段处理，用于访问控制，适用于http、server、location、location if。</li>
+<li>rewrite_by_lua 测试只有在重定向的时候才会调用 </li>
+<li>set_by_lua</li>
+<li>set_by_lua_file执行Nginx外部的lua脚本，可以避免在配置文件中使用大量的转义</li>
+</ul>
+</blockquote>
+<p>四、使用实例1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">	rewrite_by_lua &apos;</span><br><span class="line">	local res = ngx.location.capture(&quot;/check-spam&quot;)</span><br><span class="line">	if res.body == &quot;spam&quot; then</span><br><span class="line">		ngx.redirect(&quot;/terms-of-use.html&quot;)</span><br><span class="line">	end</span><br><span class="line">	&apos;; fastcgi_pass ...;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /echo &#123;</span><br><span class="line">	default_type text/plain;</span><br><span class="line">	echo hello lua;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /lua &#123;</span><br><span class="line">	default_type text/plain;</span><br><span class="line">	content_by_lua &apos;ngx.say(&quot;hello world&quot;)&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>五、使用实例2-ip禁止功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">location @client&#123;</span><br><span class="line">	proxy_pass  http://www.baidu.com;</span><br><span class="line">&#125;</span><br><span class="line">location ~  /test &#123;</span><br><span class="line">	default_type  text/html;</span><br><span class="line">	content_by_lua &apos;ngx.say(&quot;this is  ruifengyun.com!&quot;)&apos;;</span><br><span class="line">	access_by_lua &apos;</span><br><span class="line">		if ngx.var.remote_addr == &quot;101.2.20.110&quot; then</span><br><span class="line">			ngx.exit(ngx.HTTP_FORBIDDEN)</span><br><span class="line">		end</span><br><span class="line">		if ngx.var.remote_addr == &quot;101.21.20.112&quot; then</span><br><span class="line">			ngx.exec(&quot;@client&quot;)</span><br><span class="line">		end</span><br><span class="line">	&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>六、重定向转发-获取重定向的参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">location /foo &#123;</span><br><span class="line"> content_by_lua_block &#123;</span><br><span class="line">     ngx.exec(&quot;/bar&quot;, &quot;a=goodbye&quot;);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">location /bar &#123;</span><br><span class="line"> default_type text/plain;</span><br><span class="line"> content_by_lua_block &#123;</span><br><span class="line">     local args = ngx.req.get_uri_args()</span><br><span class="line">     for key, val in pairs(args) do</span><br><span class="line">	 if key == &quot;a&quot; then</span><br><span class="line">	     ngx.say(val)</span><br><span class="line">	 end</span><br><span class="line">     end</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>七、nginx定义的变量 lua中可以获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location /foo &#123;</span><br><span class="line">    set $my_var &apos;&apos;; # this line is required to create $my_var at config time ngx.arg[1]可以获取定义的参数</span><br><span class="line">    content_by_lua_block &#123;</span><br><span class="line">        ngx.var.my_var = 123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">删除变量方法：ngx.var.args = nil如：ngx.var.name = nil 删除nginx中name的变量</span><br></pre></td></tr></table></figure>
+
+<p>八、ngx.ctx-一个生命周期中共享变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location /test &#123;</span><br><span class="line">    rewrite_by_lua_block &#123;</span><br><span class="line">        ngx.ctx.foo = 76</span><br><span class="line">    &#125;</span><br><span class="line">    access_by_lua_block &#123;</span><br><span class="line">        ngx.ctx.foo = ngx.ctx.foo + 3</span><br><span class="line">    &#125;</span><br><span class="line">    content_by_lua_block &#123;</span><br><span class="line">        ngx.say(ngx.ctx.foo)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>九 几个常用的api地址</p>
+<blockquote>
+<ul>
+<li>[方法常量](<a href="https://github.com/openresty/lua-nginx-module" target="_blank" rel="noopener">https://github.com/openresty/lua-nginx-module</a>* #http-method-constants)</li>
+<li><a href="https://github.com/openresty/lua-nginx-module#http-status-constants" target="_blank" rel="noopener">状态常量</a></li>
+<li><a href="https://github.com/openresty/lua-nginx-module#nginx-log-level-constants" target="_blank" rel="noopener">日志级别常量</a></li>
+<li><a href="https://github.com/openresty/lua-nginx-module#ngxheaderheader" target="_blank" rel="noopener">nginx头处理</a></li>
+<li><a href="https://github.com/openresty/lua-nginx-module#ngxreqset_uri" target="_blank" rel="noopener">重定向</a></li>
+</ul>
+</blockquote>
+<p>十、常用API记载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"> ngx.req.set_uri</span><br><span class="line"> ngx.req.set_uri(&quot;/foo&quot;, true)</span><br><span class="line">ngx.req.get_uri_args</span><br><span class="line">ngx.req.set_uri_args</span><br><span class="line">local args, err = ngx.req.get_post_args()</span><br><span class="line">ngx.req.get_headers</span><br><span class="line">ngx.req.set_header</span><br><span class="line">ngx.req.clear_header</span><br><span class="line">ngx.req.read_body</span><br><span class="line">ngx.req.get_body_file</span><br><span class="line"></span><br><span class="line">ngx.req.set_body_data</span><br><span class="line"></span><br><span class="line">ngx.redirect</span><br><span class="line">ngx.print 没有回车 </span><br><span class="line">ngx.say 有回车 </span><br><span class="line"></span><br><span class="line">ngx.flush</span><br><span class="line">ngx.exit(501) 返回状态吗，并直接退出 </span><br><span class="line">ngx.sleep</span><br><span class="line">ngx.today</span><br><span class="line">ngx.time</span><br><span class="line">ngx.now</span><br><span class="line">ngx.update_time</span><br><span class="line">ngx.utctime</span><br><span class="line">ngx.re.match</span><br><span class="line">ngx.re.find</span><br><span class="line">ngx.re.gmatch</span><br><span class="line">ngx.re.sub</span><br><span class="line">ngx.re.gsub</span><br><span class="line">ngx.shared.DICT</span><br><span class="line">local ok, err = ngx.timer.at(2, mylog ) 延时器，只会执行一次 </span><br><span class="line"></span><br><span class="line">--写响应头  </span><br><span class="line">ngx.header.a = &quot;1&quot;  </span><br><span class="line">--多个响应头可以使用table  </span><br><span class="line">ngx.header.b = &#123;&quot;2&quot;, &quot;3&quot;&#125;  </span><br><span class="line">--输出响应  </span><br><span class="line">ngx.say(&quot;a&quot;, &quot;b&quot;, &quot;&lt;br/&gt;&quot;)  </span><br><span class="line">ngx.print(&quot;c&quot;, &quot;d&quot;, &quot;&lt;br/&gt;&quot;)  </span><br><span class="line">--200状态码退出  </span><br><span class="line">return ngx.exit(200)  </span><br><span class="line"></span><br><span class="line">必须调用exit给出状态码</span><br><span class="line">ngx.say(&quot;api is offline!&quot;)</span><br><span class="line">ngx.exit(200)</span><br><span class="line"></span><br><span class="line">获取消息体，先打开获取消息体的开关：</span><br><span class="line">ngx.req.read_body()</span><br><span class="line">local data = ngx.req.get_body_data()</span><br><span class="line"></span><br><span class="line">local request_uri = ngx.var.request_uri or &quot;&quot;</span><br><span class="line">resty.iputils 工具类使用：https://github.com/hamishforbes/lua-resty-iputils</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-主要参考"><a href="#6-主要参考" class="headerlink" title="6.主要参考"></a>6.主要参考</h2><ul>
+<li>1) <a href="http://www.lua.org/about.html" target="_blank" rel="noopener">Lua官网</a></li>
+<li>2) <a href="https://luajit.org/" target="_blank" rel="noopener">luajit官网</a></li>
+<li>3）<a href="https://openresty.org/cn/" target="_blank" rel="noopener">openresty</a></li>
+<li>4）<a href="https://github.com/openresty/lua-nginx-module" target="_blank" rel="noopener">lua-nginx-module</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-26T08:12:36.531Z" itemprop="dateUpdated">2019-11-26 08:12:36</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lua/">Lua</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/11/26/lua_basic/&title=《Lua语言基础》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/11/26/lua_basic/&title=《Lua语言基础》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/11/26/lua_basic/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Lua语言基础》 — 雪地行人&url=https://tonywang1.github.io/2019/11/26/lua_basic/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/11/26/lua_basic/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/22/mysql_basic/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">MYSQL使用基础记录</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2019/11/26/lua_basic/&title=《Lua语言基础》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2019/11/26/lua_basic/&title=《Lua语言基础》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2019/11/26/lua_basic/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Lua语言基础》 — 雪地行人&url=https://tonywang1.github.io/2019/11/26/lua_basic/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2019/11/26/lua_basic/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3ay27cMAwF0Pn/n54CWQWYVrkk1aKWjlZGxnZ0vCD40OsVr/fX+n79fX3e+fn39a/rd25bGBgYj2W8l+uTUd1ufs+f/u/6HgwMjHsYSZBNwvE6QOehPN8bBgYGxjqATq6TrWNgYGDsDbh5gZoXsRgYGBiTYnLSLOsli9tqcQwMjAcyeoOBf3P91+cbGBgY/z3jPV7VZtx8YPCbN2BgYBzNSBK1JLGrJpdJcVv9WBgYGGczqhlXL7FLhprVYjWCYWBgHMfIN7TeSjXVmxzRwMDAuIGxtxE/SQdHySsGBsYFjHXozMvLfAiaN+9G7TYMDIwjGHnyt3cAkH+spBmHgYFxNqO60ZyXlLtJGF0/i4GBcRujGuzytDJPAXu/YmBgnM3opX15+34+Bii06jAwMI5jTAaQo6Nam7r6ryQ2Y2BgHMSYDymTj1ItlbedEMHAwHgsY9Jiy9O7eVst2jMGBsbRjEky1wvlvQMZmwEYGBgPZFSbYr2DX/nhiWZ7DgMD41BGfmyi15ibvLOQDmJgYFzDKE8+47Z+9al8qImBgXEDY1649kaPvU1sqMUxMDAexegVnNXhwbxU/qGIxcDAOJrRC3N5s35y7DUfMGBgYNzAqA4Oq8GxGqDz8F1IEDEwMI5g9A5MVMcGSbutmYBiYGBgjBPBJEBXn8LAwMCotreqB1XXwbccoDEwMC5gVA+n5luvBtx8UIqBgXEPYzIYmJSg1UNmo2YcBgbGUxm/AB9bvCpsb0z1AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

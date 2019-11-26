@@ -152,6 +152,59 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-2019/11/26/lua_basic"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-26 15:41:13" datetime="2019-11-26T15:41:13.000Z"  itemprop="datePublished">2019-11-26</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Lua/">Lua</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/26/lua_basic/">Lua语言基础</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        #LUA语言简介
+
+1.什么是Lua语言  Lua是一种强大，高效，轻量级，可嵌入的脚本语言
+2.特性它用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里
+3.LUA能解决什么问题Nginx + lua　处理http请求时，可在11个阶段插入lua脚本redis + lua 　实现原子操作，避免多线程数据不一致的问题
+3.LUA环境搭建搭建参照
+4.基础语法记...
+    
+
+        <a href="/2019/11/26/lua_basic/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lua/">Lua</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-2019/09/27/MYSQL使用基础记录"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -264,14 +317,14 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2019/10/12/grpc"
+            <article id="post-2019/10/29/go-goroutine"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
         <time class="post-time" title="2019-10-12 15:41:13" datetime="2019-10-12T15:41:13.000Z"  itemprop="datePublished">2019-10-12</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GRPC/">GRPC</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GO/">GO</a></li></ul>
 
 
 
@@ -282,7 +335,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/12/you_know_grpc/">GRPC使用</a>
+      <a class="post-title-link" href="/2019/10/12/go_routine/">GO并发处理</a>
     </h3>
   
 
@@ -292,19 +345,29 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        GRPC初识
-1.什么是GRPCGRPC是谷歌开源的高性能，跨语言的RPC框架，基于http2协议，交换描述语言为protobuf 
-2.GRPC描述与说明  GRPC的客户端可以直接调用服务端的方法，在任何的机器上，就像调用本地方法一样，因此利用GRPC可以更加方便的创建分布式的应用和服务。 GRPC需要定义一个服务，并说明服务的方法和返回值，然后Server方实现这个接口并运行GRPC服...
+        #GO并发处理
+
+1.协程2.channal
+概念：一个channel可以理解为一个先进先出的消息队列，有长度和容量，类似一个数组
+
+作用：channel用来在协程[goroutine]之前传递数据，准确的说，是用来传递数据的所有权
+
+设计：一个设计良好的程序应该确保同一时刻channel里面的数据只会被同一个协程拥有，这样就可以避免并发带来的数据不安全问题
+
+类型：
+
+
+chan T是双向...
     
 
-        <a href="/2019/10/12/you_know_grpc/" class="post-more waves-effect waves-button">
+        <a href="/2019/10/12/go_routine/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GRPC/">GRPC</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GO/">GO</a></li></ul>
 
     </div>
     
@@ -372,14 +435,14 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2019/10/29/go-goroutine"
+            <article id="post-2019/10/12/grpc"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
         <time class="post-time" title="2019-10-12 15:41:13" datetime="2019-10-12T15:41:13.000Z"  itemprop="datePublished">2019-10-12</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GO/">GO</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GRPC/">GRPC</a></li></ul>
 
 
 
@@ -390,7 +453,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/12/go_routine/">GO并发处理</a>
+      <a class="post-title-link" href="/2019/10/12/you_know_grpc/">GRPC使用</a>
     </h3>
   
 
@@ -400,29 +463,19 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        #GO并发处理
-
-1.协程2.channal
-概念：一个channel可以理解为一个先进先出的消息队列，有长度和容量，类似一个数组
-
-作用：channel用来在协程[goroutine]之前传递数据，准确的说，是用来传递数据的所有权
-
-设计：一个设计良好的程序应该确保同一时刻channel里面的数据只会被同一个协程拥有，这样就可以避免并发带来的数据不安全问题
-
-类型：
-
-
-chan T是双向...
+        GRPC初识
+1.什么是GRPCGRPC是谷歌开源的高性能，跨语言的RPC框架，基于http2协议，交换描述语言为protobuf 
+2.GRPC描述与说明  GRPC的客户端可以直接调用服务端的方法，在任何的机器上，就像调用本地方法一样，因此利用GRPC可以更加方便的创建分布式的应用和服务。 GRPC需要定义一个服务，并说明服务的方法和返回值，然后Server方实现这个接口并运行GRPC服...
     
 
-        <a href="/2019/10/12/go_routine/" class="post-more waves-effect waves-button">
+        <a href="/2019/10/12/you_know_grpc/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GO/">GO</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GRPC/">GRPC</a></li></ul>
 
     </div>
     
@@ -481,7 +534,7 @@ chan T是双向...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2019/09/17/MAVEN插件"
+            <article id="post-2019/09/17/maven浅尝辄止"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -499,7 +552,7 @@ chan T是双向...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/18/maven_plugin/">MAVEN插件总览</a>
+      <a class="post-title-link" href="/2019/09/18/maven1/">maven浅尝辄止1</a>
     </h3>
   
 
@@ -509,11 +562,17 @@ chan T是双向...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        maven插件知识总览
-1.对于maven插件的了解插件官网： http://maven.apache.org/plugins/index.html Maven 本质上是一个插件框架，它的核心并不执行任何具体的构建任务，所有这些任务都交给插件来完成。如编译源代码是由 maven-compiler-plugin完成的，每个任务阶段对应了一个插件目标（goal），每个插件会有一个或者多个目标，如...
+        maven的认识
+1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考
+ 　
+2. maven能帮我们解决什么问题
+
+项目统一构建 - 统一生成项目结构
+jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理
+项目版本统一管理 - Release和SNAP...
     
 
-        <a href="/2019/09/18/maven_plugin/" class="post-more waves-effect waves-button">
+        <a href="/2019/09/18/maven1/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -529,14 +588,14 @@ chan T是双向...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2019/09/24/CRON学习"
+            <article id="post-2019/09/17/MAVEN-resource插件"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
         <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
 
 
 
@@ -547,7 +606,7 @@ chan T是双向...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/18/linux_cron/">cron使用</a>
+      <a class="post-title-link" href="/2019/09/18/maven_plugin_resource/">RESOURCE插件说明</a>
     </h3>
   
 
@@ -557,32 +616,24 @@ chan T是双向...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        CRON使用
-1.什么是cron表达式  Cron表达式是一个字符串，字符串以5或6个空格隔开，分为6或7个域，每一个域代表一个含义，Cron有如下两种语法格式
-2 基本语法corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份
-3 基本语法中字段含义
+        #RESOURCE插件说明
+##1插件说明
 
+官方说明
+resources:resources标签全名为org.apache.maven.plugins:maven-resources-plugin:3.1.0:resources即plugin中配置的资源的插件和resource标签的是同样的东西
+资源插件会拷贝对应的资源根据resource标签的设置
 
-字段
-允许值
-允许的特殊字符
-
-
-
-秒（Seconds）
-0~59的整数
-, - * /    四个字符
-...
+##2插件种类Resources插件...
     
 
-        <a href="/2019/09/18/linux_cron/" class="post-more waves-effect waves-button">
+        <a href="/2019/09/18/maven_plugin_resource/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRON/">CRON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">LINUX</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
 
     </div>
     
@@ -636,60 +687,6 @@ chan T是双向...
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DATE/">DATE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2019/09/17/maven浅尝辄止"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/18/maven1/">maven浅尝辄止1</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        maven的认识
-1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考
- 　
-2. maven能帮我们解决什么问题
-
-项目统一构建 - 统一生成项目结构
-jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理
-项目版本统一管理 - Release和SNAP...
-    
-
-        <a href="/2019/09/18/maven1/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
 
     </div>
     
