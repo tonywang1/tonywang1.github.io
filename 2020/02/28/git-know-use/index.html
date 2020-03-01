@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>GIT使用 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GIT">
+    <meta name="description" content="GIT使用 1.什么是GIT 免费开源的分布式版本控制系统，小或者大的工程使适应 2.GIT作用和优点 GIT有工作区间、本地仓库、远程仓库，在没有网络的情况下依然可以用本地仓库进行版本控制。 3.GIT中涉及到的关键字与关键词 HEADER 当前活跃的分支 origin 默认远程仓库的名称  4.git工作流程： git有三个工作树，即工作目录 1）本地工作目录，它持有实际文件2）暂存区域，像一">
+<meta name="keywords" content="GIT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GIT使用">
+<meta property="og:url" content="https://tonywang1.github.io/2020/02/28/git-know-use/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="GIT使用 1.什么是GIT 免费开源的分布式版本控制系统，小或者大的工程使适应 2.GIT作用和优点 GIT有工作区间、本地仓库、远程仓库，在没有网络的情况下依然可以用本地仓库进行版本控制。 3.GIT中涉及到的关键字与关键词 HEADER 当前活跃的分支 origin 默认远程仓库的名称  4.git工作流程： git有三个工作树，即工作目录 1）本地工作目录，它持有实际文件2）暂存区域，像一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-29T10:01:29.668Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GIT使用">
+<meta name="twitter:description" content="GIT使用 1.什么是GIT 免费开源的分布式版本控制系统，小或者大的工程使适应 2.GIT作用和优点 GIT有工作区间、本地仓库、远程仓库，在没有网络的情况下依然可以用本地仓库进行版本控制。 3.GIT中涉及到的关键字与关键词 HEADER 当前活跃的分支 origin 默认远程仓库的名称  4.git工作流程： git有三个工作树，即工作目录 1）本地工作目录，它持有实际文件2）暂存区域，像一">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GIT使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GIT使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-28T15:41:13.000Z" itemprop="datePublished" class="page-time">
+  2020-02-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GIT/">GIT</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GIT使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">GIT使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是GIT"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.什么是GIT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-GIT作用和优点"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.GIT作用和优点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-GIT中涉及到的关键字与关键词"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.GIT中涉及到的关键字与关键词</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-git工作流程：-git有三个工作树，即工作目录"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.git工作流程： git有三个工作树，即工作目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-GIT中常用的命令以及使用场景"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.GIT中常用的命令以及使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-git的分支管理"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6.git的分支管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-gitignore使用，根目录创建文件-gitignore"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">7..gitignore使用，根目录创建文件.gitignore</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-elipse中使用git"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">7.elipse中使用git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-SOURCETREE修改用户名和密码"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">7.SOURCETREE修改用户名和密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-可能会遇到的问题"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">8.可能会遇到的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-主要参考"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">7.主要参考</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2020/git/git使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GIT使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-28 15:41:13" datetime="2020-02-28T15:41:13.000Z"  itemprop="datePublished">2020-02-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GIT/">GIT</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="GIT使用"><a href="#GIT使用" class="headerlink" title="GIT使用"></a>GIT使用</h1><hr>
+<h2 id="1-什么是GIT"><a href="#1-什么是GIT" class="headerlink" title="1.什么是GIT"></a>1.什么是GIT</h2><p> 免费开源的分布式版本控制系统，小或者大的工程使适应</p>
+<h2 id="2-GIT作用和优点"><a href="#2-GIT作用和优点" class="headerlink" title="2.GIT作用和优点"></a>2.GIT作用和优点</h2><p> GIT有工作区间、本地仓库、远程仓库，在没有网络的情况下依然可以用本地仓库进行版本控制。</p>
+<h2 id="3-GIT中涉及到的关键字与关键词"><a href="#3-GIT中涉及到的关键字与关键词" class="headerlink" title="3.GIT中涉及到的关键字与关键词"></a>3.GIT中涉及到的关键字与关键词</h2><ul>
+<li>HEADER 当前活跃的分支</li>
+<li>origin 默认远程仓库的名称</li>
+</ul>
+<h2 id="4-git工作流程：-git有三个工作树，即工作目录"><a href="#4-git工作流程：-git有三个工作树，即工作目录" class="headerlink" title="4.git工作流程： git有三个工作树，即工作目录"></a>4.git工作流程： git有三个工作树，即工作目录</h2><blockquote>
+<p>1）本地工作目录，它持有实际文件<br>2）暂存区域，像一个缓存区域，保存你的改动<br>3）HEAD区域，指向你最后一次提交的结果。<br>   每次提交的时候，add文件，则文件提交到暂存区域即第二个区域，然后commit文件，则文件会被提交到HEAD区域，<br>这个时候其他人还看不到文件的改动，最后需要push，将文件推送到远端的服务器上 </p>
+</blockquote>
+<h2 id="5-GIT中常用的命令以及使用场景"><a href="#5-GIT中常用的命令以及使用场景" class="headerlink" title="5.GIT中常用的命令以及使用场景"></a>5.GIT中常用的命令以及使用场景</h2><ul>
+<li><p>创建新仓库：创建新文件夹，打开，然后执行    git init</p>
+</li>
+<li><p>检出仓库：<br> 本地：git clone /path/to/repository<br> 远端：git clone username@host:/path/to/repository</p>
+</li>
+<li><p>提交文件<br>$ git status -s<br>git add <filename><br>git commit -m “代码提交信息”<br>git  pull     #（将服务器项目与本地项目合并）<br>git push origin master  可以把 master 换成你想要推送的任何分支</filename></p>
+</li>
+<li><p>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：<br>git remote add origin <server><br>（git remote add origin master或 git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:YotrolZ/helloTest.git ）<br>删除本地和远程的关联关系： git remote remove origin <server> </server></server></p>
+</li>
+<li><p>要更新你的本地仓库至最新改动，执行：<br>git pull</p>
+</li>
+<li><p>在合并改动之前，你可以使用如下命令预览差异<br>git diff <source_branch> <target_branch></target_branch></source_branch></p>
+</li>
+<li><p>获取（fetch） 并 合并（merge） 远端的改动。 要合并其他分支到你的当前分支（例如 master）<br>git merge <branch></branch></p>
+</li>
+<li><p>并可能出现冲突（conflicts）。 这时候就需要你修改这些文件来手动合并这些冲突（conflicts）。改完之后，你需要执行如下命令以将它们标记为合并成功：<br>git add <filename></filename></p>
+</li>
+<li><p>假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：<br>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到暂存区的改动以及新文件都不会受到影响。<br>git checkout – <filename></filename></p>
+</li>
+<li><p>假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：<br>git fetch origin（当某个分支看不到的时候，可以这样进行索引更新） - 更新远程分支最新信息到本地，会将远程新创建的分支信息写到 FETCH_HEAD(所有的分支信息)文件中<br>git reset –hard origin/master1111</p>
+</li>
+<li><p>查看远程有什么数据仓库<br>git remote -v</p>
+</li>
+<li><p>git版本回退<br>查看所有版本号<br>git reflog</p>
+</li>
+</ul>
+<p>根据版本号恢复到某个版本<br>git reset –hard 6fcfc89</p>
+<ul>
+<li><p>$ git push origin :master<br>等同于<br>$ git push origin –delete master</p>
+</li>
+<li><p>直接提交：<br>git push origin source -f</p>
+</li>
+</ul>
+<h2 id="6-git的分支管理"><a href="#6-git的分支管理" class="headerlink" title="6.git的分支管理"></a>6.git的分支管理</h2><blockquote>
+<p>git分支操作在本地建立分支，然后与本地主枝合并，最终提交到服务器。有效的避免了因个人操作不当向服务器提交过多脏数据，避免频繁git clone服务器来更新本地库。</p>
+</blockquote>
+<p>分支操作指令：</p>
+<ul>
+<li>建立分支<br>git branch AAA     #建立分支AAA</li>
+<li>分支切换<br>git checkout AAA    #从当前分支切换到AAA分支</li>
+<li>将分支与主枝master合并<br>git checkout master     #（首先切换回主枝）<br>git merge AAA         #（将分支AAA与主枝合并）</li>
+<li>当前分支查看<br>git  branch            #默认有master（也称为主枝）<br>git  branch –a 查看当前所有分支</li>
+<li>删除分支<br>git branch –d  AAA     #删除分支AAA</li>
+<li>删除所有 有远程分支的本地分支<br>git remote prune origin  </li>
+</ul>
+<h2 id="7-gitignore使用，根目录创建文件-gitignore"><a href="#7-gitignore使用，根目录创建文件-gitignore" class="headerlink" title="7..gitignore使用，根目录创建文件.gitignore"></a>7..gitignore使用，根目录创建文件.gitignore</h2><p> 忽略根目录文件：/.project<br> 忽略根目录下的目录：/target/<br> 注意：忽略的目录和文件必须是git没有追踪的（untraced）,如果文件或者目录是已经设置了跟踪，则需要先删除版本库跟踪，然后提交（git commit -m “评”），这时候文件夹或者文件的忽略跟踪才会生效</p>
+<pre><code>git 删除被管理的文件 git rm —cached filePath
+git 删除被管理的文件夹 git rm -r -f —cached filePath
+git 不再追踪文件改动 git update-index --assume-unchanged filePath
+git 恢复追踪文件改动 git update-index —no-assume-unchanged filePath</code></pre><p>  原则：文件未追踪的情况下，添加到.gitignore中，达到忽略文件提交的目的<br>  如果文件已经提交或者已经添加追踪，则删除提交或者删除追踪即可</p>
+<h2 id="7-elipse中使用git"><a href="#7-elipse中使用git" class="headerlink" title="7.elipse中使用git"></a>7.elipse中使用git</h2><blockquote>
+<p>  1 Add to Index ，添加文件到git追踪下<br>  2 Remove from Index ，文件去掉git追踪</p>
+<p>  3 team-&gt;commit 提交文件到本地仓库<br>  4 team-&gt;Repository-&gt;Push to upstream或者push Branch Master 提交到远程共享仓库<br>  5 replace -&gt; head Revision 本地仓库最新文件<br>  6 replace -&gt; Prevision Revision   新版本<br>  7 文件冲突<br>    pull 将新文件下载下来，手动解决冲突，<br>    add 然后push新文件到线上</p>
+</blockquote>
+<h2 id="7-SOURCETREE修改用户名和密码"><a href="#7-SOURCETREE修改用户名和密码" class="headerlink" title="7.SOURCETREE修改用户名和密码"></a>7.SOURCETREE修改用户名和密码</h2><p>删除C:\Users%USERNAME%\AppData\Local\Atlassian\SourceTree 目录下的passwd文件， 能移除掉保存的密码。<br>删除C:\Users%USERNAME%\AppData\Local\Atlassian\SourceTree 目录下的userhosts文件， 能移除掉保存的用户名</p>
+<h2 id="8-可能会遇到的问题"><a href="#8-可能会遇到的问题" class="headerlink" title="8.可能会遇到的问题"></a>8.可能会遇到的问题</h2><p> 如果账号密码有变动，需要修改的话：<br>1 删除：AppData\Local\Atlassian\SourceTree\passwd<br>2  git config –system –unset credential.helper<br>   不行的话git config –global http.emptyAuth true</p>
+<p>git异常ssl权限问题：git config –global http.sslVerify false </p>
+<h2 id="7-主要参考"><a href="#7-主要参考" class="headerlink" title="7.主要参考"></a>7.主要参考</h2><ul>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">安装包下载</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-02-29T10:01:29.668Z" itemprop="dateUpdated">2020-02-29 10:01:29</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GIT/">GIT</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2020/02/28/git-know-use/&title=《GIT使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2020/02/28/git-know-use/&title=《GIT使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2020/02/28/git-know-use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GIT使用》 — 雪地行人&url=https://tonywang1.github.io/2020/02/28/git-know-use/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2020/02/28/git-know-use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/20/java-bytecode-enhancement/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">字节码增强</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2020/02/28/git-know-use/&title=《GIT使用》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2020/02/28/git-know-use/&title=《GIT使用》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2020/02/28/git-know-use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GIT使用》 — 雪地行人&url=https://tonywang1.github.io/2020/02/28/git-know-use/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2020/02/28/git-know-use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aS5LCMAwFQO5/aThBwpNkqIrdWU0xIXZnIazP6xVf7+C6uj95Zv6t0YWBgfFYRrK5q0+SJ9+vcvXffG8YGBjnMJJNJKQkECfUfG8YGBgYyT33R7o8oFfXxcDAwLh/XO/4mAdrDAwMjElATL7bex1/ysUxMDAeyMir7v//+yf9DQwMjEcx3sVrUu7/4a4wMDC2ZlSbkfkIRfJ5b0Tj8k4MDIwjGXlKWQ3EecGucFjEwMA4kpGEwkm5rQr4cj8GBsamjDxlXdWYrIbUQqjFwMDYlFEdtljVblybDGNgYOzNyA98kwJZNVktr4KBgbE1o1rkSo6M81Zoc4cYGBgHMKrpaHWMrBrc82diYGDszZgU9HtFut6K0ZgFBgbGpoxVOeDa0NwbKcPAwNiVkZTS8mNcr+hWXf3yaIiBgbEpoxehq6W0/Mq/hYGBcRqjN6SVpKl5w2DeXsXAwNibUS3l5yMUvfGvZNgi+sXAwMDYiNE7xk2OdPMq2ZeiGwYGxgGMauuxmjHniXEhlGNgYBzAmA+HrSrV9VoLGBgYuzLexWuSylaPieX8GwMDY1NGNU1Nhi1GQxJxols9pGJgYDydMRmeqCbAvVcWFfgwMDAOYMyL+L0maK+1EFUNMTAwDmb0WpjVe/KiHgYGBkZ1gbwN2dv64t8NDAyMRzHyTUyOfUng/nm5DQMD44GMPHXMU8r/vAgMDIwDGB/MDJNhm9ylvwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
