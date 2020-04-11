@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ES初识 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="中间件">
+    <meta name="description" content="ES初识1、什么是ES，能解决什么问题  分布式搜索分析引擎，可以提供近实时的搜索，分析，存储功能 2、ES主要的使用场景是什么？ 搜索、分析、日志、Kibana整合进行可视化图标统计等##3 主要的关键字解释  文档：document -我们存储的数据，数据存储到索引中，会被分词以倒排索引的形式存储。 索引-index ：文档的数据集合 type 映射-mapping：即数据存储模板，决定了数据">
+<meta name="keywords" content="中间件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES初识">
+<meta property="og:url" content="https://tonywang1.github.io/2020/04/11/es-use/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="ES初识1、什么是ES，能解决什么问题  分布式搜索分析引擎，可以提供近实时的搜索，分析，存储功能 2、ES主要的使用场景是什么？ 搜索、分析、日志、Kibana整合进行可视化图标统计等##3 主要的关键字解释  文档：document -我们存储的数据，数据存储到索引中，会被分词以倒排索引的形式存储。 索引-index ：文档的数据集合 type 映射-mapping：即数据存储模板，决定了数据">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-11T05:23:50.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES初识">
+<meta name="twitter:description" content="ES初识1、什么是ES，能解决什么问题  分布式搜索分析引擎，可以提供近实时的搜索，分析，存储功能 2、ES主要的使用场景是什么？ 搜索、分析、日志、Kibana整合进行可视化图标统计等##3 主要的关键字解释  文档：document -我们存储的数据，数据存储到索引中，会被分词以倒排索引的形式存储。 索引-index ：文档的数据集合 type 映射-mapping：即数据存储模板，决定了数据">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ES初识</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ES初识</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-11T15:41:13.000Z" itemprop="datePublished" class="page-time">
+  2020-04-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/中间件/">中间件</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ES初识"><span class="post-toc-number">1.</span> <span class="post-toc-text">ES初识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、什么是ES，能解决什么问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1、什么是ES，能解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、ES主要的使用场景是什么？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2、ES主要的使用场景是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面是数据查询文档的整理："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">下面是数据查询文档的整理：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-搜索"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1 搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-组合统计"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">2 组合统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-java-api的入口"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">3 java api的入口</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2020/server/es-use"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ES初识</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-11 15:41:13" datetime="2020-04-11T15:41:13.000Z"  itemprop="datePublished">2020-04-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/中间件/">中间件</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="ES初识"><a href="#ES初识" class="headerlink" title="ES初识"></a>ES初识</h1><h2 id="1、什么是ES，能解决什么问题"><a href="#1、什么是ES，能解决什么问题" class="headerlink" title="1、什么是ES，能解决什么问题"></a>1、什么是ES，能解决什么问题</h2><p>  分布式搜索分析引擎，可以提供近实时的搜索，分析，存储功能</p>
+<h2 id="2、ES主要的使用场景是什么？"><a href="#2、ES主要的使用场景是什么？" class="headerlink" title="2、ES主要的使用场景是什么？"></a>2、ES主要的使用场景是什么？</h2><p> 搜索、分析、日志、Kibana整合进行可视化图标统计等<br>##3 主要的关键字解释</p>
+<ul>
+<li>文档：document -我们存储的数据，数据存储到索引中，会被分词以倒排索引的形式存储。</li>
+<li>索引-index ：文档的数据集合</li>
+<li>type</li>
+<li>映射-mapping：即数据存储模板，决定了数据存到索引中以后的行为，如是否需要分词，使用什么分词等。</li>
+<li>定义映射的时候要确定：字段是否需要全文索引，还是准确的查找，是否需要单独的分词，一段文字可以根据不同使用情况，存储多个key中，是否需要自定义数据类型</li>
+<li>分词：各种分词插件，搜索和存储的时候会用到<br>##4下面是数据查询文档的整理：</li>
+</ul>
+<h2 id="下面是数据查询文档的整理："><a href="#下面是数据查询文档的整理：" class="headerlink" title="下面是数据查询文档的整理："></a>下面是数据查询文档的整理：</h2><h3 id="1-搜索"><a href="#1-搜索" class="headerlink" title="1 搜索"></a>1 搜索</h3><blockquote>
+<ul>
+<li>wildcard-通配符 ： <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-wildcard-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-wildcard-query.html</a></li>
+<li>exists-值是否存在：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-exists-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-exists-query.html</a></li>
+<li>fuzzy-相似模糊：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html</a></li>
+<li>prefix-前缀：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-prefix-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-prefix-query.html</a></li>
+<li>range-范围：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html</a></li>
+<li>term-字段匹配：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html</a></li>
+<li>terms-字段in匹配：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html</a></li>
+<li>terms-set - 集合子集匹配：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-set-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-set-query.html</a></li>
+<li>Match-all-全集合查询：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-all-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-all-query.html</a></li>
+<li>Mathch-全文检索：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html</a></li>
+<li>Mathch-Phrase - 短语全文检索：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase.html</a></li>
+<li>Bool - 组合查询：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html</a></li>
+<li>boosting-得分分配：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-boosting-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-boosting-query.html</a></li>
+<li>Query与Filter区别：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html</a></li>
+</ul>
+</blockquote>
+<h3 id="2-组合统计"><a href="#2-组合统计" class="headerlink" title="2 组合统计"></a>2 组合统计</h3><blockquote>
+<ul>
+<li>AVG-平均数：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-avg-aggregation.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-avg-aggregation.html</a></li>
+<li>MAX-最大值：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-max-aggregation.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-max-aggregation.html</a></li>
+<li>MIN-最小值：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-min-aggregation.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-min-aggregation.html</a></li>
+<li>Stat-最大最小平均数：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html、" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html、</a></li>
+<li>Sum-求和：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-sum-aggregation.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-sum-aggregation.html</a></li>
+<li>分组统计：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html</a></li>
+<li>先过滤在统计：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filter-aggregation.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filter-aggregation.html</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>数据类型：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html</a></li>
+<li>自带元数据：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-fields.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-fields.html</a></li>
+<li>创建索引：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html</a></li>
+<li>创建mapping: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/properties.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/properties.html</a></li>
+<li>创建mapping：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html</a></li>
+<li>更新查看mapping：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html#update-mapping" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html#update-mapping</a></li>
+</ul>
+</blockquote>
+<h3 id="3-java-api的入口"><a href="#3-java-api的入口" class="headerlink" title="3 java api的入口"></a>3 java api的入口</h3><blockquote>
+<ul>
+<li>api：<a href="https://www.elastic.co/guide/en/elasticsearch/client/index.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/client/index.html</a></li>
+<li>创建索引：<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-index.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-index.html</a></li>
+<li>Get请求：<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-get.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-get.html</a></li>
+<li>是否存在搜索内容：<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-exists.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-exists.html</a></li>
+<li>批量执行：<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-bulk.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-bulk.html</a></li>
+<li>搜索：<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-search.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-search.html</a></li>
+</ul>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-04-11T05:23:50.125Z" itemprop="dateUpdated">2020-04-11 05:23:50</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中间件/">中间件</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2020/04/11/es-use/&title=《ES初识》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2020/04/11/es-use/&title=《ES初识》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2020/04/11/es-use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES初识》 — 雪地行人&url=https://tonywang1.github.io/2020/04/11/es-use/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2020/04/11/es-use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/03/10/struct/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">架构整理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2020/04/11/es-use/&title=《ES初识》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2020/04/11/es-use/&title=《ES初识》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2020/04/11/es-use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES初识》 — 雪地行人&url=https://tonywang1.github.io/2020/04/11/es-use/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2020/04/11/es-use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQXaDMAxF0ex/02TaieF9iSRFfoxyWgi6Hii2pNcLX8fi+vvf1f3km9OnipcMGTIeyzhOr84LVt9wzj5/ahmJDBkyNmCQIM4/83BJzuSxyZAhQ8Z5uCQd82RK3itDhgwZacLlAZGU+rPfDRkyZDyEwQtqPHXWluDjZ3EZMmQ8kFErnH3n80f6GzJkyHgU4wgv/j0kNd8WlQwZMkYzeIKrFctqx9daPDJkyJjK6Ixt8VYBGbA4T8cXccqQIWM0o1PW75fbUsDF/TJkyBjKqG3p0tYjT761nwQZMmTsyagdOHmprtMeuJgWkSFDxjaMdMPHU3atbXBRhpMhQ8YGDN5i7Bxr+4DlwsmQIWM0497tWlpK483LYLllyJAxjpEOfvHjZQrrDG3IkCFjB0ZnwKIz4JWGvvyLDBkyRjPiZiEvgZW2jzx0tMOVIUPGCEY6HtEZzujDls/KkCFjNIO8plbD62wWO60CGTJkzGbwoa40gabgGw6xMmTIGMfgY6Z865Y2GNJxjWXtUIYMGaMZZPuVHm4741/xIsqQIWNLRq1MT8r9d209ZciQsQPjCC9emEs3kbVFkSFDxg6M2mjFXSGmS4BmRmTIkDGU0R+tSFNnbcmCxoAMGTKGMngRPx3ISFsORaQMGTJk4EMmHyZLN5Go6CZDhgwZ+EDLx7946F9NuDJkyPiXjNq4Qxoo3/ClyyRDhozZDH505ID0nnTLWGxqypAh43mMN8ocIuDTgdrzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
