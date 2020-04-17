@@ -20,16 +20,16 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="linux">
+    <meta name="keywords" content="LINUX">
     <meta name="description" content="日志清理脚本12345678910111213141516#!/bin/bash#统计一定数量的日志，然后根据时间删除logpath=&quot;/data/tomcat/logs&quot;count=`find  /data/tomcat/logs  -name &quot;*.log&quot; -o -name &quot;*.txt&quot; -type f -mtime +3 | wc -l`echo  &quot;$count&quot;;if [ &quot;$cou">
-<meta name="keywords" content="linux">
+<meta name="keywords" content="LINUX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux中脚本介绍">
 <meta property="og:url" content="https://tonywang1.github.io/2020/04/11/linux_shell/index.html">
 <meta property="og:site_name" content="雪地行人">
 <meta property="og:description" content="日志清理脚本12345678910111213141516#!/bin/bash#统计一定数量的日志，然后根据时间删除logpath=&quot;/data/tomcat/logs&quot;count=`find  /data/tomcat/logs  -name &quot;*.log&quot; -o -name &quot;*.txt&quot; -type f -mtime +3 | wc -l`echo  &quot;$count&quot;;if [ &quot;$cou">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-17T01:47:02.661Z">
+<meta property="og:updated_time" content="2020-04-17T01:48:39.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux中脚本介绍">
 <meta name="twitter:description" content="日志清理脚本12345678910111213141516#!/bin/bash#统计一定数量的日志，然后根据时间删除logpath=&quot;/data/tomcat/logs&quot;count=`find  /data/tomcat/logs  -name &quot;*.log&quot; -o -name &quot;*.txt&quot; -type f -mtime +3 | wc -l`echo  &quot;$count&quot;;if [ &quot;$cou">
@@ -143,7 +143,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
 
             
         </h5>
@@ -174,7 +174,7 @@
             <time class="post-time" title="2020-04-11 15:41:13" datetime="2020-04-11T15:41:13.000Z"  itemprop="datePublished">2020-04-11</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
 
 
 
@@ -186,7 +186,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="日志清理脚本"><a href="#日志清理脚本" class="headerlink" title="日志清理脚本"></a>日志清理脚本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>统计一定数量的日志，然后根据时间删除</span><br><span class="line">logpath="/data/tomcat/logs"</span><br><span class="line">count=`find  /data/tomcat/logs  -name "*.log" -o -name "*.txt" -type f -mtime +3 | wc -l`</span><br><span class="line">echo  "$count";</span><br><span class="line">if [ "$count" -lt "20" ];then</span><br><span class="line">    echo "file is less 20. no file is removed."</span><br><span class="line">    exit 0;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>find $logpath  -name "*.log" -o -name "*.txt" -type f -mtime +5 -exec rm &#123;&#125; \; &gt; /dev/null 2&gt;&amp;1 ;</span><br><span class="line">find  /data/tomcat/logs  -name "*.log"  -mtime +3 -exec rm &#123;&#125; \; </span><br><span class="line">find  /data/tomcat/logs  -name "*.txt"  -mtime +3 -exec rm &#123;&#125; \;</span><br><span class="line"></span><br><span class="line">count2=` find  /data/tomcat/logs  -name "*.log" -o -name "*.txt" -type f -mtime +10 | wc -l`</span><br><span class="line">echo "$count2"</span><br></pre></td></tr></table></figure>
+            <h1 id="日志清理脚本"><a href="#日志清理脚本" class="headerlink" title="日志清理脚本"></a>日志清理脚本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">统计一定数量的日志，然后根据时间删除</span></span><br><span class="line">logpath="/data/tomcat/logs"</span><br><span class="line">count=`find  /data/tomcat/logs  -name "*.log" -o -name "*.txt" -type f -mtime +3 | wc -l`</span><br><span class="line">echo  "$count";</span><br><span class="line">if [ "$count" -lt "20" ];then</span><br><span class="line">    echo "file is less 20. no file is removed."</span><br><span class="line">    exit 0;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">find <span class="variable">$logpath</span>  -name <span class="string">"*.log"</span> -o -name <span class="string">"*.txt"</span> -<span class="built_in">type</span> f -mtime +5 -<span class="built_in">exec</span> rm &#123;&#125; \; &gt; /dev/null 2&gt;&amp;1 ;</span></span><br><span class="line">find  /data/tomcat/logs  -name "*.log"  -mtime +3 -exec rm &#123;&#125; \; </span><br><span class="line">find  /data/tomcat/logs  -name "*.txt"  -mtime +3 -exec rm &#123;&#125; \;</span><br><span class="line"></span><br><span class="line">count2=` find  /data/tomcat/logs  -name "*.log" -o -name "*.txt" -type f -mtime +10 | wc -l`</span><br><span class="line">echo "$count2"</span><br></pre></td></tr></table></figure>
 
 
 
@@ -204,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-17T01:47:02.661Z" itemprop="dateUpdated">2020-04-17 01:47:02</time>
+    最后更新时间：<time datetime="2020-04-17T01:48:39.564Z" itemprop="dateUpdated">2020-04-17 01:48:39</time>
 </span><br>
 
 
@@ -224,7 +224,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">LINUX</a></li></ul>
 
 
             
