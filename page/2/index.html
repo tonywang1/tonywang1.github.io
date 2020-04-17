@@ -152,14 +152,14 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-2019/09/17/MAVEN插件"
+            <article id="post-2019/10/29/go-goroutine"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+        <time class="post-time" title="2019-10-12 15:41:13" datetime="2019-10-12T15:41:13.000Z"  itemprop="datePublished">2019-10-12</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GO/">GO</a></li></ul>
 
 
 
@@ -170,7 +170,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/18/maven_plugin/">MAVEN插件总览</a>
+      <a class="post-title-link" href="/2019/10/12/go_routine/">GO并发处理</a>
     </h3>
   
 
@@ -180,125 +180,29 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        maven插件知识总览
-1.对于maven插件的了解插件官网： http://maven.apache.org/plugins/index.html Maven 本质上是一个插件框架，它的核心并不执行任何具体的构建任务，所有这些任务都交给插件来完成。如编译源代码是由 maven-compiler-plugin完成的，每个任务阶段对应了一个插件目标（goal），每个插件会有一个或者多个目标，如...
+        #GO并发处理
+
+1.协程2.channal
+概念：一个channel可以理解为一个先进先出的消息队列，有长度和容量，类似一个数组
+
+作用：channel用来在协程[goroutine]之前传递数据，准确的说，是用来传递数据的所有权
+
+设计：一个设计良好的程序应该确保同一时刻channel里面的数据只会被同一个协程拥有，这样就可以避免并发带来的数据不安全问题
+
+类型：
+
+
+chan T是双向...
     
 
-        <a href="/2019/09/18/maven_plugin/" class="post-more waves-effect waves-button">
+        <a href="/2019/10/12/go_routine/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2019/09/24/JAVA日期时间"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JAVA/">JAVA</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/18/java_date/">JAVA时间总结</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        JAVA时间总结
-1.UTC(世界标准时间)什么是utc时间
-
-即协调世界时。UTC是以原子时秒长为基础，在时刻上尽量接近于GMT的一种时间计量系统。为确保UTC与GMT相差不会超过0.9秒，在有需要的情况下会在UTC内加上正或负闰秒。UTC现在作为世界标准时间使用
-
-2.GMT(格林尼治平时)
-即格林尼治标准时间，也就是世界时。GMT的正午是指当太阳横穿格林尼治子午线（本初子午线）时的时间...
-    
-
-        <a href="/2019/09/18/java_date/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DATE/">DATE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2019/09/17/maven浅尝辄止"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/18/maven1/">maven浅尝辄止1</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        maven的认识
-1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考
- 　
-2. maven能帮我们解决什么问题
-
-项目统一构建 - 统一生成项目结构
-jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理
-项目版本统一管理 - Release和SNAP...
-    
-
-        <a href="/2019/09/18/maven1/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GO/">GO</a></li></ul>
 
     </div>
     
@@ -349,68 +253,6 @@ jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2019/09/24/CRON学习"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/18/linux_cron/">cron使用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        CRON使用
-1.什么是cron表达式  Cron表达式是一个字符串，字符串以5或6个空格隔开，分为6或7个域，每一个域代表一个含义，Cron有如下两种语法格式
-2 基本语法corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份
-3 基本语法中字段含义
-
-
-字段
-允许值
-允许的特殊字符
-
-
-
-秒（Seconds）
-0~59的整数
-, - * /    四个字符
-...
-    
-
-        <a href="/2019/09/18/linux_cron/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRON/">CRON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">LINUX</a></li></ul>
 
     </div>
     
@@ -532,6 +374,223 @@ resources:resources标签全名为org.apache.maven.plugins:maven-resources-plugi
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-2019/09/17/maven浅尝辄止"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/18/maven1/">maven浅尝辄止1</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        maven的认识
+1.什么是maven？   Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。参考
+ 　
+2. maven能帮我们解决什么问题
+
+项目统一构建 - 统一生成项目结构
+jar包统一管理 - 自动下载jar包、对应的jar包的依赖、jar包不同版本冲突问题、jar包版本统一管理
+项目版本统一管理 - Release和SNAP...
+    
+
+        <a href="/2019/09/18/maven1/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2019/09/24/CRON学习"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/LINUX/">LINUX</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/18/linux_cron/">cron使用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        CRON使用
+1.什么是cron表达式  Cron表达式是一个字符串，字符串以5或6个空格隔开，分为6或7个域，每一个域代表一个含义，Cron有如下两种语法格式
+2 基本语法corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份
+3 基本语法中字段含义
+
+
+字段
+允许值
+允许的特殊字符
+
+
+
+秒（Seconds）
+0~59的整数
+, - * /    四个字符
+...
+    
+
+        <a href="/2019/09/18/linux_cron/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRON/">CRON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">LINUX</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2019/09/17/MAVEN插件"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MAVEN/">MAVEN</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/18/maven_plugin/">MAVEN插件总览</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        maven插件知识总览
+1.对于maven插件的了解插件官网： http://maven.apache.org/plugins/index.html Maven 本质上是一个插件框架，它的核心并不执行任何具体的构建任务，所有这些任务都交给插件来完成。如编译源代码是由 maven-compiler-plugin完成的，每个任务阶段对应了一个插件目标（goal），每个插件会有一个或者多个目标，如...
+    
+
+        <a href="/2019/09/18/maven_plugin/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAVEN/">MAVEN</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2019/09/24/JAVA日期时间"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-17 20:28:36" datetime="2019-09-17T20:28:36.000Z"  itemprop="datePublished">2019-09-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JAVA/">JAVA</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/18/java_date/">JAVA时间总结</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        JAVA时间总结
+1.UTC(世界标准时间)什么是utc时间
+
+即协调世界时。UTC是以原子时秒长为基础，在时刻上尽量接近于GMT的一种时间计量系统。为确保UTC与GMT相差不会超过0.9秒，在有需要的情况下会在UTC内加上正或负闰秒。UTC现在作为世界标准时间使用
+
+2.GMT(格林尼治平时)
+即格林尼治标准时间，也就是世界时。GMT的正午是指当太阳横穿格林尼治子午线（本初子午线）时的时间...
+    
+
+        <a href="/2019/09/18/java_date/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DATE/">DATE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-深入字节"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -633,68 +692,6 @@ resources:resources标签全名为org.apache.maven.plugins:maven-resources-plugi
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-2019/08/30/Github创建网站"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-08-30 17:51:03" datetime="2019-08-30T17:51:03.000Z"  itemprop="datePublished">2019-08-30</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Github/">Github</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/08/31/gen_github_page/">Github上创建自己的网站</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Github搭建自己的博客
-为什么要搭建自己的博客
-
-探索未知世界
-记录自己的成长
-为后来者提供借鉴
-梳理自己的逻辑思维
-整理自己的学习知识，方便以后查阅
-
-
-1. github page是什么？
-　　GitHub页面是一种静态网站托管服务，旨在直接从GitHub存储库托管个人、组织或项目页面。
-
-Github Page官方详细
-2. hexo是什么？
-简单、快速、强大的Node.js静态博...
-    
-
-        <a href="/2019/08/31/gen_github_page/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
 
     </div>
     
