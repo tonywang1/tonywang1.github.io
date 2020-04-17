@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>linux中脚本介绍 | 雪地行人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux">
+    <meta name="description" content="日志清理脚本12345678910111213141516#!/bin/bash#统计一定数量的日志，然后根据时间删除logpath=&quot;/data/tomcat/logs&quot;count=`find  /data/tomcat/logs  -name &quot;*.log&quot; -o -name &quot;*.txt&quot; -type f -mtime +3 | wc -l`echo  &quot;$count&quot;;if [ &quot;$cou">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux中脚本介绍">
+<meta property="og:url" content="https://tonywang1.github.io/2020/04/11/linux_shell/index.html">
+<meta property="og:site_name" content="雪地行人">
+<meta property="og:description" content="日志清理脚本12345678910111213141516#!/bin/bash#统计一定数量的日志，然后根据时间删除logpath=&quot;/data/tomcat/logs&quot;count=`find  /data/tomcat/logs  -name &quot;*.log&quot; -o -name &quot;*.txt&quot; -type f -mtime +3 | wc -l`echo  &quot;$count&quot;;if [ &quot;$cou">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-17T01:47:02.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux中脚本介绍">
+<meta name="twitter:description" content="日志清理脚本12345678910111213141516#!/bin/bash#统计一定数量的日志，然后根据时间删除logpath=&quot;/data/tomcat/logs&quot;count=`find  /data/tomcat/logs  -name &quot;*.log&quot; -o -name &quot;*.txt&quot; -type f -mtime +3 | wc -l`echo  &quot;$count&quot;;if [ &quot;$cou">
+    
+        <link rel="alternate" type="application/atom+xml" title="雪地行人" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/title1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Tony Wang</h5>
+          <a href="mailto:wnag.zhantao@163.com" title="wnag.zhantao@163.com" class="mail">wnag.zhantao@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/tonywang1" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">linux中脚本介绍</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">linux中脚本介绍</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-11T15:41:13.000Z" itemprop="datePublished" class="page-time">
+  2020-04-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#日志清理脚本"><span class="post-toc-number">1.</span> <span class="post-toc-text">日志清理脚本</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、JAVA项目启动脚本"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2、JAVA项目启动脚本</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2020/linux/linux-shell_bak"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">linux中脚本介绍</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-11 15:41:13" datetime="2020-04-11T15:41:13.000Z"  itemprop="datePublished">2020-04-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="日志清理脚本"><a href="#日志清理脚本" class="headerlink" title="日志清理脚本"></a>日志清理脚本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>统计一定数量的日志，然后根据时间删除</span><br><span class="line">logpath="/data/tomcat/logs"</span><br><span class="line">count=`find  /data/tomcat/logs  -name "*.log" -o -name "*.txt" -type f -mtime +3 | wc -l`</span><br><span class="line">echo  "$count";</span><br><span class="line">if [ "$count" -lt "20" ];then</span><br><span class="line">    echo "file is less 20. no file is removed."</span><br><span class="line">    exit 0;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>find $logpath  -name "*.log" -o -name "*.txt" -type f -mtime +5 -exec rm &#123;&#125; \; &gt; /dev/null 2&gt;&amp;1 ;</span><br><span class="line">find  /data/tomcat/logs  -name "*.log"  -mtime +3 -exec rm &#123;&#125; \; </span><br><span class="line">find  /data/tomcat/logs  -name "*.txt"  -mtime +3 -exec rm &#123;&#125; \;</span><br><span class="line"></span><br><span class="line">count2=` find  /data/tomcat/logs  -name "*.log" -o -name "*.txt" -type f -mtime +10 | wc -l`</span><br><span class="line">echo "$count2"</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2、JAVA项目启动脚本"><a href="#2、JAVA项目启动脚本" class="headerlink" title="2、JAVA项目启动脚本"></a>2、JAVA项目启动脚本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;杀掉springboot线程&quot;</span><br><span class="line">pgrep -f 项目名称|xargs kill -9</span><br><span class="line">echo &quot;项目启动&quot;</span><br><span class="line">nohup  java -server -Xms1096m -Xmx1096m -jar  项目的.jar &gt; out.log 2&gt;&amp;1 &amp;</span><br><span class="line">tail -f -n500 out.log</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-04-17T01:47:02.661Z" itemprop="dateUpdated">2020-04-17 01:47:02</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://tonywang1.github.io">
+            <img src="/img/title1.jpg" alt="Tony Wang">
+            Tony Wang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2020/04/11/linux_shell/&title=《linux中脚本介绍》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2020/04/11/linux_shell/&title=《linux中脚本介绍》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2020/04/11/linux_shell/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux中脚本介绍》 — 雪地行人&url=https://tonywang1.github.io/2020/04/11/linux_shell/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2020/04/11/linux_shell/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/11/es-use/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ES初识</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Tony Wang &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://tonywang1.github.io/2020/04/11/linux_shell/&title=《linux中脚本介绍》 — 雪地行人&pic=https://tonywang1.github.io/img/title1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://tonywang1.github.io/2020/04/11/linux_shell/&title=《linux中脚本介绍》 — 雪地行人&source=纷繁的大雪中驻立着的雪人" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://tonywang1.github.io/2020/04/11/linux_shell/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux中脚本介绍》 — 雪地行人&url=https://tonywang1.github.io/2020/04/11/linux_shell/&via=https://tonywang1.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://tonywang1.github.io/2020/04/11/linux_shell/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPElEQVR42u3aO3LDMAxFUe9/007rwqLuA6zMELyqPLYi8qhA8OHrha/3x3X1/eevV9+vn7m+/weXDBkytmW8lxfZLt9W7fnrvcmQIeMcxlUE+9V2STBdv6abPcuQIUMGSAqfC7gyZMiQUQu4pMTl98iQIUMGYZDQmfa41k06kg4+UovLkCFjQwbvuv//50fmGzJkyNiK8Q6v9Gl8WzzIfllFhgwZoxnpMrVUb136psXw5Z0yZMgYykgbWzyM1hpn/BUEEwwZMmRszqg9rpP8kRSwduBDhgwZJzD40JEsTAYJ6Ri11SmUIUPGtgzezKq1zEio7aSqMmTIOIGRYtJmWZoO1oK4DBkyZjM6BWQtWUyLUrRDGTJkHMDoH3qoDT5r99yMMGXIkDGOQbaeNvd/VdamDTsZMmRMZZANkQU6ZXCtxSZDhoxzGPwmPhFN2/382ESQGsqQIWMQgwS42uEtfoSLJ5qXeBkyZBzASP+4fy6r9jounyBDhozRjM4wgJesZHjJj4uhIlaGDBlDGXwxvrnawYtaSipDhoxzGOlBVT5aIG07Ppy4q2tlyJAxmdFv4qfDy3TkcFPEypAhYxyjVpqmn9PBJ3+tQbdPhgwZ2zLSZTqbro0f0iJZhgwZUxm1IEsYtRDJk8vgv4cMGTJGMHjg6wfHTtqHDlvIkCHjeAbPNHnK2Dl4IUOGDBlp8E2HAenWHwm4MmTI2IRBitjaYa/0FTzebpMhQ8aGjHTEiE5w4E30E1MZMmSMZvwBLLJgvpoUxRQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
