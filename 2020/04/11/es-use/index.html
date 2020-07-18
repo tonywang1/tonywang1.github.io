@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="雪地行人">
 <meta property="og:description" content="ES初识1、什么是ES，能解决什么问题  分布式搜索分析引擎，可以提供近实时的搜索，分析，存储功能 2、ES主要的使用场景是什么？ 搜索、分析、日志、Kibana整合进行可视化图标统计等##3 主要的关键字解释  文档：document -我们存储的数据，数据存储到索引中，会被分词以倒排索引的形式存储。 索引-index ：文档的数据集合 type 映射-mapping：即数据存储模板，决定了数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-11T05:23:50.125Z">
+<meta property="og:updated_time" content="2020-07-18T07:09:22.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES初识">
 <meta name="twitter:description" content="ES初识1、什么是ES，能解决什么问题  分布式搜索分析引擎，可以提供近实时的搜索，分析，存储功能 2、ES主要的使用场景是什么？ 搜索、分析、日志、Kibana整合进行可视化图标统计等##3 主要的关键字解释  文档：document -我们存储的数据，数据存储到索引中，会被分词以倒排索引的形式存储。 索引-index ：文档的数据集合 type 映射-mapping：即数据存储模板，决定了数据">
@@ -160,7 +160,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ES初识"><span class="post-toc-number">1.</span> <span class="post-toc-text">ES初识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、什么是ES，能解决什么问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1、什么是ES，能解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、ES主要的使用场景是什么？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2、ES主要的使用场景是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面是数据查询文档的整理："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">下面是数据查询文档的整理：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-搜索"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1 搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-组合统计"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">2 组合统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-java-api的入口"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">3 java api的入口</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ES初识"><span class="post-toc-number">1.</span> <span class="post-toc-text">ES初识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、什么是ES，能解决什么问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1、什么是ES，能解决什么问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、ES主要的使用场景是什么？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2、ES主要的使用场景是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面是数据查询文档的整理："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">下面是数据查询文档的整理：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-搜索"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1 搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-组合统计"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">2 组合统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-java-api的入口"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">3 java api的入口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-分片优化方案"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">4 分片优化方案</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -192,7 +192,7 @@
 <li>文档：document -我们存储的数据，数据存储到索引中，会被分词以倒排索引的形式存储。</li>
 <li>索引-index ：文档的数据集合</li>
 <li>type</li>
-<li>映射-mapping：即数据存储模板，决定了数据存到索引中以后的行为，如是否需要分词，使用什么分词等。</li>
+<li>映射-mapping：即数据存储模板，决定了数据存到索引中以后的行为，如是否需要分词，使用什么分词等。 查看已经添加的模板信息：GET _template/模板名称</li>
 <li>定义映射的时候要确定：字段是否需要全文索引，还是准确的查找，是否需要单独的分词，一段文字可以根据不同使用情况，存储多个key中，是否需要自定义数据类型</li>
 <li>分词：各种分词插件，搜索和存储的时候会用到<br>##4下面是数据查询文档的整理：</li>
 </ul>
@@ -245,6 +245,13 @@
 <li>搜索：<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-search.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-search.html</a></li>
 </ul>
 </blockquote>
+<h3 id="4-分片优化方案"><a href="#4-分片优化方案" class="headerlink" title="4 分片优化方案"></a>4 分片优化方案</h3><p>分片优化方案：</p>
+<ul>
+<li>1、从集群总内存上去看集群一共支持多少分片- 最大分片数量=集群总内存*20</li>
+<li>2、从索引大小的角度看，索引中每个分片占用磁盘大小，小于50G<br>如果按照天计算索引，每个索引大小为1T，则分片 数量=(1T*1024)/30，当然分母为30和50中间的值</li>
+<li>3、节点数量上，一个索引分片大小在，节点数量的1.5到3倍的原则</li>
+<li>4、1个索引最好不要超过21亿的文档<br>分片官方文档：<a href="https://www.elastic.co/cn/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster" target="_blank" rel="noopener">https://www.elastic.co/cn/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster</a></li>
+</ul>
 
         </div>
 
@@ -253,7 +260,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-11T05:23:50.125Z" itemprop="dateUpdated">2020-04-11 05:23:50</time>
+    最后更新时间：<time datetime="2020-07-18T07:09:22.208Z" itemprop="dateUpdated">2020-07-18 07:09:22</time>
 </span><br>
 
 

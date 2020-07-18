@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tonywang1.github.io/2020/04/11/linux_shell/</loc>
+    <loc>https://tonywang1.github.io/2020/04/11/es-use/</loc>
     
-    <lastmod>2020-04-23T11:43:13.456Z</lastmod>
+    <lastmod>2020-07-18T07:09:22.208Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tonywang1.github.io/2020/04/11/es-use/</loc>
+    <loc>https://tonywang1.github.io/2019/09/18/linux_curl/</loc>
     
-    <lastmod>2020-04-11T05:23:50.125Z</lastmod>
+    <lastmod>2020-07-18T07:01:52.197Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tonywang1.github.io/2020/04/11/linux_shell/</loc>
+    
+    <lastmod>2020-04-23T11:43:13.456Z</lastmod>
     
   </url>
   
@@ -103,13 +110,6 @@
     <loc>https://tonywang1.github.io/2019/09/18/linux_cron/</loc>
     
     <lastmod>2019-09-25T06:21:48.816Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tonywang1.github.io/2019/09/18/linux_curl/</loc>
-    
-    <lastmod>2019-09-25T03:18:29.977Z</lastmod>
     
   </url>
   

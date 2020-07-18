@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="雪地行人">
 <meta property="og:description" content="CURL使用 1.curl作用  　curl是一个利用URL规则在命令行下工作的文件传输工具 2语法 curl [option] [url] 3实例 发送get、post请求-代码3.1 发送带有参数的get和post请求 - 3.2  查看请求的整个请求链路-调试谁用 - 3.3 发送带有header请求 - 4.4 发送设置host的请求 -4.4    12代码3.1curl -i(返回头信">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T03:18:29.977Z">
+<meta property="og:updated_time" content="2020-07-18T07:01:52.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CURL使用">
 <meta name="twitter:description" content="CURL使用 1.curl作用  　curl是一个利用URL规则在命令行下工作的文件传输工具 2语法 curl [option] [url] 3实例 发送get、post请求-代码3.1 发送带有参数的get和post请求 - 3.2  查看请求的整个请求链路-调试谁用 - 3.3 发送带有header请求 - 4.4 发送设置host的请求 -4.4    12代码3.1curl -i(返回头信">
@@ -202,7 +202,7 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">代码3.2</span><br><span class="line">- 发送applicationjson数据</span><br><span class="line">- curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; https://proxy.mimvp1.com/login</span><br><span class="line">- 普通数据提交</span><br><span class="line">- curl -d &quot;param1=value1&amp;param2=value2&quot; -H &quot;Content-Type: application/x-www-form-urlencoded&quot; -X POST http://localhost:3001/data</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码3.3</span><br><span class="line">curl  -X POST/Get http//www.baidu.com -xvo /usr/null</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码3.3</span><br><span class="line">curl  -X POST/Get http//www.baidu.com -xvo /usr/null  | python -m json.tool</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码4.4</span><br><span class="line">curl  &apos;http://localhost/hadoop1/clusters/list?page=1&amp;pageSize=50&amp;total=0&amp;tokenId=tokenId_a218_4ab8_8404_3ac9a4b63d2c&apos; -H &apos;host:bd1prod.localhost.com</span><br></pre></td></tr></table></figure>
         </div>
@@ -212,7 +212,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-25T03:18:29.977Z" itemprop="dateUpdated">2019-09-25 03:18:29</time>
+    最后更新时间：<time datetime="2020-07-18T07:01:52.197Z" itemprop="dateUpdated">2020-07-18 07:01:52</time>
 </span><br>
 
 
@@ -290,9 +290,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/09/18/linux_cron/" id="post-prev" class="post-nav-link">
+      <a href="/2019/09/18/maven_plugin_resource/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">cron使用</h4>
+        <h4 class="title">RESOURCE插件说明</h4>
       </a>
     </div>
   
