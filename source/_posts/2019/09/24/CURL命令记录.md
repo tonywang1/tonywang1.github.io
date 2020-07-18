@@ -43,7 +43,7 @@ curl -i(返回头信息) -X POST/Get http//www.baidu.com
 
 ```linux
 代码3.3
-curl  -X POST/Get http//www.baidu.com -xvo /usr/null 
+curl  -X POST/Get http//www.baidu.com -xvo /usr/null  | python -m json.tool
 ```
 
 ```linux
