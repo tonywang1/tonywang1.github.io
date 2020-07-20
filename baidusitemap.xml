@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tonywang1.github.io/2019/09/11/lean_byte/</loc>
+    <lastmod>2020-07-20</lastmod>
+  </url>  <url>
     <loc>https://tonywang1.github.io/2020/04/11/es-use/</loc>
     <lastmod>2020-07-18</lastmod>
   </url>  <url>
@@ -60,9 +63,6 @@
   </url>  <url>
     <loc>https://tonywang1.github.io/2019/09/18/maven_plugin_resource/</loc>
     <lastmod>2019-09-24</lastmod>
-  </url>  <url>
-    <loc>https://tonywang1.github.io/2019/09/11/lean_byte/</loc>
-    <lastmod>2019-09-17</lastmod>
   </url>  <url>
     <loc>https://tonywang1.github.io/2019/09/10/read_config/</loc>
     <lastmod>2019-09-10</lastmod>

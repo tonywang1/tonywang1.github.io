@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="雪地行人">
 <meta property="og:description" content="深入了解字节 1.为什么要写字节这个东东  做JAVA项目的时候总会碰到读写字节的过程 经常有字符串和字节互相转化的过程 每次只是知道怎么做，但是不知道为什么这样做   希望经过这篇文章整理，彻底了解这个字节以及字节和用户输入文字之间的关系。 2. 了解一下具体什么是字节 在编程的时候总会遇到字节数组，如读取一个文件时候多个字节一起读、Socket的网络编程的时候读取数据也是按照字节读取的，总会思">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-17T07:36:10.853Z">
+<meta property="og:updated_time" content="2020-07-20T08:00:37.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入字节">
 <meta name="twitter:description" content="深入了解字节 1.为什么要写字节这个东东  做JAVA项目的时候总会碰到读写字节的过程 经常有字符串和字节互相转化的过程 每次只是知道怎么做，但是不知道为什么这样做   希望经过这篇文章整理，彻底了解这个字节以及字节和用户输入文字之间的关系。 2. 了解一下具体什么是字节 在编程的时候总会遇到字节数组，如读取一个文件时候多个字节一起读、Socket的网络编程的时候读取数据也是按照字节读取的，总会思">
@@ -215,6 +215,7 @@
 <li>UTF-8最多可用到6个字节则二进制变为100 111000 101101一共3个部分<br><a href="https://blog.csdn.net/liuwenjie517333813/article/details/68060904" target="_blank" rel="noopener">参考链接</a></li>
 </ul>
 </blockquote>
+<p> 对于JAVA-我们编写的代码用UTF-8（这个是发文件编码）-&gt;类加载以后会统一用UTF-16进行编码(内存中统一用UTF-16表示)</p>
 <h2 id="4-对于计算机的深入思考"><a href="#4-对于计算机的深入思考" class="headerlink" title="4. 对于计算机的深入思考"></a>4. 对于计算机的深入思考</h2><p>计算机终究只认识两个东西0、1,但是计算机要处理的是人类的输入并且最后要输出的东西也是要给人类使用的，这时候计算机要处理以下问题</p>
 <ol>
 <li>接受人类输入的文字</li>
@@ -237,7 +238,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-17T07:36:10.853Z" itemprop="dateUpdated">2019-09-17 07:36:10</time>
+    最后更新时间：<time datetime="2020-07-20T08:00:37.712Z" itemprop="dateUpdated">2020-07-20 08:00:37</time>
 </span><br>
 
 
@@ -315,9 +316,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/09/18/maven1/" id="post-prev" class="post-nav-link">
+      <a href="/2019/09/18/linux_cron/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">maven浅尝辄止1</h4>
+        <h4 class="title">mysql-sql执行流程</h4>
       </a>
     </div>
   

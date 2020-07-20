@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tonywang1.github.io/2019/09/11/lean_byte/</loc>
+    
+    <lastmod>2020-07-20T08:00:37.712Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tonywang1.github.io/2020/04/11/es-use/</loc>
     
     <lastmod>2020-07-18T07:09:22.208Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>https://tonywang1.github.io/2019/09/18/maven_plugin_resource/</loc>
     
     <lastmod>2019-09-24T08:20:15.479Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tonywang1.github.io/2019/09/11/lean_byte/</loc>
-    
-    <lastmod>2019-09-17T07:36:10.853Z</lastmod>
     
   </url>
   
