@@ -1,0 +1,23 @@
+> - validate：验证
+> - initialize：initialize build state, e.g. set properties or create directories.
+> - generate-sources：generate any source code for inclusion in compilation.
+> - process-sources：process the source code, for example to filter any values.
+> - generate-resources：处理资源文件
+> - process-resources：复制并处理资源文件，至目标目录，准备打包
+> - compile：编译项目源代码
+> - process-classes：post-process the generated files from compilation, for example to do bytecode enhancement on Java classes.
+> - generate-test-sources：generate any test source code for inclusion in compilation.
+> - process-test-sources：process the test source code, for example to filter any values.
+> - generate-test-resources create resources for testing.
+> - process-test-resources 复制并处理资源文件，至目标测试目录
+> - test-compile 编译测试源代码
+> - process-test-classes： post-process the generated files from test compilation, for example to do bytecode enhancement on Java classes. For Maven 2.0.5 and above.
+> - test：使用合适的单元测试框架运行测试，这些测试代码不会被打包或者部署。
+> - prepare-package：perform any operations necessary to prepare a package before the actual packaging. This often results in an unpacked, processed version of the package. (Maven 2.1 and above)
+> - package：接受编译好的代码，打包成可发布的格式，如jar
+> - pre-integration-test：perform actions required before integration tests are executed. This may involve things such as setting up the required environment.
+> - integration-test：process and deploy the package if necessary into an environment where integration tests can be run.
+> - post-integration-test：perform actions required after integration tests have been executed. This may including cleaning up the environment.
+> - verify run any checks to verify the package is valid and meets quality criteria.
+> - install：将包安装至本地仓库，以让其他项目依赖
+> - deploy
