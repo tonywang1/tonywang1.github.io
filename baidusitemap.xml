@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tonywang1.github.io/2019/09/18/linux_curl/</loc>
+    <lastmod>2020-08-11</lastmod>
+  </url>  <url>
     <loc>https://tonywang1.github.io/2020/03/10/java_lean/</loc>
     <lastmod>2020-08-06</lastmod>
   </url>  <url>
@@ -8,9 +11,6 @@
     <lastmod>2020-07-20</lastmod>
   </url>  <url>
     <loc>https://tonywang1.github.io/2020/04/11/es-use/</loc>
-    <lastmod>2020-07-18</lastmod>
-  </url>  <url>
-    <loc>https://tonywang1.github.io/2019/09/18/linux_curl/</loc>
     <lastmod>2020-07-18</lastmod>
   </url>  <url>
     <loc>https://tonywang1.github.io/2020/04/11/linux_shell/</loc>
